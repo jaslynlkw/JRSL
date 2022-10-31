@@ -12,6 +12,6 @@
         android:layout_height="wrap_content"
         android:text="Login"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="180dp"
-        tools:layout_editor_absoluteY="327dp" />
+        tools:layout_editor_absoluteX="170dp"
+        tools:layout_editor_absoluteY="415dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
