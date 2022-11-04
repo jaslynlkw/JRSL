@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddressSignUp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_editor_absoluteX="1dp"
+        app:layout_editor_absoluteY="1dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="150dp">
+
+        <TextView
+            android:id="@+id/textViewAddressSignUp"
+            android:layout_width="280dp"
+            android:layout_height="63dp"
+            android:fontFamily="@font/alegreya_sans_extrabold"
+            android:text="@string/address"
+            android:textColor="@color/black"
+            android:textSize="50sp"
+            android:layout_marginBottom="50dp" />
+
+        <TextView
+            android:id="@+id/inputUsername"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:hint="@string/username"
+            android:textColorHint="@color/black"
+            android:textSize="23sp"
+            android:paddingLeft="20dp"
+            android:paddingVertical="8dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/myblueborder" />
+
+        <TextView
+            android:id="@+id/inputEmail"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:hint="@string/email"
+            android:textColorHint="@color/black"
+            android:textSize="23sp"
+            android:paddingLeft="20dp"
+            android:paddingVertical="8dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/myblueborder" />
+
+        <TextView
+            android:id="@+id/inputPassword"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:hint="@string/password"
+            android:textColorHint="@color/black"
+            android:textSize="23sp"
+            android:paddingLeft="20dp"
+            android:paddingVertical="8dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/myblueborder" />
+
+        <TextView
+            android:id="@+id/inputReenterPassword"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:hint="@string/reenterpassword"
+            android:textColorHint="@color/black"
+            android:textSize="23sp"
+            android:paddingLeft="20dp"
+            android:paddingVertical="8dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/myblueborder"/>
+
+        <Button
+            android:id="@+id/btnBacktoLogin"
+            android:layout_width="290dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="Back to Login"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:background="@drawable/myblackbutton"
+            android:fontFamily="@font/alegreya_sans_bold" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,24 +13,23 @@
         android:layout_marginStart="50dp"
         android:layout_marginEnd="38dp"
         android:layout_marginBottom="1dp"
-        android:contentDescription="Splashscreen Image"
+        android:contentDescription="SplashScreen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.541"
+        app:layout_constraintHorizontal_bias="0.451"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.495"
         app:srcCompat="@drawable/splashscreen" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="104dp"
         android:layout_height="63dp"
-        android:layout_marginStart="153dp"
         android:layout_marginTop="289dp"
-        android:layout_marginEnd="154dp"
         android:layout_marginBottom="379dp"
         android:fontFamily="@font/alegreya_sans_bold"
-        android:text="JRSL."
+        android:text="@string/app_name"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:textColor="#FFFFFF"
         android:textSize="50sp"
@@ -54,26 +53,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
