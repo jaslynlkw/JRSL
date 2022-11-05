@@ -17,6 +17,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            // redirection from sign up to address (sign up)
             case R.id.btnSignUp:
                 Intent i = new Intent(this, AddressSignUp.class);
                 startActivity(i);

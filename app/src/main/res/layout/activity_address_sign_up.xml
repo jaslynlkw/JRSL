@@ -12,11 +12,11 @@
         android:orientation="vertical"
         app:layout_editor_absoluteX="1dp"
         app:layout_editor_absoluteY="1dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="150dp">
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="90dp">
 
         <TextView
-            android:id="@+id/textViewAddressSignUp"
+            android:id="@+id/textViewSignUp"
             android:layout_width="280dp"
             android:layout_height="63dp"
             android:fontFamily="@font/alegreya_sans_extrabold"
@@ -26,62 +26,101 @@
             android:layout_marginBottom="50dp" />
 
         <TextView
-            android:id="@+id/inputUsername"
-            android:layout_width="290dp"
+            android:id="@+id/inputFirstName"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"
-            android:hint="@string/username"
+            android:hint="@string/firstname"
             android:textColorHint="@color/black"
-            android:textSize="23sp"
+            android:textSize="22sp"
             android:paddingLeft="20dp"
             android:paddingVertical="8dp"
             android:layout_marginBottom="25dp"
             android:background="@drawable/myblueborder" />
 
         <TextView
-            android:id="@+id/inputEmail"
-            android:layout_width="290dp"
+            android:id="@+id/inputLastName"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"
-            android:hint="@string/email"
+            android:hint="@string/lastname"
             android:textColorHint="@color/black"
-            android:textSize="23sp"
+            android:textSize="22sp"
             android:paddingLeft="20dp"
             android:paddingVertical="8dp"
             android:layout_marginBottom="25dp"
             android:background="@drawable/myblueborder" />
 
         <TextView
-            android:id="@+id/inputPassword"
-            android:layout_width="290dp"
+            android:id="@+id/inputDestination"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"
-            android:hint="@string/password"
+            android:hint="@string/destination"
             android:textColorHint="@color/black"
-            android:textSize="23sp"
+            android:textSize="22sp"
             android:paddingLeft="20dp"
             android:paddingVertical="8dp"
             android:layout_marginBottom="25dp"
             android:background="@drawable/myblueborder" />
 
         <TextView
-            android:id="@+id/inputReenterPassword"
-            android:layout_width="290dp"
+            android:id="@+id/inputAddressLine1"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"
-            android:hint="@string/reenterpassword"
+            android:hint="@string/addressline1"
             android:textColorHint="@color/black"
-            android:textSize="23sp"
+            android:textSize="22sp"
             android:paddingLeft="20dp"
             android:paddingVertical="8dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/myblueborder"/>
+
+        <TextView
+            android:id="@+id/inputAddressLine2"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:hint="@string/addressline2"
+            android:textColorHint="@color/black"
+            android:textSize="22sp"
+            android:paddingLeft="20dp"
+            android:paddingVertical="8dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/myblueborder"/>
+
+        <TextView
+            android:id="@+id/inputPostalCode"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:hint="@string/postalcode"
+            android:textColorHint="@color/black"
+            android:textSize="22sp"
+            android:paddingLeft="20dp"
+            android:paddingVertical="8dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/myblueborder"/>
+
+        <TextView
+            android:id="@+id/inputCity"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:hint="@string/city"
+            android:textColorHint="@color/black"
+            android:textSize="22sp"
+            android:paddingLeft="20dp"
+            android:paddingVertical="8dp"
             android:background="@drawable/myblueborder"/>
 
         <Button
             android:id="@+id/btnBacktoLogin"
-            android:layout_width="290dp"
+            android:layout_width="350dp"
             android:layout_height="50dp"
             android:layout_marginBottom="16dp"
+            android:layout_marginTop="50dp"
             android:gravity="center"
             android:onClick="onClick"
             android:text="Back to Login"
