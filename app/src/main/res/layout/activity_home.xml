@@ -51,7 +51,7 @@
             android:layout_marginStart="26dp"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/alegreya_sans_bold"
-            android:text="JRSL."
+            android:text="Lookbook"
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:textColor="#000"
             android:textSize="30sp"
@@ -60,7 +60,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Lookbook" />
-        
+
+        <com.smarteist.autoimageslider.SliderView
+            android:id="@+id/slider"
+            android:layout_width="300dp"
+            android:layout_height="450dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_centerInParent="true"
+            app:sliderAnimationDuration="600"
+            app:sliderAutoCycleDirection="back_and_forth"
+            app:sliderIndicatorAnimationDuration="600"
+            app:sliderIndicatorEnabled="true"
+            app:sliderIndicatorGravity="center_horizontal|bottom"
+            app:sliderIndicatorMargin="15dp"
+            app:sliderIndicatorOrientation="horizontal"
+            app:sliderIndicatorPadding="3dp"
+            app:sliderIndicatorRadius="2dp"
+            app:sliderIndicatorSelectedColor="#5A5A5A"
+            app:sliderIndicatorUnselectedColor="#FFF"
+            app:sliderScrollTimeInSec="1" />
 
     </LinearLayout>
     <LinearLayout
@@ -82,6 +101,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/cart" />
+
 
     </LinearLayout>
 
