@@ -126,7 +126,7 @@
             android:text="Back to Login"
             android:textSize="20sp"
             android:textColor="@color/white"
-            android:background="@drawable/myblackbutton"
+            android:background="@drawable/mygreybutton"
             android:fontFamily="@font/alegreya_sans_bold" />
 
     </LinearLayout>
