@@ -15,4 +15,6 @@
     <string name="addressline2">Address Line 2</string>
     <string name="postalcode">Postal Code</string>
     <string name="city">City</string>
+    <string name="discount">DISCOUNT</string>
+    <string name="payment">PAYMENT</string>
 </resources>

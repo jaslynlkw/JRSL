@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:layout_marginStart="30dp"
         app:layout_editor_absoluteX="1dp"
         app:layout_editor_absoluteY="1dp"
         >
@@ -17,7 +18,6 @@
             android:id="@+id/textView"
             android:layout_width="104dp"
             android:layout_height="63dp"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/alegreya_sans_extrabold"
             android:text="JRSL."
@@ -32,9 +32,8 @@
 
         <TextView
             android:id="@+id/textview1"
-            android:layout_width="360dp"
+            android:layout_width="350dp"
             android:layout_height="65dp"
-            android:layout_marginStart="25dp"
             android:layout_marginTop="3dp"
             android:background="@drawable/mygrayborder"
             android:fontFamily="@font/alegreya_sans_medium"
@@ -48,7 +47,6 @@
             android:id="@+id/lookBookTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="26dp"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/alegreya_sans_bold"
             android:text="Lookbook"
@@ -63,9 +61,8 @@
 
         <com.smarteist.autoimageslider.SliderView
             android:id="@+id/slider"
-            android:layout_width="300dp"
+            android:layout_width="350dp"
             android:layout_height="450dp"
-            android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:layout_centerInParent="true"
             app:sliderAnimationDuration="600"

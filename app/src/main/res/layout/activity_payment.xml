@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Payment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_editor_absoluteX="1dp"
+        app:layout_editor_absoluteY="1dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="90dp">
+
+        <TextView
+            android:id="@+id/textViewPayment"
+            android:layout_width="280dp"
+            android:layout_height="63dp"
+            android:fontFamily="@font/alegreya_sans_extrabold"
+            android:text="@string/payment"
+            android:textColor="@color/black"
+            android:textSize="50sp"
+            android:layout_marginBottom="50dp" />
+
+        <TextView
+            android:id="@+id/inputPaymentFirstName"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:hint="@string/firstname"
+            android:textColorHint="@color/black"
+            android:textSize="22sp"
+            android:paddingLeft="20dp"
+            android:paddingVertical="8dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/myblueborder" />
+
+        <TextView
+            android:id="@+id/inputPaymentLastName"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:hint="@string/lastname"
+            android:textColorHint="@color/black"
+            android:textSize="22sp"
+            android:paddingLeft="20dp"
+            android:paddingVertical="8dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/myblueborder" />
+
+        <TextView
+            android:id="@+id/inputCreditDebitCard"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:hint="Credit/Debit Card #"
+            android:textColorHint="@color/black"
+            android:textSize="22sp"
+            android:paddingLeft="20dp"
+            android:paddingVertical="8dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/myblueborder" />
+
+        <TextView
+            android:id="@+id/inputExpiryDate"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:hint="Expiry Date: MM/YY"
+            android:textColorHint="@color/black"
+            android:textSize="22sp"
+            android:paddingLeft="20dp"
+            android:paddingVertical="8dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/myblueborder"/>
+
+        <TextView
+            android:id="@+id/inputCVV"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:hint="CVV"
+            android:textColorHint="@color/black"
+            android:textSize="22sp"
+            android:paddingLeft="20dp"
+            android:paddingVertical="8dp"
+            android:background="@drawable/myblueborder"/>
+
+        <Button
+            android:id="@+id/btnPlaceOrder"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="PROCEED TO PLACE ORDER"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:background="@drawable/mybluebutton"
+            android:fontFamily="@font/alegreya_sans_bold" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
