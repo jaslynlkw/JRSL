@@ -25,7 +25,7 @@
             android:textSize="50sp"
             android:layout_marginBottom="50dp" />
 
-        <TextView
+        <EditText
             android:id="@+id/inputUsername"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             android:layout_marginBottom="25dp"
             android:background="@drawable/myblueborder" />
 
-        <TextView
+        <EditText
             android:id="@+id/inputEmail"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
             android:layout_marginBottom="25dp"
             android:background="@drawable/myblueborder" />
 
-        <TextView
+        <EditText
             android:id="@+id/inputPassword"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
             android:layout_marginBottom="25dp"
             android:background="@drawable/myblueborder" />
 
-        <TextView
+        <EditText
             android:id="@+id/inputReenterPassword"
             android:layout_width="350dp"
             android:layout_height="wrap_content"

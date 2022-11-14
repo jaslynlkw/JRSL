@@ -26,7 +26,7 @@
             android:textSize="50sp"
             android:layout_marginBottom="50dp" />
 
-        <TextView
+        <EditText
             android:id="@+id/inputDiscount"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
