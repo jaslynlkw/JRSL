@@ -26,9 +26,9 @@ public class Home extends AppCompatActivity {
             SliderView sliderView = findViewById(R.id.slider);
 
             // adding the urls inside array list
-            sliderDataArrayList.add(new SliderData(pic1));
-            sliderDataArrayList.add(new SliderData(pic2));
-            sliderDataArrayList.add(new SliderData(pic3));
+            sliderDataArrayList.add(new SliderData(pic1,"KARISSA’S STYLE","Dress up like @KarrisaLink with our All Black Collection"));
+            sliderDataArrayList.add(new SliderData(pic2,"CLEO’S STYLE","Dress up like @CleoTime with our All Black Collection"));
+            sliderDataArrayList.add(new SliderData(pic3,"DARCY’S STYLE","Dress up like @DarcyDen with our All Black Collection"));
 
             // passing this array list inside our adapter class.
             SliderAdapter adapter = new SliderAdapter(this, sliderDataArrayList);

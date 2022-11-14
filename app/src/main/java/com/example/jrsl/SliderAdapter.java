@@ -1,10 +1,12 @@
 package com.example.jrsl;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.smarteist.autoimageslider.SliderViewAdapter;
@@ -36,7 +38,12 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapter
     public void onBindViewHolder(SliderAdapterViewHolder viewHolder, final int position) {
 
         final SliderData sliderItem = mSliderItems.get(position);
-
+        viewHolder.textViewTitle.setText(sliderItem.getImgTitle());
+        viewHolder.textViewTitle.setTextSize(30);
+        viewHolder.textViewTitle.setTextColor(Color.WHITE);
+        viewHolder.textViewDesc.setText(sliderItem.getImgDesc());
+        viewHolder.textViewDesc.setTextSize(30);
+        viewHolder.textViewDesc.setTextColor(Color.WHITE);
         // Glide is use to load image
         // from url in your imageview.
         Glide.with(viewHolder.itemView)
@@ -44,7 +51,6 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapter
                 .fitCenter()
                 .into(viewHolder.imageViewBackground);
     }
-
     // this method will return
     // the count of our list.
     @Override
@@ -57,10 +63,14 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapter
         // the views of our slider view.
         View itemView;
         ImageView imageViewBackground;
+        TextView textViewTitle;
+        TextView textViewDesc;
 
         public SliderAdapterViewHolder(View itemView) {
             super(itemView);
             imageViewBackground = itemView.findViewById(R.id.myimage);
+            textViewTitle = itemView.findViewById(R.id.outfitTitle);
+            textViewDesc = itemView.findViewById(R.id.outfitDesc);
             this.itemView = itemView;
         }
     }
