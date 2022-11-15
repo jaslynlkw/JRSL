@@ -39,11 +39,11 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapter
 
         final SliderData sliderItem = mSliderItems.get(position);
         viewHolder.textViewTitle.setText(sliderItem.getImgTitle());
-        viewHolder.textViewTitle.setTextSize(30);
-        viewHolder.textViewTitle.setTextColor(Color.WHITE);
+        viewHolder.textViewTitle.setTextSize(20);
+        viewHolder.textViewTitle.setTextColor(Color.BLACK);
         viewHolder.textViewDesc.setText(sliderItem.getImgDesc());
-        viewHolder.textViewDesc.setTextSize(30);
-        viewHolder.textViewDesc.setTextColor(Color.WHITE);
+        viewHolder.textViewDesc.setTextSize(15);
+        viewHolder.textViewDesc.setTextColor(Color.BLACK);
         // Glide is use to load image
         // from url in your imageview.
         Glide.with(viewHolder.itemView)
