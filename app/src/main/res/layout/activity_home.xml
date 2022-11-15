@@ -10,6 +10,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_marginStart="30dp"
+        android:layout_marginRight="30dp"
         app:layout_editor_absoluteX="1dp"
         app:layout_editor_absoluteY="1dp"
         >
@@ -62,8 +63,9 @@
         <com.smarteist.autoimageslider.SliderView
             android:id="@+id/slider"
             android:layout_width="350dp"
-            android:layout_height="450dp"
+            android:layout_height="500dp"
             android:layout_marginTop="15dp"
+            android:background="@drawable/myblackborder"
             android:layout_centerInParent="true"
             app:sliderAnimationDuration="600"
             app:sliderAutoCycleDirection="back_and_forth"
