@@ -12,14 +12,14 @@
         android:orientation="vertical"
         app:layout_editor_absoluteX="1dp"
         app:layout_editor_absoluteY="1dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="90dp">
 
         <TextView
             android:id="@+id/textViewPayment"
-            android:layout_width="280dp"
-            android:layout_height="63dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_extrabold"
             android:text="@string/payment"
             android:textColor="@color/black"
@@ -28,7 +28,7 @@
 
         <EditText
             android:id="@+id/inputPaymentFirstName"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"
             android:hint="@string/firstname"
@@ -41,7 +41,7 @@
 
         <EditText
             android:id="@+id/inputPaymentLastName"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"
             android:hint="@string/lastname"
@@ -54,7 +54,7 @@
 
         <EditText
             android:id="@+id/inputCreditDebitCard"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"
             android:hint="Credit/Debit Card #"
@@ -67,7 +67,7 @@
 
         <EditText
             android:id="@+id/inputExpiryDate"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"
             android:hint="Expiry Date: MM/YY"
@@ -80,7 +80,7 @@
 
         <EditText
             android:id="@+id/inputCVV"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"
             android:hint="CVV"
@@ -92,7 +92,7 @@
 
         <Button
             android:id="@+id/btnPlaceOrder"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="50dp"

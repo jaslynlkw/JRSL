@@ -12,13 +12,14 @@
         android:orientation="vertical"
         app:layout_editor_absoluteX="1dp"
         app:layout_editor_absoluteY="1dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="90dp">
 
-        <EditText
+        <TextView
             android:id="@+id/textViewSignUp"
-            android:layout_width="280dp"
-            android:layout_height="63dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_extrabold"
             android:text="@string/address"
             android:textColor="@color/black"
@@ -27,7 +28,7 @@
 
         <EditText
             android:id="@+id/inputFirstName"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"
             android:hint="@string/firstname"
@@ -40,7 +41,7 @@
 
         <EditText
             android:id="@+id/inputLastName"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"
             android:hint="@string/lastname"
@@ -53,7 +54,7 @@
 
         <EditText
             android:id="@+id/inputDestination"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"
             android:hint="@string/destination"
@@ -66,7 +67,7 @@
 
         <EditText
             android:id="@+id/inputAddressLine1"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"
             android:hint="@string/addressline1"
@@ -79,7 +80,7 @@
 
         <EditText
             android:id="@+id/inputAddressLine2"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"
             android:hint="@string/addressline2"
@@ -92,7 +93,7 @@
 
         <EditText
             android:id="@+id/inputPostalCode"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"
             android:hint="@string/postalcode"
@@ -105,7 +106,7 @@
 
         <EditText
             android:id="@+id/inputCity"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"
             android:hint="@string/city"
@@ -117,7 +118,7 @@
 
         <Button
             android:id="@+id/btnBacktoLogin"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="50dp"
