@@ -1,12 +1,15 @@
 package com.example.jrsl;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import com.smarteist.autoimageslider.SliderView;
 import java.util.ArrayList;
 
 
 import android.os.Bundle;
+import android.view.View;
 
 public class Home extends AppCompatActivity {
         // Urls of our images.
