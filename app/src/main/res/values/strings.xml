@@ -34,9 +34,16 @@
     </string>
     <string name="orderProductDetails">
         Jumpsuit\n\n
-         Size :  M\t
+         Size :  M\t\t
          Quantity : 1\n
 
          $62
+    </string>
+    <string name="addressDetails">\t\t Blk 18 Sarrow Street\t
+        #14-203\t\t
+        Singapore 120042\t
+        120042\t
+        Singapore\t
+        Singapore
     </string>
 </resources>

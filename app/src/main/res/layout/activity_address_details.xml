@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddressDetails">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_editor_absoluteX="1dp"
+        app:layout_editor_absoluteY="1dp"
+        >
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:drawablePadding="10dp"
+            android:text="Address"
+            android:drawableLeft="@drawable/ic_baseline_arrow_back_24"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textColor="#000"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <TextView
+            android:id="@+id/textviewDiscount"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/alegreya_sans_bold"
+            android:paddingVertical="5dp"
+            android:text="Edit Address"
+            android:textColor="#000"
+            android:textSize="25sp" />
+        <TextView
+            android:id="@+id/textFirstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:text="First Name"
+            android:textColor="#D1CFCF"
+            android:fontFamily="@font/alegreya_sans_medium"
+            />
+        <EditText
+            android:id="@+id/valueUsername"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:hint="Katie"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/alegreya_sans_medium"
+            />
+        <TextView
+            android:id="@+id/textLastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:text="Last Name"
+            android:textColor="#D1CFCF"
+            android:fontFamily="@font/alegreya_sans_medium"
+            />
+        <EditText
+            android:id="@+id/valueLastname"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:hint="Star"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/alegreya_sans_medium"
+            />
+        <TextView
+            android:id="@+id/textDestinationOrRegion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:text="Destination/Region"
+            android:textColor="#D1CFCF"
+            android:fontFamily="@font/alegreya_sans_medium"
+            />
+        <EditText
+            android:id="@+id/valueDestinationOrRegion"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:hint="Singapore"
+            android:drawableRight="@drawable/ic_baseline_keyboard_arrow_down_24"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/alegreya_sans_medium"
+            />
+        <TextView
+            android:id="@+id/textAddressLine1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:text="Address Line 1"
+            android:textColor="#D1CFCF"
+            android:fontFamily="@font/alegreya_sans_medium"
+            />
+        <EditText
+            android:id="@+id/valueAddressLine1"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:hint="Blk 18 Sarrow Street"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/alegreya_sans_medium"
+            />
+        <TextView
+            android:id="@+id/textAddressLine2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:text="Address Line 2"
+            android:textColor="#D1CFCF"
+            android:fontFamily="@font/alegreya_sans_medium"
+            />
+        <EditText
+            android:id="@+id/valueAddressLine2"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:hint="#14-203"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/alegreya_sans_medium"
+            />
+        <TextView
+            android:id="@+id/textPostalCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:text="Postal Code"
+            android:textColor="#D1CFCF"
+            android:fontFamily="@font/alegreya_sans_medium"
+            />
+        <EditText
+            android:id="@+id/valuePostalCode"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:hint="120042"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/alegreya_sans_medium"
+            />
+        <TextView
+            android:id="@+id/textCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:text="City"
+            android:textColor="#D1CFCF"
+            android:fontFamily="@font/alegreya_sans_medium"
+            />
+        <EditText
+            android:id="@+id/valueCity"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:hint="Singapore"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/alegreya_sans_medium"
+            />
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="130dp"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="Save All Changes"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:background="@drawable/mybluebutton"
+            android:fontFamily="@font/alegreya_sans_bold" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_editor_absoluteX="1dp"
+        app:layout_editor_absoluteY="1dp"
+        >
+        <ImageView
+            android:id="@+id/imageViewCart"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginStart="355dp"
+            android:contentDescription="Cart Image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.541"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/cart" />
+
+
+
+    </LinearLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#FFFFFF"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconSize="40dp"
+        app:itemIconTint="@color/black"
+        app:itemPaddingBottom="5dp"
+        app:itemTextColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
