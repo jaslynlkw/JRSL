@@ -34,7 +34,7 @@
     </string>
     <string name="orderProductDetails">
         Jumpsuit\n\n
-         Size :  M\t\t
+         Size :  M
          Quantity : 1\n
 
          $62
@@ -46,4 +46,30 @@
         Singapore\t
         Singapore
     </string>
+    <string name="orderPlacedMsgTitle" >Order Placed</string>
+    <string name="orderPlacedCourier" >Instant Fairy Delivery Services</string>
+    <string name="orderPlacedMsg" ><i>Ding Dong! You will receive your order now!</i></string>
+    <string name="orderPlacedDetails" >
+ <b>Order Reference:</b>
+ D371HS\n
+ <b>Order Date:</b>
+ 10/10/22\n
+ <b>Delivery Address:</b>
+ Blk 18 Sarrow Street
+ #14-203
+ 120042
+ Singapore
+ Singapore\n
+
+ <b>Summary:</b>
+ Discount \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t <b>$0.00</b>
+ Subtotal \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t <b>$65.00</b>
+ Shipping \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t    <b>$20.00</b>
+    </string>
+
+    <string name="orderPlacedTotal" >
+ <b>Total</b> \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t    <b>$85.00</b>
+
+    </string>
+
 </resources>
