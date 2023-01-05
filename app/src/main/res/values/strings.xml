@@ -46,10 +46,10 @@
         Singapore\t
         Singapore
     </string>
-    <string name="orderPlacedMsgTitle" >Order Placed</string>
-    <string name="orderPlacedCourier" >Instant Fairy Delivery Services</string>
-    <string name="orderPlacedMsg" ><i>Ding Dong! You will receive your order now!</i></string>
-    <string name="orderPlacedDetails" >
+    <string name="orderPlacedMsgTitle">Order Placed</string>
+    <string name="orderPlacedCourier">Instant Fairy Delivery Services</string>
+    <string name="orderPlacedMsg"><i>Ding Dong! You will receive your order now!</i></string>
+    <string name="orderPlacedDetails">
  <b>Order Reference:</b>
  D371HS\n
  <b>Order Date:</b>
@@ -67,7 +67,7 @@
  Shipping \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t    <b>$20.00</b>
     </string>
 
-    <string name="orderPlacedTotal" >
+    <string name="orderPlacedTotal">
  <b>Total</b> \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t    <b>$85.00</b>
 
     </string>
