@@ -6,4 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".Saved">
 
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_editor_absoluteX="1dp"
+        app:layout_editor_absoluteY="1dp"
+        >
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
