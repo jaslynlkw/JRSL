@@ -10,6 +10,10 @@ import android.view.ViewGroup;
 
 public class Saved extends Fragment {
 
+    public Saved(){
+        // require a empty public constructor
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment

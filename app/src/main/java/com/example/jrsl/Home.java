@@ -15,10 +15,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class Home extends Fragment {
-        // Urls of our images.
-        int pic1 = R.drawable.outfit1;
-        int pic2 = R.drawable.outfit2;
-        int pic3 = R.drawable.outfit3;
+
+    // Urls of our images.
+    int pic1 = R.drawable.outfit1;
+    int pic2 = R.drawable.outfit2;
+    int pic3 = R.drawable.outfit3;
+
+    public Home(){
+        // require a empty public constructor
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

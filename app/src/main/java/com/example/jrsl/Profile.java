@@ -10,6 +10,10 @@ import android.view.ViewGroup;
 
 public class Profile extends Fragment {
 
+    public Profile(){
+        // require a empty public constructor
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
