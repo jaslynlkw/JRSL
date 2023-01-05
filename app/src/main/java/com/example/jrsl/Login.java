@@ -19,7 +19,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         switch (v.getId()) {
             // upon clicking login btn, redirected to home page
             case R.id.btnToLogin:
-                Intent i1 = new Intent(this, Home.class);
+                Intent i1 = new Intent(this, MainActivity.class);
                 startActivity(i1);
                 break;
 
