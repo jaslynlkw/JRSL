@@ -47,7 +47,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="ALL" />
         <androidx.cardview.widget.CardView
-            android:id="@+id/card_view"
+            android:id="@+id/card_view1"
             android:layout_width="150dp"
             android:layout_height="300dp"
             android:layout_gravity="left"
@@ -55,22 +55,22 @@
             app:cardBackgroundColor="@android:color/transparent"
             app:cardElevation="0.5dp">
             <ImageView
-                android:id="@+id/close"
+                android:id="@+id/close1"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="right"
                 android:src="@drawable/ic_baseline_close_24" />
             <ImageView
-                android:id="@+id/orderPicture"
+                android:id="@+id/orderPicture1"
                 android:layout_width="wrap_content"
                 android:padding="5dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:layout_marginBottom="40dp"
-                android:src="@drawable/outfit2" />
+                android:src="@drawable/outfit1" />
 
             <TextView
-                android:id="@+id/info_text"
+                android:id="@+id/Saved1Brand"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
