@@ -73,14 +73,95 @@
     </string>
 
     <string name="Saved1Brand">
- <b>Stacy Collection</b>
+ <b>Kiera's Collection</b>
     </string>
 
     <string name="Saved1Desc">
- Jumpsuit
+ Cargo Pants
     </string>
 
     <string name="Saved1Price">
+ $20
+    </string>
+
+
+    <string name="Saved2Brand">
+ <b>Sollice's Collection</b>
+    </string>
+
+    <string name="Saved2Desc">
+ Jumpsuit
+    </string>
+
+    <string name="Saved2Price">
  $62
     </string>
+
+    <string name="Saved3Brand">
+ <b>Darcy Collection</b>
+    </string>
+
+    <string name="Saved3Desc">
+ White Dress
+    </string>
+
+    <string name="Saved3Price">
+ $25
+    </string>
+
+    <string name="Saved4Brand">
+ <b>Cancy Collection</b>
+    </string>
+
+    <string name="Saved4Desc">
+ Brown Coat
+    </string>
+
+    <string name="Saved4Price">
+ $40
+    </string>
+    <string name="CollectionType">
+ New Collection
+    </string>
+
+    <string name="Cart1Brand">
+ <b>Darcy Collection</b>
+    </string>
+
+    <string name="Cart1Desc">
+ White Dress
+    </string>
+
+    <string name="Cart1Price">
+ $25
+    </string>
+
+    <string name="Cart1Size">
+ M
+    </string>
+
+    <string name="Cart1Qty">
+ Qty 1
+    </string>
+
+    <string name="Cart2Brand">
+ <b>Cancy Collection</b>
+    </string>
+
+    <string name="Cart2Desc">
+ Brown Coat
+    </string>
+
+    <string name="Cart2Price">
+ $40
+    </string>
+
+    <string name="Cart2Size">
+ M
+    </string>
+
+    <string name="Cart2Qty">
+ Qty 1
+    </string>
+
 </resources>
