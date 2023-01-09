@@ -15,7 +15,7 @@
         app:layout_editor_absoluteY="1dp"
         >
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/BackArrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -32,7 +32,7 @@
             />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -47,177 +47,17 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="CART (2)" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card_view1"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            app:cardBackgroundColor="@android:color/transparent"
-            app:cardElevation="0.5dp">
-            <ImageView
-                android:id="@+id/close1"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="340dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/ic_baseline_close_24" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/myCartList"
+            android:layout_width="416dp"
+            android:layout_height="608dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
-            <ImageView
-                android:id="@+id/orderPicture"
-                android:layout_width="wrap_content"
-                android:layout_height="250dp"
-                android:layout_marginRight="185dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:src="@drawable/outfit3" />
-
-            <TextView
-                android:id="@+id/CollectionType1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="185dp"
-                android:textSize="10sp"
-                android:fontFamily="@font/alegreya_sans_bold"
-                android:text="@string/CollectionType" />
-            <TextView
-                android:id="@+id/CartBrand1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="185dp"
-                android:fontFamily="@font/alegreya_sans_extrabold"
-                android:textColor="@color/black"
-                android:layout_marginTop="5dp"
-                android:textSize="15sp"
-                android:text="@string/Cart1Brand" />
-            <TextView
-                android:id="@+id/CartDesc1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="185dp"
-                android:fontFamily="@font/alegreya_sans_medium"
-                android:textColor="@color/black"
-                android:layout_marginTop="30dp"
-                android:textSize="13sp"
-                android:text="@string/Cart1Desc" />
-
-            <TextView
-                android:id="@+id/CartSize1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="185dp"
-                android:fontFamily="@font/alegreya_sans_medium"
-                android:textColor="@color/black"
-                android:layout_marginTop="70dp"
-                android:textSize="13sp"
-                android:text="@string/Cart1Size" />
-            <TextView
-                android:id="@+id/CartQty1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="185dp"
-                android:fontFamily="@font/alegreya_sans_medium"
-                android:textColor="@color/black"
-                android:layout_marginTop="90dp"
-                android:textSize="13sp"
-                android:text="@string/Cart1Qty" />
-            <TextView
-                android:id="@+id/CartPrice1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="185dp"
-                android:fontFamily="@font/alegreya_sans_extrabold"
-                android:textColor="@color/black"
-                android:layout_marginTop="200dp"
-                android:textSize="15sp"
-                android:text="@string/Cart1Price" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card_view2"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            app:cardBackgroundColor="@android:color/transparent"
-            app:cardElevation="0.5dp">
-            <ImageView
-                android:id="@+id/close2"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="340dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/ic_baseline_close_24" />
-            <ImageView
-                android:id="@+id/orderPicture2"
-                android:layout_width="wrap_content"
-                android:layout_height="250dp"
-                android:layout_marginRight="185dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:src="@drawable/outfit4" />
-
-            <TextView
-                android:id="@+id/CollectionType2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="185dp"
-                android:textSize="10sp"
-                android:fontFamily="@font/alegreya_sans_bold"
-                android:text="@string/CollectionType" />
-            <TextView
-                android:id="@+id/CartBrand2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="185dp"
-                android:fontFamily="@font/alegreya_sans_extrabold"
-                android:textColor="@color/black"
-                android:layout_marginTop="5dp"
-                android:textSize="15sp"
-                android:text="@string/Cart2Brand" />
-            <TextView
-                android:id="@+id/CartDesc2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="185dp"
-                android:fontFamily="@font/alegreya_sans_medium"
-                android:textColor="@color/black"
-                android:layout_marginTop="30dp"
-                android:textSize="13sp"
-                android:text="@string/Cart2Desc" />
-
-            <TextView
-                android:id="@+id/CartSize2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="185dp"
-                android:fontFamily="@font/alegreya_sans_medium"
-                android:textColor="@color/black"
-                android:layout_marginTop="70dp"
-                android:textSize="13sp"
-                android:text="@string/Cart2Size" />
-            <TextView
-                android:id="@+id/CartQty2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="185dp"
-                android:fontFamily="@font/alegreya_sans_medium"
-                android:textColor="@color/black"
-                android:layout_marginTop="90dp"
-                android:textSize="13sp"
-                android:text="@string/Cart2Qty" />
-            <TextView
-                android:id="@+id/CartPrice2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="185dp"
-                android:fontFamily="@font/alegreya_sans_extrabold"
-                android:textColor="@color/black"
-                android:layout_marginTop="200dp"
-                android:textSize="15sp"
-                android:text="@string/Cart2Price" />
-
-        </androidx.cardview.widget.CardView>
         <Button
             android:id="@+id/btnPlaceOrder"
             android:layout_width="match_parent"
