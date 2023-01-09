@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view1"
+        android:layout_width="390dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp">
+        <ImageView
+            android:id="@+id/close1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="360dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_baseline_close_24" />
+
+        <ImageView
+            android:id="@+id/cartPicture"
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:layout_marginRight="225dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp" />
+
+        <TextView
+            android:id="@+id/CollectionType"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="185dp"
+            android:textSize="10sp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/alegreya_sans_bold" />
+        <TextView
+            android:id="@+id/CartBrand"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="182dp"
+            android:fontFamily="@font/alegreya_sans_extrabold"
+            android:textColor="@color/black"
+            android:layout_marginTop="-5dp"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/CartDesc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="185dp"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:textColor="@color/black"
+            android:layout_marginTop="40dp"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/CartSize"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="185dp"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:textColor="@color/black"
+            android:layout_marginTop="70dp"
+            android:textSize="13sp" />
+        <TextView
+            android:id="@+id/CartQty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="185dp"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:textColor="@color/black"
+            android:layout_marginTop="90dp"
+            android:textSize="13sp" />
+        <TextView
+            android:id="@+id/CartPrice"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="185dp"
+            android:fontFamily="@font/alegreya_sans_extrabold"
+            android:textColor="@color/black"
+            android:layout_marginTop="200dp"
+            android:textSize="15sp" />
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
