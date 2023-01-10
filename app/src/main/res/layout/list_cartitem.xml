@@ -29,16 +29,16 @@
 
         <TextView
             android:id="@+id/CollectionType"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="185dp"
             android:textSize="10sp"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/alegreya_sans_bold" />
         <TextView
             android:id="@+id/CartBrand"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="182dp"
             android:fontFamily="@font/alegreya_sans_extrabold"
             android:textColor="@color/black"
@@ -46,8 +46,8 @@
             android:textSize="16sp" />
         <TextView
             android:id="@+id/CartDesc"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="185dp"
             android:fontFamily="@font/alegreya_sans_medium"
             android:textColor="@color/black"
@@ -56,8 +56,8 @@
 
         <TextView
             android:id="@+id/CartSize"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="185dp"
             android:fontFamily="@font/alegreya_sans_medium"
             android:textColor="@color/black"
@@ -65,8 +65,8 @@
             android:textSize="13sp" />
         <TextView
             android:id="@+id/CartQty"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="185dp"
             android:fontFamily="@font/alegreya_sans_medium"
             android:textColor="@color/black"
@@ -74,8 +74,8 @@
             android:textSize="13sp" />
         <TextView
             android:id="@+id/CartPrice"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="185dp"
             android:fontFamily="@font/alegreya_sans_extrabold"
             android:textColor="@color/black"
