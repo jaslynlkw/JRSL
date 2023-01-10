@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5dp">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp">
+
+        <ImageView
+            android:id="@+id/orderHistoryPicture"
+            android:layout_width="wrap_content"
+            android:layout_height="230dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="225dp" />
+
+        <TextView
+            android:id="@+id/orderHistoryDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="175dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/alegreya_sans_bold" />
+
+        <TextView
+            android:id="@+id/orderHistoryReference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="175dp"
+            android:layout_marginTop="80dp"
+            android:fontFamily="@font/alegreya_sans_bold" />
+
+        <TextView
+            android:id="@+id/orderHistoryStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="175dp"
+            android:layout_marginTop="150dp"
+            android:fontFamily="@font/alegreya_sans_bold" />
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="40dp"
+            android:layout_height="75dp"
+            android:layout_marginLeft="320dp"
+            android:layout_marginRight="185dp"
+            android:layout_marginTop="55dp"
+            android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:layout_width="395dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="10dp"
+        android:background="#FFDDDDDD"/>
+
+</LinearLayout>

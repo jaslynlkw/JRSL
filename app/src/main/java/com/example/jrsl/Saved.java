@@ -29,7 +29,7 @@ public class Saved extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_saved, container, false);
         setUIRef(view);
-        bindCountriesData();
+        bindSavedData();
         return view;
 
 
@@ -55,7 +55,7 @@ public class Saved extends Fragment {
         mRecyclerView.setAdapter(myRecyclerViewAdapter);
     }
 
-    private void bindCountriesData()
+    private void bindSavedData()
     {
         cartItems.add(new CartItem( "Darcy Collection","White Dress", 25, R.drawable.outfit2));
         cartItems.add(new CartItem( "Cancy Collection","Brown Coat", 65, R.drawable.outfit3));
