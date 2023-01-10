@@ -19,15 +19,21 @@
     <string name="payment">PAYMENT</string>
     <string name="orderHistory">Order History</string>
     <string name="orderHistoryDetails">
-        Order Date: \n        10/10/22\n\n
-        Order Reference : \n        D371HS\n\n
+        Order Date: \n        10/10/22\n
+        Order Reference : \n        D371HS\n
         Status :\n        Delivered\n\n
     </string>
-    <string name="orderDetails">
-        Order Date:             \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t10/10/22\t
-        Order Reference :        \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD371HS\t
-        Order Reference :          \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t$62.00\t
-        Status :         \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tDelivered\n
+    <string name="orderDate">
+        Order Date:
+    </string>
+    <string name="orderReference">
+        Order Reference:
+    </string>
+    <string name="totalPrice">
+        Total Price:
+    </string>
+    <string name="status">
+        Status:
     </string>
     <string name="orderProductTitle">
         Soleil Collection

@@ -17,7 +17,7 @@ public class Cart extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
-        bindCountriesData();
+        bindCartData();
         setUIRef();
     }
     private void setUIRef()
@@ -41,7 +41,7 @@ public class Cart extends AppCompatActivity {
         mRecyclerView.setAdapter(myRecyclerViewAdapter);
     }
 
-    private void bindCountriesData()
+    private void bindCartData()
     {
         cartItems.add(new CartItem("New Collection",  "Darcy Collection","White Dress","M",1, 25, R.drawable.outfit2));
         cartItems.add(new CartItem("New Collection",  "Cancy Collection","Brown Coat","M",1, 65, R.drawable.outfit3));
