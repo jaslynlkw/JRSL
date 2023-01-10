@@ -18,6 +18,12 @@ public class CartItem {
         this.image = image;
     }
 
+    public CartItem(String brand, String desc, double price, int image){
+        this.brand = brand;
+        this.desc = desc;
+        this.price = price;
+        this.image = image;
+    }
     public String getCollectionType() {
         return collectionType;
     }
