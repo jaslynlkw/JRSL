@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import com.smarteist.autoimageslider.SliderView;
+
 import java.util.ArrayList;
 
 
@@ -21,24 +23,25 @@ public class Home extends Fragment {
     int pic2 = R.drawable.outfit2;
     int pic3 = R.drawable.outfit3;
 
-    public Home(){
+    public Home() {
         // require a empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.activity_home, container, false);
 
         // we are creating array list for storing our image urls.
         ArrayList<SliderData> sliderDataArrayList = new ArrayList<>();
 
         // initializing the slider view.
-        SliderView sliderView = container.findViewById(R.id.slider);
+        SliderView sliderView = view.findViewById(R.id.slider);
 
         // adding the urls inside array list
-        sliderDataArrayList.add(new SliderData(pic1,"KARISSA’S STYLE","Dress up like @KarrisaLink with our All Black Collection"));
-        sliderDataArrayList.add(new SliderData(pic2,"CLEO’S STYLE","Dress up like @CleoTime with our Summertime Collection"));
-        sliderDataArrayList.add(new SliderData(pic3,"DARCY’S STYLE","Dress up like @DarcyDen with our Autumn Fest Collection"));
+        sliderDataArrayList.add(new SliderData(pic1, "KARISSA’S STYLE", "Dress up like @KarrisaLink with our All Black Collection"));
+        sliderDataArrayList.add(new SliderData(pic2, "CLEO’S STYLE", "Dress up like @CleoTime with our Summertime Collection"));
+        sliderDataArrayList.add(new SliderData(pic3, "DARCY’S STYLE", "Dress up like @DarcyDen with our Autumn Fest Collection"));
 
         // passing this array list inside our adapter class.
         SliderAdapter adapter = new SliderAdapter(getContext(), sliderDataArrayList);
@@ -62,6 +65,6 @@ public class Home extends Fragment {
         // to start autocycle below method is used.
         sliderView.startAutoCycle();
 
-        return inflater.inflate(R.layout.activity_home, container, false);
+        return view;
     }
-    }
+}

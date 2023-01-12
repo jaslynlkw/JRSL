@@ -21,7 +21,8 @@ public class Saved extends Fragment {
 
     private RecyclerView mRecyclerView;
     private ArrayList<CartItem> cartItems = new ArrayList<>();
-    public Saved(){
+
+    public Saved() {
         // require a empty public constructor
     }
 
@@ -34,12 +35,12 @@ public class Saved extends Fragment {
 
 
     }
-    private void setUIRef(View container)
-    {
+
+    private void setUIRef(View view) {
         //Reference of RecyclerView
-        mRecyclerView = container.findViewById(R.id.myCartList);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.myCartList);
         //Linear Layout Manager
-        LinearLayoutManager linearLayoutManager = new GridLayoutManager(getActivity(), 2);
+        GridLayoutManager linearLayoutManager = new GridLayoutManager(getContext(), 2);
         //Set Layout Manager to RecyclerView
         mRecyclerView.setLayoutManager(linearLayoutManager);
 
@@ -55,9 +56,8 @@ public class Saved extends Fragment {
         mRecyclerView.setAdapter(myRecyclerViewAdapter);
     }
 
-    private void bindSavedData()
-    {
-        cartItems.add(new CartItem( "Darcy Collection","White Dress", 25, R.drawable.outfit2));
-        cartItems.add(new CartItem( "Cancy Collection","Brown Coat", 65, R.drawable.outfit3));
+    private void bindSavedData() {
+        cartItems.add(new CartItem("Darcy Collection", "White Dress", 25, R.drawable.outfit2));
+        cartItems.add(new CartItem("Cancy Collection", "Brown Coat", 65, R.drawable.outfit3));
     }
 }

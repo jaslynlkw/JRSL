@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">JRSL.</string>
+    <string name="app_name">JRSL</string>
     <string name="btnLogin">Login</string>
     <string name="btnSignUp">Sign Up</string>
     <string name="signUp">SIGN UP</string>
@@ -18,11 +18,11 @@
     <string name="discount">DISCOUNT</string>
     <string name="payment">PAYMENT</string>
     <string name="orderHistory">Order History</string>
-    <string name="orderHistoryDetails">
-        Order Date: \n        10/10/22\n
-        Order Reference : \n        D371HS\n
-        Status :\n        Delivered\n\n
-    </string>
+<!--    <string name="orderHistoryDetails">-->
+<!--        Order Date: \n        10/10/22\n-->
+<!--        Order Reference : \n        D371HS\n-->
+<!--        Status :\n        Delivered\n\n-->
+<!--    </string>-->
     <string name="orderDate">
         Order Date:
     </string>
@@ -38,13 +38,13 @@
     <string name="orderProductTitle">
         Soleil Collection
     </string>
-    <string name="orderProductDetails">
-        Jumpsuit\n\n
-         Size :  M
-         Quantity : 1\n
+<!--    <string name="orderProductDetails">-->
+<!--        Jumpsuit\n\n-->
+<!--         Size :  M-->
+<!--         Quantity : 1\n-->
 
-         $62
-    </string>
+<!--         $62-->
+<!--    </string>-->
     <string name="addressDetails">\t\t Blk 18 Sarrow Street\t
         #14-203\t\t
         Singapore 120042\t
@@ -54,7 +54,7 @@
     </string>
     <string name="orderPlacedMsgTitle">Order Placed</string>
     <string name="orderPlacedCourier">Instant Fairy Delivery Services</string>
-    <string name="orderPlacedMsg"><i>Ding Dong! You will receive your order now!</i></string>
+    <string name="orderPlacedMsg">Ding Dong! You will receive your order now!</string>
     <string name="orderPlacedDetails">
  <b>Order Reference:</b>
  D371HS\n
@@ -78,9 +78,9 @@
 
     </string>
 
-    <string name="Saved1Brand">
- <b>Kiera's Collection</b>
-    </string>
+<!--    <string name="Saved1Brand">-->
+<!-- <b>Kiera's Collection</b>-->
+<!--    </string>-->
 
     <string name="Saved1Desc">
  Cargo Pants
@@ -91,9 +91,9 @@
     </string>
 
 
-    <string name="Saved2Brand">
- <b>Sollice's Collection</b>
-    </string>
+<!--    <string name="Saved2Brand">-->
+<!-- <b>Sollice's Collection</b>-->
+<!--    </string>-->
 
     <string name="Saved2Desc">
  Jumpsuit
@@ -103,9 +103,9 @@
  $62
     </string>
 
-    <string name="Saved3Brand">
- <b>Darcy Collection</b>
-    </string>
+<!--    <string name="Saved3Brand">-->
+<!-- <b>Darcy Collection</b>-->
+<!--    </string>-->
 
     <string name="Saved3Desc">
  White Dress
@@ -150,9 +150,9 @@
  Qty 1
     </string>
 
-    <string name="Cart2Brand">
- <b>Cancy Collection</b>
-    </string>
+<!--    <string name="Cart2Brand">-->
+<!-- <b>Cancy Collection</b>-->
+<!--    </string>-->
 
     <string name="Cart2Desc">
  Brown Coat

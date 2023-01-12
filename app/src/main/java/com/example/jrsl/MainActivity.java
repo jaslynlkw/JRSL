@@ -21,6 +21,14 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         bottomNavigationView.setOnItemSelectedListener(this);
         bottomNavigationView.setSelectedItemId(R.id.homeIcon);
 
+        // Take instance of Action Bar
+        // using getSupportActionBar and
+        // if it is not Null
+        // then call hide function
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+
     }
     Home homeFragment = new Home();
     Search searchFragment = new Search();
@@ -32,19 +40,19 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         switch (item.getItemId()) {
             case R.id.homeIcon:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, homeFragment).commit();
                 return true;
 
             case R.id.searchIcon:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, searchFragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, searchFragment).commit();
                 return true;
 
             case R.id.savedIcon:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, savedFragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, savedFragment).commit();
                 return true;
 
             case R.id.profileIcon:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, profileFragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, profileFragment).commit();
                 return true;
         }
         return false;
