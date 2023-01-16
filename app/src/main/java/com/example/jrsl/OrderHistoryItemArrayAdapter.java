@@ -44,7 +44,7 @@ public class OrderHistoryItemArrayAdapter extends RecyclerView.Adapter<OrderHist
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         //Set date
         String date = "Order Date:\n" + myCart.get(position).getOrderDate();
-        holder.orderRef.setText(date);
+        holder.orderDate.setText(date);
 
         //Set reference
         String ref = "Order Reference:\n" + myCart.get(position).getOrderRef();
@@ -52,7 +52,7 @@ public class OrderHistoryItemArrayAdapter extends RecyclerView.Adapter<OrderHist
 
         //Set status
         String status = "Order Status:\n" + myCart.get(position).getOrderStatus();
-        holder.orderRef.setText(status);
+        holder.orderStatus.setText(status);
 
         // Set image
         holder.orderImage.setImageResource(myCart.get(position).getOrderImage());

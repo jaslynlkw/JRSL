@@ -53,7 +53,8 @@
             android:text="Orders"
             android:drawableRight="@drawable/ic_baseline_keyboard_arrow_right_24"
             android:textColor="#000"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:onClick="onClick"/>
         <View
             android:layout_width="370dp"
             android:layout_height="3dp"

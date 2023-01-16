@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="10dp">
 
         <ImageView
             android:id="@+id/orderHistoryPicture"
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="175dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="90dp"
             android:fontFamily="@font/alegreya_sans_bold" />
 
         <TextView
@@ -49,6 +49,7 @@
             android:layout_marginLeft="320dp"
             android:layout_marginRight="185dp"
             android:layout_marginTop="55dp"
+            android:onClick="onClick"
             android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
     </androidx.cardview.widget.CardView>
 

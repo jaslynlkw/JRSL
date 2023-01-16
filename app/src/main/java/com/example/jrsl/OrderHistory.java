@@ -2,14 +2,17 @@ package com.example.jrsl;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class OrderHistory extends AppCompatActivity {
+public class OrderHistory extends AppCompatActivity implements View.OnClickListener {
 
     private RecyclerView mRecyclerView;
     private ArrayList<OrderDetailsItem> orderHistoryDetails = new ArrayList<>();
@@ -17,14 +20,20 @@ public class OrderHistory extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_details);
+        setContentView(R.layout.activity_order_history);
         bindOrderDetailsData();
         setUIRef();
     }
-    private void setUIRef()
-    {
+
+    @Override
+    public void onClick(View v) {
+        Intent i = new Intent(this, OrderDetails.class);
+        startActivity(i);
+    }
+
+    private void setUIRef() {
         //Reference of RecyclerView
-        mRecyclerView = findViewById(R.id.myOrderDetailsList);
+        mRecyclerView = findViewById(R.id.myOrderHistoryList);
         //Linear Layout Manager
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(OrderHistory.this, RecyclerView.VERTICAL, false);
         //Set Layout Manager to RecyclerView
@@ -42,8 +51,9 @@ public class OrderHistory extends AppCompatActivity {
         mRecyclerView.setAdapter(myRecyclerViewAdapter);
     }
 
-    private void bindOrderDetailsData()
-    {
-        orderHistoryDetails.add(new OrderDetailsItem("10/04/2020","D371HS","Delivered",R.drawable.outfit2));
+    private void bindOrderDetailsData() {
+        orderHistoryDetails.add(new OrderDetailsItem("10/04/2020", "D371HS", "Delivered", R.drawable.outfit2));
+        orderHistoryDetails.add(new OrderDetailsItem("10/04/2020", "D371HS", "Delivered", R.drawable.outfit2));
     }
 }
+

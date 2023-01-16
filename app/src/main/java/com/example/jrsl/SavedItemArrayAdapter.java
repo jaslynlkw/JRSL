@@ -24,7 +24,7 @@ public class SavedItemArrayAdapter extends RecyclerView.Adapter<SavedItemArrayAd
     @Override
     public SavedItemArrayAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //Inflate RecyclerView row
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_cartitem, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_saved_item, parent, false);
 
         //Create View Holder
         final SavedItemArrayAdapter.MyViewHolder myViewHolder = new SavedItemArrayAdapter.MyViewHolder(view);
@@ -50,7 +50,7 @@ public class SavedItemArrayAdapter extends RecyclerView.Adapter<SavedItemArrayAd
         holder.savedDesc.setText(myCart.get(position).getDesc());
 
         //Set price
-        String price = "$" + myCart.get(position).getPrice();
+        String price = "$" + myCart.get(position).getPrice()+"0";
         holder.savedPrice.setText(price);
 
         // Set image
@@ -82,10 +82,10 @@ public class SavedItemArrayAdapter extends RecyclerView.Adapter<SavedItemArrayAd
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            savedBrand = itemView.findViewById(R.id.CartBrand);
-            savedDesc = itemView.findViewById(R.id.CartDesc);
-            savedPrice = itemView.findViewById(R.id.CartPrice);
-            savedImage = itemView.findViewById(R.id.cartPicture);
+            savedBrand = itemView.findViewById(R.id.SavedBrand);
+            savedDesc = itemView.findViewById(R.id.SavedDesc);
+            savedPrice = itemView.findViewById(R.id.SavedPrice);
+            savedImage = itemView.findViewById(R.id.SavedPicture);
         }
     }
 

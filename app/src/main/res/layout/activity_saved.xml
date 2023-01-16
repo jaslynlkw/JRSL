@@ -22,15 +22,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:fontFamily="@font/alegreya_sans_extrabold"
-                android:text="JRSL."
+                android:text="SAVED (4)"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 android:textColor="#000"
                 android:textSize="40sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="SAVED (4)" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/all"
@@ -39,20 +38,20 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/alegreya_sans_bold"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:text="ALL"
                 android:textColor="#000"
-                android:textSize="35sp"
+                android:textSize="30sp"
                 android:layout_gravity="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="ALL" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/mySavedList"
                 android:layout_width="416dp"
                 android:layout_height="608dp"
-               android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp" />
 
 
         </LinearLayout>
