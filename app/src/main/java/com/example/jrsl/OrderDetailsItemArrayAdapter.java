@@ -42,8 +42,6 @@ public class OrderDetailsItemArrayAdapter extends RecyclerView.Adapter<OrderDeta
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        //Set collection type
-        holder.collectionType.setText(myCart.get(position).getCollectionType());
 
         //Set brand
         holder.brand.setText(myCart.get(position).getBrand());
@@ -55,7 +53,8 @@ public class OrderDetailsItemArrayAdapter extends RecyclerView.Adapter<OrderDeta
         holder.size.setText(myCart.get(position).getSize());
 
         //Set qty
-        holder.qty.setText(myCart.get(position).getQty());
+        String qt = Integer.toString(myCart.get(position).getQty());
+        holder.qty.setText(qt);
 
         //Set price
         String price = "$" + myCart.get(position).getPrice();
@@ -83,7 +82,6 @@ public class OrderDetailsItemArrayAdapter extends RecyclerView.Adapter<OrderDeta
 
     //RecyclerView View Holder
     class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView collectionType;
         private TextView brand;
         private TextView desc;
         private TextView size;

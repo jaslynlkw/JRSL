@@ -19,7 +19,7 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/alegreya_sans_medium"
             android:drawablePadding="10dp"
             android:text="Order History"
@@ -32,6 +32,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
              />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/myOrderHistoryList"
+            android:layout_width="416dp"
+            android:layout_height="608dp"
+            android:layout_marginTop="30dp"/>
 
     </LinearLayout>
 
