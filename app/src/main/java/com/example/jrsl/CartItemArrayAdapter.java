@@ -66,7 +66,7 @@ public class CartItemArrayAdapter extends RecyclerView.Adapter<CartItemArrayAdap
         if (myCart.get(position).getImage() != 0) {
             holder.image.setImageResource(myCart.get(position).getImage());
         } else {
-            holder.image.setImageResource(R.drawable.outfit1); // or any other default image
+            holder.image.setImageResource(R.drawable.karissa_blackstreetwearset); // or any other default image
         }
 
     }
