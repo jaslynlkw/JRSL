@@ -32,6 +32,10 @@ public class ProductItem {
         this.savedStatus = savedStatus;
     }
 
+    public ProductItem() {
+
+    }
+
     public int getProductID() {
         return product_id;
     }

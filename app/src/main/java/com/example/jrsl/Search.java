@@ -18,25 +18,24 @@ public class Search extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
+
         View view = inflater.inflate(R.layout.activity_search, container, false);
         view.findViewById(R.id.CategoriesOption).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (view.getId()) {
-                    case R.id.imageViewCart:
-                        Intent i = new Intent(getActivity(), Cart.class);
-                        startActivity(i);
-                        break;
-                    case R.id.CategoriesOption:
-                        Intent i1 = new Intent(getActivity(), SearchCategories.class);
-                        startActivity(i1);
-                        break;
-                    default:
-                        // Handle other views click
-                }
-
+                Intent i1 = new Intent(getActivity(), SearchCategories.class);
+                startActivity(i1);
             }
+        });
+        view.findViewById(R.id.searchCart).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i1 = new Intent(getActivity(), Cart.class);
+                startActivity(i1);
+            }
+
         });
         return view;
     }
+
 }
