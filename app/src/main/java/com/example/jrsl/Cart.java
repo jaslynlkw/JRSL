@@ -45,8 +45,8 @@ public class Cart extends AppCompatActivity implements View.OnClickListener {
 
     private void bindCartData()
     {
-        cartItems.add(new CartItem("New Collection",  "Darcy Collection","White Dress","M",1, 25, R.drawable.outfit2));
-        cartItems.add(new CartItem("New Collection",  "Cancy Collection","Brown Coat","M",1, 65, R.drawable.outfit3));
+        cartItems.add(new CartItem("New Collection",  "Rena Collection","White Dress","M",1, 25, R.drawable.rena_whitedress));
+        cartItems.add(new CartItem("New Collection",  "Cancy Collection","Brown Coat","M",1, 65, R.drawable.cancy_browncoat));
     }
 
     @Override

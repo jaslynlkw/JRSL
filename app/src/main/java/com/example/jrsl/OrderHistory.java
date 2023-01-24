@@ -52,8 +52,8 @@ public class OrderHistory extends AppCompatActivity implements View.OnClickListe
     }
 
     private void bindOrderDetailsData() {
-        orderHistoryDetails.add(new OrderDetailsItem("10/04/2020", "D371HS", "Delivered", R.drawable.outfit2));
-        orderHistoryDetails.add(new OrderDetailsItem("10/04/2020", "D371HS", "Delivered", R.drawable.outfit2));
+        orderHistoryDetails.add(new OrderDetailsItem("10/04/2020", "D371HS", "Delivered", R.drawable.darcy_flaredjumpsuit));
+        orderHistoryDetails.add(new OrderDetailsItem("10/04/2020", "D371HS", "Delivered", R.drawable.darcy_flaredjumpsuit));
     }
 }
 

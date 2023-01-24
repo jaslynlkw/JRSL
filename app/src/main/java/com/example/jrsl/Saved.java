@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.widget.Toast;
-
 import java.util.ArrayList;
 
 public class Saved extends Fragment {
@@ -58,7 +56,7 @@ public class Saved extends Fragment {
     }
 
     private void bindSavedData() {
-        cartItems.add(new CartItem("Darcy Collection", "White Dress", 25, R.drawable.outfit2));
-        cartItems.add(new CartItem("Cancy Collection", "Brown Coat", 65, R.drawable.outfit3));
+        cartItems.add(new CartItem("Darcy Collection", "Flared Jumpsuit", 25, R.drawable.darcy_flaredjumpsuit));
+        cartItems.add(new CartItem("Cancy Collection", "Brown Coat", 65, R.drawable.rena_whitedress));
     }
 }
