@@ -67,33 +67,34 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 //        return product;
 //    }
 //
-//    // code to get all products in a list view
-//    public List<ProductItem> getAllProducts() {
-//        List<ProductItem> productList = new ArrayList<ProductItem>();
-//        // Select All Query
-//        String selectQuery = "SELECT  * FROM " + TABLE_PRODUCT;
-//
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        Cursor cursor = db.rawQuery(selectQuery, null);
-//
-//        // looping through all rows and adding to list
-//        if (cursor.moveToFirst()) {
-//            do {
-//                ProductItem product = new ProductItem();
-//                product.setProductID(Integer.parseInt(cursor.getString(0)));
-//                product.setCollection(cursor.getString(1));
-//                product.setName(cursor.getString(2));
-//                product.setPrice(cursor.getDouble(3));
-//                product.setImage(cursor.getInt(4));
-//                product.setSavedStatus(cursor.getInt(5));
-//                // Adding contact to list
-//                productList.add(product);
-//            } while (cursor.moveToNext());
-//        }
-//
-//        // return contact list
-//        return productList;
-//    }
+    // code to get all products in a list view
+public List<ProductItem> getAllProducts() {
+    List<ProductItem> productList = new ArrayList<ProductItem>();
+    // Select All Query
+    String selectQuery = "SELECT  * FROM " + TABLE_PRODUCT;
+
+    SQLiteDatabase db = this.getWritableDatabase();
+    Cursor cursor = db.rawQuery(selectQuery, null);
+
+    // looping through all rows and adding to list
+    if (cursor.moveToFirst()) {
+        do {
+            ProductItem product = new ProductItem();
+            product.setProductID(cursor.getInt(0));
+            product.setCollection(cursor.getString(1));
+            product.setName(cursor.getString(2));
+            product.setPrice(Double.parseDouble(cursor.getString(3)));
+            product.setImage(cursor.getInt(4));
+            product.setSavedStatus(cursor.getInt(5));
+            // Adding contact to list
+            productList.add(product);
+        } while (cursor.moveToNext());
+    }
+
+    // return contact list
+    return productList;
+}
+
 
     // Getting Products Count
     public int getProductsCount() {
@@ -105,5 +106,4 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // return count
         return cursor.getCount();
     }
-
 }
