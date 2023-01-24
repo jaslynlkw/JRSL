@@ -86,7 +86,6 @@ public class ProductItemArrayAdapter extends RecyclerView.Adapter<ProductItemArr
         return position;
     }
 
-
     //RecyclerView View Holder
     class MyViewHolder extends RecyclerView.ViewHolder
     {

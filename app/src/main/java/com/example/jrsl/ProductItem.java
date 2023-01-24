@@ -5,31 +5,34 @@ public class ProductItem {
     private String collection;
     private String name;
     private String desc;
-    private String size;
-    private int qty;
     private double price;
     private int image;
+    private String category;
     private int savedStatus;
 
-    public ProductItem(int product_id, String collection, String name, String desc, String size, int qty, double price, int image, int savedStatus){
+    public ProductItem(int product_id, String collection, String name, String desc, double price, int image, String category, int savedStatus){
         this.product_id = product_id;
         this.collection = collection;
         this.name = name;
         this.desc = desc;
-        this.size = size;
-        this.qty = qty;
         this.price = price;
         this.image = image;
+        this.category = category;
         this.savedStatus = savedStatus;
     }
 
-    public ProductItem(int product_id, String collection, String name, double price, int image, int savedStatus){
+    public ProductItem(int product_id, String collection, String name, double price, int image, String category, int savedStatus){
         this.product_id = product_id;
         this.collection = collection;
         this.name = name;
         this.price = price;
         this.image = image;
+        this.category = category;
         this.savedStatus = savedStatus;
+    }
+
+    public ProductItem() {
+
     }
 
     public int getProductID() {
@@ -64,22 +67,6 @@ public class ProductItem {
         this.desc = desc;
     }
 
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public int getQty() {
-        return qty;
-    }
-
-    public void setQty(int qty) {
-        this.qty = qty;
-    }
-
     public double getPrice() {
         return price;
     }
@@ -94,6 +81,14 @@ public class ProductItem {
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public int getSavedStatus() {
