@@ -56,7 +56,7 @@ public class Home extends Fragment {
 
         // below method is use to set
         // scroll time in seconds.
-        sliderView.setScrollTimeInSec(3);
+        sliderView.setScrollTimeInSec(5);
 
         // to set it scrollable automatically
         // we use below method.
@@ -65,6 +65,13 @@ public class Home extends Fragment {
         // to start autocycle below method is used.
         sliderView.startAutoCycle();
 
+        view.findViewById(R.id.imageViewCart).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), Cart.class);
+                startActivity(i);
+            }
+        });
         return view;
     }
 }
