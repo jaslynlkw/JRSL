@@ -54,9 +54,9 @@
     </androidx.cardview.widget.CardView>
 
     <View
-        android:layout_width="395dp"
-        android:layout_height="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
         android:layout_marginTop="10dp"
-        android:background="#FFDDDDDD"/>
+        android:background="@color/lightgrey" />
 
 </LinearLayout>

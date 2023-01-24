@@ -22,6 +22,11 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                 Intent i = new Intent(this, AddressSignUp.class);
                 startActivity(i);
                 break;
+            // redirection back to Login page
+            case R.id.backToLoginBtn:
+                Intent i2 = new Intent(this, Login.class);
+                startActivity(i2);
+                break;
         }
     }
 

@@ -23,7 +23,7 @@
             android:layout_height="63dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/alegreya_sans_extrabold"
-            android:text="JRSL."
+            android:text="@string/app_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:textColor="#000"
             android:textSize="40sp"

@@ -6,32 +6,119 @@
     android:layout_height="match_parent"
     tools:context=".Login">
 
-    <Button
-        android:id="@+id/btnToLogin"
-        android:layout_width="138dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="431dp"
-        android:layout_marginEnd="137dp"
-        android:layout_marginBottom="431dp"
-        android:onClick="onClick"
-        android:text="@string/btnLogin"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_editor_absoluteX="1dp"
+        app:layout_editor_absoluteY="1dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="90dp">
 
-    <Button
-        android:id="@+id/btnToSignUp"
-        android:layout_width="138dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginEnd="137dp"
-        android:layout_marginBottom="150dp"
-        android:onClick="onClick"
-        android:text="@string/btnSignUp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textViewJRSL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_sans_extrabold"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="60sp"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/textViewWelcomeBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_sans_bold"
+            android:text="WELCOME BACK!"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:layout_marginBottom="50dp" />
+
+        <EditText
+            android:id="@+id/inputUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:hint="@string/username"
+            android:textColorHint="@color/black"
+            android:textSize="22sp"
+            android:paddingLeft="20dp"
+            android:paddingVertical="8dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/myblueborder" />
+
+        <EditText
+            android:id="@+id/inputPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:hint="@string/password"
+            android:textColorHint="@color/black"
+            android:textSize="22sp"
+            android:paddingLeft="20dp"
+            android:paddingVertical="8dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/myblueborder" />
+
+        <TextView
+            android:id="@+id/textViewForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_sans_medium_italic"
+            android:text="Forgot Password?"
+            android:textColor="@color/red"
+            android:textSize="20sp"
+            android:layout_marginBottom="50dp" />
+
+        <Button
+            android:id="@+id/btnToLogin"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="40dp"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="@string/btnLogin"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:background="@drawable/mybluebutton"
+            android:fontFamily="@font/alegreya_sans_bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="12dp"
+                android:background="@color/grey" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:background="@color/white"
+                android:layout_centerHorizontal="true"
+                android:textSize="15sp"
+                android:text="or" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnToSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="Sign Up"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:background="@drawable/mygreybutton"
+            android:fontFamily="@font/alegreya_sans_bold" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

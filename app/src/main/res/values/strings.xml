@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">JRSL</string>
+    <string name="app_name">JRSL.</string>
     <string name="btnLogin">Login</string>
     <string name="btnSignUp">Sign Up</string>
     <string name="signUp">SIGN UP</string>

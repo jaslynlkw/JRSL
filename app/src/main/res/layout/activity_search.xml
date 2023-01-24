@@ -56,11 +56,10 @@
             android:textColor="#000"
             android:textSize="25sp" />
         <View
-            android:layout_width="370dp"
-            android:layout_height="3dp"
-            android:layout_marginLeft="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
             android:layout_marginTop="10dp"
-            android:background="#FFDDDDDD" />
+            android:background="@color/lightgrey" />
 
     </LinearLayout>
 

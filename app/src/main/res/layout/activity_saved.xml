@@ -49,7 +49,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/mySavedList"
-                android:layout_width="416dp"
+                android:layout_width="match_parent"
                 android:layout_height="608dp"
                 android:layout_marginTop="20dp" />
 

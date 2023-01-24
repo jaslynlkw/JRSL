@@ -22,6 +22,11 @@ public class AddressSignUp extends AppCompatActivity implements View.OnClickList
                 Intent i = new Intent(this, Login.class);
                 startActivity(i);
                 break;
+            // redirection back to Sign Up page
+            case R.id.backToSignUpBtn:
+                Intent i2 = new Intent(this, SignUp.class);
+                startActivity(i2);
+                break;
         }
     }
 }

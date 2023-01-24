@@ -36,7 +36,7 @@ public class SplashScreen extends AppCompatActivity {
                     i++;
                 } else {
                     timer.cancel();
-                    Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+                    Intent intent = new Intent(SplashScreen.this, Login.class);
                     startActivity(intent);
                     finish();
                 }
