@@ -114,6 +114,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return productList;
     }
 
+
     // Getting Products Count
     public int getProductsCount() {
         String countQuery = "SELECT  * FROM " + TABLE_PRODUCT;
@@ -124,5 +125,4 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // return count
         return cursor.getCount();
     }
-
 }

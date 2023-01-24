@@ -45,13 +45,23 @@ public class Cart extends AppCompatActivity implements View.OnClickListener {
 
     private void bindCartData()
     {
-        cartItems.add(new CartItem("New Collection",  "Darcy Collection","White Dress","M",1, 25, R.drawable.outfit2));
-        cartItems.add(new CartItem("New Collection",  "Cancy Collection","Brown Coat","M",1, 65, R.drawable.outfit3));
+        cartItems.add(new CartItem("New Collection",  "Rena Collection","White Dress","M",1, 25, R.drawable.rena_whitedress));
+        cartItems.add(new CartItem("New Collection",  "Cancy Collection","Brown Coat","M",1, 65, R.drawable.cancy_browncoat));
     }
 
     @Override
     public void onClick(View view) {
-        Intent i = new Intent(Cart.this, ChooseAddress.class);
-        startActivity(i);
+        switch (view.getId()) {
+            case R.id.BackArrow:
+                finish();
+                break;
+            case R.id.btnPlaceOrder:
+                Intent i1 = new Intent(Cart.this, ChooseAddress.class);
+                startActivity(i1);
+                break;
+            default:
+                // Handle other views click
+        }
+
     }
 }

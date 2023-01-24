@@ -1,6 +1,5 @@
 package com.example.jrsl;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
@@ -11,7 +10,6 @@ import com.smarteist.autoimageslider.SliderView;
 import java.util.ArrayList;
 
 
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +17,9 @@ import android.view.ViewGroup;
 public class Home extends Fragment {
 
     // Urls of our images.
-    int pic1 = R.drawable.outfit1;
-    int pic2 = R.drawable.outfit2;
-    int pic3 = R.drawable.outfit3;
+    int pic1 = R.drawable.karissa_blackstreetwearset;
+    int pic2 = R.drawable.darcy_flaredjumpsuit;
+    int pic3 = R.drawable.rena_whitedress;
 
     public Home() {
         // require a empty public constructor
