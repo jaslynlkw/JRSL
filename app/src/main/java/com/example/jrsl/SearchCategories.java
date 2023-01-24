@@ -16,8 +16,21 @@ public class SearchCategories extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        Intent i = new Intent(this, Products.class);
-        startActivity(i);
+        switch (v.getId()) {
+            case R.id.searchCart:
+                Intent i = new Intent(this, Cart.class);
+                startActivity(i);
+                break;
+            case R.id.arrowBackSearch:
+                finish();
+                break;
+            case R.id.ClothingOption:
+                Intent i1 = new Intent(this, Products.class);
+                startActivity(i1);
+                break;
+            default:
+                // Handle other views click
+        }
     }
 
 }

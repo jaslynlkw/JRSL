@@ -51,7 +51,17 @@ public class Cart extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        Intent i = new Intent(Cart.this, ChooseAddress.class);
-        startActivity(i);
+        switch (view.getId()) {
+            case R.id.BackArrow:
+                finish();
+                break;
+            case R.id.btnPlaceOrder:
+                Intent i1 = new Intent(Cart.this, ChooseAddress.class);
+                startActivity(i1);
+                break;
+            default:
+                // Handle other views click
+        }
+
     }
 }
