@@ -22,8 +22,19 @@ public class Search extends Fragment {
         view.findViewById(R.id.CategoriesOption).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), SearchCategories.class);
-                startActivity(i);
+                switch (view.getId()) {
+                    case R.id.imageViewCart:
+                        Intent i = new Intent(getActivity(), Cart.class);
+                        startActivity(i);
+                        break;
+                    case R.id.CategoriesOption:
+                        Intent i1 = new Intent(getActivity(), SearchCategories.class);
+                        startActivity(i1);
+                        break;
+                    default:
+                        // Handle other views click
+                }
+
             }
         });
         return view;

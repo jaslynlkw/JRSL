@@ -25,6 +25,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:textColor="#000"
             android:textSize="20sp"
+            android:onClick="onClick"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
