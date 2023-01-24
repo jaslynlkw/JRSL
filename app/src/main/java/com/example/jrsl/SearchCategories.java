@@ -26,6 +26,7 @@ public class SearchCategories extends AppCompatActivity implements View.OnClickL
                 break;
             case R.id.ClothingOption:
                 Intent i1 = new Intent(this, Products.class);
+                i1.putExtra("category_key", "clothing");
                 startActivity(i1);
                 break;
             default:

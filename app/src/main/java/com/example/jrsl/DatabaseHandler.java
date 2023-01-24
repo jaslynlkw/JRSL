@@ -56,7 +56,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_PRODUCT_IMAGE + "BLOB, " + KEY_PRODUCT_CATEGORY + "TEXT, " + KEY_PRODUCT_SAVEDSTATUS + "INTEGER" + ")";
         db.execSQL(CREATE_PRODUCT_TABLE);
 
-        //
+        // Create Default User
+        addDefaultUser();
     }
 
     // Upgrading database
@@ -67,6 +68,38 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // Create tables again
         onCreate(db);
+    }
+
+    // code to add a default user
+    public void addDefaultUser() {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_USER_ID, 1);
+        values.put(KEY_USER_USERNAME, "user123");
+        values.put(KEY_USER_EMAIL, "user123@gmail.com");
+        values.put(KEY_USER_PASSWORD, "user123");
+        values.put(KEY_USER_SAVEDITEMS, "");
+
+        // Inserting Row
+        db.insert(TABLE_USER, null, values);
+        //2nd argument is String containing nullColumnHack
+        db.close(); // Closing database connection
+    }
+
+    public boolean validateUser(String username, String password) {
+
+        boolean result = false;
+        String countQuery = "SELECT * FROM " + TABLE_USER + " WHERE " + KEY_USER_USERNAME + " = " + username + " AND " + KEY_USER_PASSWORD + " = " + password;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+
+        // ensure user exists in user db
+        if (cursor.getCount() == 1) {
+            result = true;
+        }
+        cursor.close();
+        return result;
     }
 
 //    // code to get the single product

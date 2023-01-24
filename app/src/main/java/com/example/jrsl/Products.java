@@ -16,9 +16,6 @@ public class Products extends AppCompatActivity implements View.OnClickListener 
     private RecyclerView myRecyclerView;
     private ArrayList<ProductItem> productItems = new ArrayList<>();
 
-    Intent intent = getIntent();
-    String category = intent.getStringExtra("category_key");
-
     public Products() {
         // require a empty public constructor
     }
@@ -27,8 +24,13 @@ public class Products extends AppCompatActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products);
-        bindProductsData();
+
+        Intent intent = getIntent();
+        String category = intent.getStringExtra("category_key");
+
+        bindProductsData(category);
         setUIRef();
+
     }
 
     @Override
@@ -65,8 +67,9 @@ public class Products extends AppCompatActivity implements View.OnClickListener 
         myRecyclerView.setAdapter(myRecyclerViewAdapter);
     }
 
-    private void bindProductsData()
+    private void bindProductsData(String category)
     {
+
         //populate Products database
         productItems.add(new ProductItem(1,"Lyla Collection","Off Shoulder Top","Elegant White Off Shoulder Top with Frills. Appropriate for casual to semi-formal events.",30.30,R.drawable.lyla_offshouldertop,"clothing", 0));
         productItems.add(new ProductItem(2,"Freya Collection","Pink Dotted Dress","Cute Pink Dotted Dress with Frills. Appropriate for casual gatherings.",60.40,R.drawable.freya_pinkdotteddress,"clothing", 0));
@@ -82,6 +85,8 @@ public class Products extends AppCompatActivity implements View.OnClickListener 
         productItems.add(new ProductItem(11,"Erik Collection","Salmon Pink Sneakers","Comfy sneakers. And they're pink! Appropriate for casual to semi-formal events.",90.00,R.drawable.reza_offwhiteteddybearcoat,"shoes", 0));
         productItems.add(new ProductItem(12,"Najla Collection","Heeled Ballet Flats","Simple and classic ballet flats, with a bit of a heel! Appropriate for casual to formal events.",40.00,R.drawable.najla_heeledballetflats,"shoes", 0));
 
+        DatabaseHandler db = new DatabaseHandler(this);
+        List<ProductItem> products = db.getAllProducts(category);
     }
 
 
