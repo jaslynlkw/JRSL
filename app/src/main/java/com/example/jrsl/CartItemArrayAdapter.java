@@ -55,14 +55,19 @@ public class CartItemArrayAdapter extends RecyclerView.Adapter<CartItemArrayAdap
         holder.size.setText(myCart.get(position).getSize());
 
         //Set qty
-        holder.qty.setText(myCart.get(position).getQty());
+        String qt = Integer.toString(myCart.get(position).getQty());
+        holder.qty.setText(qt);
 
         //Set price
         String price = "$" + myCart.get(position).getPrice();
         holder.price.setText(price);
 
         // Set image
-        holder.image.setImageResource(myCart.get(position).getImage());
+        if (myCart.get(position).getImage() != 0) {
+            holder.image.setImageResource(myCart.get(position).getImage());
+        } else {
+            holder.image.setImageResource(R.drawable.outfit1); // or any other default image
+        }
 
     }
 

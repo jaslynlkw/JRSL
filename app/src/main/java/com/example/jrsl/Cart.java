@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-public class Cart extends AppCompatActivity {
+public class Cart extends AppCompatActivity implements View.OnClickListener {
 
     private RecyclerView mRecyclerView;
     private ArrayList<CartItem> cartItems = new ArrayList<>();
@@ -47,4 +49,9 @@ public class Cart extends AppCompatActivity {
         cartItems.add(new CartItem("New Collection",  "Cancy Collection","Brown Coat","M",1, 65, R.drawable.outfit3));
     }
 
+    @Override
+    public void onClick(View view) {
+        Intent i = new Intent(Cart.this, ChooseAddress.class);
+        startActivity(i);
+    }
 }
