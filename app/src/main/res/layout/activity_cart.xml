@@ -18,7 +18,7 @@
             android:id="@+id/BackArrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/alegreya_sans_medium"
             android:drawablePadding="10dp"
             android:drawableLeft="@drawable/ic_baseline_arrow_back_24"
@@ -37,15 +37,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/alegreya_sans_extrabold"
-        android:text="JRSL."
+        android:text="CART"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:textColor="#000"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="CART (2)" />
+        app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/myCartList"
