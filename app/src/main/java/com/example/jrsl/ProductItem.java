@@ -10,6 +10,7 @@ public class ProductItem {
     private String category;
     private int savedStatus;
 
+    // product details
     public ProductItem(int product_id, String collection, String name, String desc, double price, String imageURL, String category, int savedStatus){
         this.product_id = product_id;
         this.collection = collection;
@@ -21,6 +22,7 @@ public class ProductItem {
         this.savedStatus = savedStatus;
     }
 
+    // product
     public ProductItem(int product_id, String collection, String name, double price, String imageURL, String category, int savedStatus){
         this.product_id = product_id;
         this.collection = collection;

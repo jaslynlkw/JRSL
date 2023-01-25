@@ -19,6 +19,9 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
+        DatabaseHandler db = new DatabaseHandler(this);
+        db.addDefaultUser();
+
         splashProgressBar = findViewById(R.id.progressBarSplashScreen);
         timer = new Timer();
 

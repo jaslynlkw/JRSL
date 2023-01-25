@@ -56,8 +56,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_PRODUCT_IMAGE + "TEXT, " + KEY_PRODUCT_CATEGORY + "TEXT, " + KEY_PRODUCT_SAVEDSTATUS + "INTEGER" + ")";
         db.execSQL(CREATE_PRODUCT_TABLE);
 
-        // Create Default User
-        addDefaultUser();
     }
 
 
@@ -83,6 +81,25 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // Inserting Row
         db.insert(TABLE_USER, null, values);
+        db.close();
+    }
+
+    // code to add products
+    public void addAllProducts() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("INSERT INTO " + TABLE_PRODUCT + "(" + KEY_PRODUCT_COLLECTION + ", " + KEY_PRODUCT_NAME + ", " + KEY_PRODUCT_DESC + ", " + KEY_PRODUCT_PRICE + ", " + KEY_PRODUCT_IMAGE + ", " + KEY_PRODUCT_CATEGORY + ", " + KEY_PRODUCT_SAVEDSTATUS + ") VALUES " +
+                   "(\"Lyla Collection\",\"Off Shoulder Top\",\"Elegant White Off Shoulder Top with Frills. Appropriate for casual to semi-formal events.\",30.30,\"https://res.cloudinary.com/jaslynlkw/image/upload/v1674630291/ANDE/clothing/lyla_offshouldertop_wy7xb9.jpg\",\"clothing\", 0)," +
+                   "(\"Freya Collection\",\"Pink Dotted Dress\",\"Cute Pink Dotted Dress with Frills. Appropriate for casual gatherings.\",60.40,\"https://res.cloudinary.com/jaslynlkw/image/upload/v1674630280/ANDE/clothing/freya_pinkdotteddress_dpggft.jpg\",\"clothing\", 0)," +
+                   "(\"Aleya Collection\",\"Extravagant Black Dress\",\"Elegant Chic Black Dress with Frills. Appropriate for big events.\",230.30,\"https://res.cloudinary.com/jaslynlkw/image/upload/v1674630258/ANDE/clothing/aleya_extravagantblackdress_c96drc.jpg\",\"clothing\", 0)," +
+                   "(\"Daniel Collection\",\"White Flared Jeans\",\"Cool white flared jeans for cool times. Appropriate for casual to semi-formal events.\",45.60,\"https://res.cloudinary.com/jaslynlkw/image/upload/v1674630272/ANDE/clothing/daniel_whiteflaredjeans_osrtq6.jpg\",\"clothing\", 0)," +
+                   "(\"Reza Collection\",\"Off-white Teddy Bear Coat\",\"Oversized Teddy Bear Coat for the chilly days. Appropriate for casual to semi-formal events.\",80.90,\"https://res.cloudinary.com/jaslynlkw/image/upload/v1674630313/ANDE/clothing/reza_offwhiteteddybearcoat_ctx2ui.jpg\",\"clothing\", 0)," +
+                   "(\"Niki Collection\",\"Yellow Matching Set\",\"Yellow hoodie and sweatpants set. Appropriate for casual events.\",71.20,\"https://res.cloudinary.com/jaslynlkw/image/upload/v1674630312/ANDE/clothing/niki_yellowmatchingset_snyyyk.jpg\",\"clothing\", 0)," +
+                   "(\"Camila Collection\",\"Canvas High Top Shoes\",\"Black High Top shoes made of canvas. Appropriate for casual events.\",70.00,\"https://res.cloudinary.com/jaslynlkw/image/upload/v1674630336/ANDE/shoes/camila_canvashightopshoes_qvl0if.jpg\",\"shoes\", 0)," +
+                   "(\"Allanwood Collection\",\"Pink Gradient Sparkly Heels\",\"Elegant and eye-catching pink sparkly heels. Appropriate for casual gatherings and big events.\",160.00,\"https://res.cloudinary.com/jaslynlkw/image/upload/v1674630337/ANDE/shoes/allanwood_sparklyheels_etuyz2.jpg\",\"shoes\", 0)," +
+                   "(\"Nathan Collection\",\"Brown Boots\",\"Brown waterproof boots. Appropriate for snowy weather.\",130.00,\"https://res.cloudinary.com/jaslynlkw/image/upload/v1674630354/ANDE/shoes/nathan_brownboots_cc6ipo.jpg\",\"shoes\", 0)," +
+                   "(\"Laura Collection\",\"Black Court Shoes\",\"Classic black court shoes. Appropriate for casual to formal events.\",45.00,\"https://res.cloudinary.com/jaslynlkw/image/upload/v1674630348/ANDE/shoes/laura_blackcourtshoes_yehhgs.jpg\",\"shoes\", 0)," +
+                   "(\"Erik Collection\",\"Salmon Pink Sneakers\",\"Comfy sneakers. And they're pink! Appropriate for casual to semi-formal events.\",90.00,\"https://res.cloudinary.com/jaslynlkw/image/upload/v1674630342/ANDE/shoes/erik_salmonpinksneakers_muizqj.jpg\",\"shoes\", 0)," +
+                   "(\"Najla Collection\",\"Heeled Ballet Flats\",\"Simple and classic ballet flats, with a bit of a heel! Appropriate for casual to formal events.\",40.00,\"https://res.cloudinary.com/jaslynlkw/image/upload/v1674630355/ANDE/shoes/najla_heeledballetflats_gid0rz.jpg\",\"shoes\", 0);");
         db.close();
     }
 
