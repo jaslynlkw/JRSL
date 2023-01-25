@@ -1,5 +1,6 @@
 package com.example.jrsl;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -44,17 +47,19 @@ public class SavedItemArrayAdapter extends RecyclerView.Adapter<SavedItemArrayAd
     public void onBindViewHolder(@NonNull SavedItemArrayAdapter.MyViewHolder holder, int position) {
 
         //Set brand
-        holder.savedBrand.setText(myCart.get(position).getBrand());
+        holder.savedCollection.setText(myCart.get(position).getCollection());
 
         //Set desc
-        holder.savedDesc.setText(myCart.get(position).getDesc());
+        holder.savedName.setText(myCart.get(position).getName());
 
         //Set price
         String price = "$" + myCart.get(position).getPrice()+"0";
         holder.savedPrice.setText(price);
 
         // Set image
-        holder.savedImage.setImageResource(myCart.get(position).getImage());
+        Glide.with(getContext())
+                .load(myCart.get(position).getImageURL())
+                .into(holder.savedImage);
 
     }
 
@@ -75,19 +80,21 @@ public class SavedItemArrayAdapter extends RecyclerView.Adapter<SavedItemArrayAd
 
     //RecyclerView View Holder
     class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView savedBrand;
-        private TextView savedDesc;
+        private TextView savedCollection;
+        private TextView savedName;
         private TextView savedPrice;
         private ImageView savedImage;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            savedBrand = itemView.findViewById(R.id.SavedBrand);
-            savedDesc = itemView.findViewById(R.id.SavedDesc);
+            savedCollection = itemView.findViewById(R.id.SavedCollection);
+            savedName = itemView.findViewById(R.id.SavedName);
             savedPrice = itemView.findViewById(R.id.SavedPrice);
             savedImage = itemView.findViewById(R.id.SavedPicture);
         }
     }
+
+
 
     //RecyclerView Click Listener
     public interface SavedClickListener{

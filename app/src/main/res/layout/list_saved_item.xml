@@ -23,7 +23,7 @@
             android:layout_marginBottom="30dp"/>
 
         <TextView
-            android:id="@+id/SavedBrand"
+            android:id="@+id/SavedCollection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -34,7 +34,7 @@
             android:layout_marginBottom="55dp"/>
 
         <TextView
-            android:id="@+id/SavedDesc"
+            android:id="@+id/SavedName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"

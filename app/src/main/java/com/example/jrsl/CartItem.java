@@ -1,48 +1,35 @@
 package com.example.jrsl;
 
 public class CartItem {
-    private String collectionType;
-    private String brand;
-    private String desc;
+    private String collection;
     private String size;
+    private String name;
     private int qty;
     private double price;
-    private int image;
-    public CartItem(String collectionType, String brand, String desc, String size, int qty, double price, int image){
-        this.collectionType = collectionType;
-        this.brand = brand;
-        this.desc = desc;
+    private String imageURL;
+
+    public CartItem(String collection, String name, String size, int qty, double price, String imageURL){
+        this.collection = collection;
+        this.name = name;
         this.size = size;
         this.qty = qty;
         this.price = price;
-        this.image = image;
+        this.imageURL = imageURL;
     }
 
-    public CartItem(String brand, String desc, double price, int image){
-        this.brand = brand;
-        this.desc = desc;
+    public CartItem(String collection, String name, double price, String imageURL){
+        this.collection = collection;
+        this.name = name;
         this.price = price;
-        this.image = image;
+        this.imageURL = imageURL;
     }
 
-    public CartItem(String brand, String desc, String size, int qty, double price, int image){
-        this.brand = brand;
-        this.desc = desc;
-        this.size = size;
-        this.qty = qty;
-        this.price = price;
-        this.image = image;
-    }
-    public String getCollectionType() {
-        return collectionType;
+    public String getCollection() {
+        return collection;
     }
 
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getDesc() {
-        return desc;
+    public String getName() {
+        return name;
     }
 
     public String getSize() {
@@ -57,7 +44,7 @@ public class CartItem {
         return price;
     }
 
-    public int getImage() {
-        return image;
+    public String getImageURL() {
+        return imageURL;
     }
 }
