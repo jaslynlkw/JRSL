@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,12 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Products extends AppCompatActivity implements View.OnClickListener {
-
+    private final Context context;
     private RecyclerView myRecyclerView;
     private ArrayList<ProductItem> productItems = new ArrayList<>();
 
-    public Products() {
+    public Products(Context context) {
         // require a empty public constructor
+        this.context = context;
     }
 
     @Override
@@ -53,7 +55,7 @@ public class Products extends AppCompatActivity implements View.OnClickListener 
         myRecyclerView.setLayoutManager(linearLayoutManager);
 
         //Create adapter
-        ProductItemArrayAdapter myRecyclerViewAdapter = new ProductItemArrayAdapter(productItems, new ProductItemArrayAdapter.MyRecyclerViewItemClickListener()
+        ProductItemArrayAdapter myRecyclerViewAdapter = new ProductItemArrayAdapter(context,productItems, new ProductItemArrayAdapter.MyRecyclerViewItemClickListener()
         {
             //Handling clicks
             @Override

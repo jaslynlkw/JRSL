@@ -75,11 +75,12 @@ public class ProductItem {
         this.price = price;
     }
 
+
     public String getImageURL() {
         return imageURL;
     }
 
-    public void setImageURL(String imageURL) {
+    public void setImageURL(String image) {
         this.imageURL = imageURL;
     }
 
