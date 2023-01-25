@@ -1,5 +1,8 @@
 package com.example.jrsl;
 
+import com.bumptech.glide.Glide;
+
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,16 +12,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+
 import java.util.ArrayList;
 
 public class ProductItemArrayAdapter extends RecyclerView.Adapter<ProductItemArrayAdapter.MyViewHolder> {
 
+    private final Context context;
     private ArrayList<ProductItem> products;
     private MyRecyclerViewItemClickListener myItemClickListener;
 
-    public ProductItemArrayAdapter(ArrayList<ProductItem> products, MyRecyclerViewItemClickListener itemClickListener) {
+    public ProductItemArrayAdapter(Context context, ArrayList<ProductItem> products, MyRecyclerViewItemClickListener itemClickListener) {
         this.products = products;
         this.myItemClickListener = itemClickListener;
+        this.context = context;
     }
 
     @NonNull
@@ -57,15 +64,11 @@ public class ProductItemArrayAdapter extends RecyclerView.Adapter<ProductItemArr
         String price = "$" + products.get(position).getPrice()+"0";
         holder.productPrice.setText(price);
 
-        // Set image
-        holder.productImage.setImageResource(products.get(position).getImageURL());
 
-        //Set saved icon
-        int savedStatus = products.get(position).getSavedStatus();
-        if (savedStatus == 1) {
-            holder.productSavedStatus.setImageResource(R.drawable.icon_saved);
-        }
-        holder.productSavedStatus.setImageResource(R.drawable.icon_save);
+        // Set image
+        Glide.with(context)
+                .load(products.get(position).getImageURL())
+                .into(holder.productImage);
 
     }
 
@@ -103,6 +106,7 @@ public class ProductItemArrayAdapter extends RecyclerView.Adapter<ProductItemArr
             productPrice = itemView.findViewById(R.id.ProductPrice);
             productImage = itemView.findViewById(R.id.ProductImage);
             productSavedStatus = itemView.findViewById(R.id.SavedIcon);
+
         }
     }
 

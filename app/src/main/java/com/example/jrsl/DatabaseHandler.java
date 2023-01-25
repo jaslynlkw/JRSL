@@ -60,6 +60,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         addDefaultUser();
     }
 
+
     // Upgrading database
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -82,8 +83,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // Inserting Row
         db.insert(TABLE_USER, null, values);
-        //2nd argument is String containing nullColumnHack
-        db.close(); // Closing database connection
+        db.close();
     }
 
 //    public boolean validateUser(String username, String password) {
@@ -100,6 +100,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 //        cursor.close();
 //        return result;
 //    }
+
+
+
 
 //    // code to get the single product
 //    ProductItem getProduct(int id) {
