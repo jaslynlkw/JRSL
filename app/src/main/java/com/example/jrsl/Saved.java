@@ -2,6 +2,7 @@ package com.example.jrsl;
 
 import androidx.fragment.app.Fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,7 +57,7 @@ public class Saved extends Fragment {
     }
 
     private void bindSavedData() {
-        cartItems.add(new CartItem("Darcy Collection", "Flared Jumpsuit", 25, R.drawable.darcy_flaredjumpsuit));
-        cartItems.add(new CartItem("Cancy Collection", "Brown Coat", 65, R.drawable.rena_whitedress));
+        cartItems.add(new CartItem("Reza Collection", "Off-white Teddy Bear Coat", 80.90, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630313/ANDE/clothing/reza_offwhiteteddybearcoat_ctx2ui.jpg"));
+        cartItems.add(new CartItem("Niki Collection", "Yellow Matching Set", 71.20, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630312/ANDE/clothing/niki_yellowmatchingset_snyyyk.jpg"));
     }
 }

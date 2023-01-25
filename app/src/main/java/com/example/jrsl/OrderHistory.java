@@ -2,6 +2,7 @@ package com.example.jrsl;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,6 +17,11 @@ public class OrderHistory extends AppCompatActivity implements View.OnClickListe
 
     private RecyclerView mRecyclerView;
     private ArrayList<OrderDetailsItem> orderHistoryDetails = new ArrayList<>();
+    private final Context context;
+
+    public OrderHistory(Context context) {
+        this.context = context;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +46,7 @@ public class OrderHistory extends AppCompatActivity implements View.OnClickListe
         mRecyclerView.setLayoutManager(linearLayoutManager);
 
         //Create adapter
-        OrderHistoryItemArrayAdapter myRecyclerViewAdapter = new OrderHistoryItemArrayAdapter(orderHistoryDetails, new OrderHistoryItemArrayAdapter.CartClickListener() {
+        OrderHistoryItemArrayAdapter myRecyclerViewAdapter = new OrderHistoryItemArrayAdapter(context,orderHistoryDetails, new OrderHistoryItemArrayAdapter.CartClickListener() {
             @Override
             public void onItemClicked(OrderDetailsItem orderDetails) {
                 Toast.makeText(OrderHistory.this, orderDetails.getOrderRef(), Toast.LENGTH_SHORT).show();
@@ -52,8 +58,8 @@ public class OrderHistory extends AppCompatActivity implements View.OnClickListe
     }
 
     private void bindOrderDetailsData() {
-        orderHistoryDetails.add(new OrderDetailsItem("10/04/2020", "D371HS", "Delivered", R.drawable.darcy_flaredjumpsuit));
-        orderHistoryDetails.add(new OrderDetailsItem("10/04/2020", "D371HS", "Delivered", R.drawable.darcy_flaredjumpsuit));
+        orderHistoryDetails.add(new OrderDetailsItem("10/04/2020", "D371HS", "Delivered", "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630291/ANDE/clothing/lyla_offshouldertop_wy7xb9.jpg"));
+        orderHistoryDetails.add(new OrderDetailsItem("10/04/2020", "D371HS", "Delivered", "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630280/ANDE/clothing/freya_pinkdotteddress_dpggft.jpg"));
     }
 }
 

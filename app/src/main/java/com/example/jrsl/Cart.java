@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,11 @@ public class Cart extends AppCompatActivity implements View.OnClickListener {
 
     private RecyclerView mRecyclerView;
     private ArrayList<CartItem> cartItems = new ArrayList<>();
+    private final Context context;
+
+    public Cart(Context context) {
+        this.context = context;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +38,10 @@ public class Cart extends AppCompatActivity implements View.OnClickListener {
         mRecyclerView.setLayoutManager(linearLayoutManager);
 
         //Create adapter
-        CartItemArrayAdapter myRecyclerViewAdapter = new CartItemArrayAdapter(cartItems, new CartItemArrayAdapter.CartClickListener() {
+        CartItemArrayAdapter myRecyclerViewAdapter = new CartItemArrayAdapter(context,cartItems, new CartItemArrayAdapter.CartClickListener() {
             @Override
             public void onItemClicked(CartItem cartItem) {
-                Toast.makeText(Cart.this, cartItem.getDesc(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Cart.this, cartItem.getName(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -45,8 +51,8 @@ public class Cart extends AppCompatActivity implements View.OnClickListener {
 
     private void bindCartData()
     {
-        cartItems.add(new CartItem("New Collection",  "Rena Collection","White Dress","M",1, 25, R.drawable.rena_whitedress));
-        cartItems.add(new CartItem("New Collection",  "Cancy Collection","Brown Coat","M",1, 65, R.drawable.cancy_browncoat));
+        cartItems.add(new CartItem("Aleya Collection","Extravagant Black Dress","M",1, 230.30, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630258/ANDE/clothing/aleya_extravagantblackdress_c96drc.jpg"));
+        cartItems.add(new CartItem("Daniel Collection", "White Flared Jeans","M",1, 45.60, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630272/ANDE/clothing/daniel_whiteflaredjeans_osrtq6.jpg"));
     }
 
     @Override
