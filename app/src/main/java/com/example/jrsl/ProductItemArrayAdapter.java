@@ -58,7 +58,7 @@ public class ProductItemArrayAdapter extends RecyclerView.Adapter<ProductItemArr
         holder.productPrice.setText(price);
 
         // Set image
-        holder.productImage.setImageResource(products.get(position).getImage());
+        holder.productImage.setImageResource(products.get(position).getImageURL());
 
         //Set saved icon
         int savedStatus = products.get(position).getSavedStatus();

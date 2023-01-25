@@ -31,12 +31,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 String password = edPassword.getText().toString();
 
                 DatabaseHandler db = new DatabaseHandler(this);
-                if (db.validateUser(username, password)) {
+//                if (db.validateUser(username, password)) {
                     Intent i1 = new Intent(this, MainActivity.class);
                     startActivity(i1);
-                } else {
-                    Toast.makeText(Login.this, "Unable to Login", Toast.LENGTH_SHORT).show();
-                }
+//                } else {
+//                    Toast.makeText(Login.this, "Unable to Login", Toast.LENGTH_SHORT).show();
+//                }
                 break;
 
             // upon clicking sign up btn, redirected to sign up page

@@ -45,15 +45,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // Create User Table
         String CREATE_USER_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_USER + "("
-                + KEY_USER_ID + " INTEGER PRIMARY KEY," + KEY_USER_USERNAME + " TEXT,"
+                + KEY_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_USER_USERNAME + " TEXT,"
                 + KEY_USER_EMAIL + " TEXT," + KEY_USER_PASSWORD + "TEXT," + KEY_USER_SAVEDITEMS + "TEXT" + ")";
         db.execSQL(CREATE_USER_TABLE);
 
         // Create Product Table
         String CREATE_PRODUCT_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_PRODUCT + "("
-                + KEY_PRODUCT_PRODUCTID + " INTEGER PRIMARY KEY," + KEY_PRODUCT_COLLECTION + " TEXT,"
+                + KEY_PRODUCT_PRODUCTID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_PRODUCT_COLLECTION + " TEXT,"
                 + KEY_PRODUCT_NAME + " TEXT," + KEY_PRODUCT_DESC + "TEXT," + KEY_PRODUCT_PRICE + "REAL, "
-                + KEY_PRODUCT_IMAGE + "BLOB, " + KEY_PRODUCT_CATEGORY + "TEXT, " + KEY_PRODUCT_SAVEDSTATUS + "INTEGER" + ")";
+                + KEY_PRODUCT_IMAGE + "TEXT, " + KEY_PRODUCT_CATEGORY + "TEXT, " + KEY_PRODUCT_SAVEDSTATUS + "INTEGER" + ")";
         db.execSQL(CREATE_PRODUCT_TABLE);
 
         // Create Default User
@@ -75,7 +75,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_USER_ID, 1);
         values.put(KEY_USER_USERNAME, "user123");
         values.put(KEY_USER_EMAIL, "user123@gmail.com");
         values.put(KEY_USER_PASSWORD, "user123");
@@ -87,20 +86,20 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close(); // Closing database connection
     }
 
-    public boolean validateUser(String username, String password) {
-
-        boolean result = false;
-        String countQuery = "SELECT * FROM " + TABLE_USER + " WHERE " + KEY_USER_USERNAME + " = " + username + " AND " + KEY_USER_PASSWORD + " = " + password;
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(countQuery, null);
-
-        // ensure user exists in user db
-        if (cursor.getCount() == 1) {
-            result = true;
-        }
-        cursor.close();
-        return result;
-    }
+//    public boolean validateUser(String username, String password) {
+//
+//        boolean result = false;
+//        String countQuery = "SELECT * FROM " + TABLE_USER + " WHERE " + KEY_USER_USERNAME + " = " + username + " AND " + KEY_USER_PASSWORD + " = " + password;
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor cursor = db.rawQuery(countQuery, null);
+//
+//        // ensure user exists in user db
+//        if (cursor.getCount() == 1) {
+//            result = true;
+//        }
+//        cursor.close();
+//        return result;
+//    }
 
 //    // code to get the single product
 //    ProductItem getProduct(int id) {
@@ -136,7 +135,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 product.setCollection(cursor.getString(1));
                 product.setName(cursor.getString(2));
                 product.setPrice(cursor.getDouble(3));
-                product.setImage(cursor.getInt(4));
+                product.setImageURL(cursor.getString(4));
                 product.setSavedStatus(cursor.getInt(5));
                 // Adding contact to list
                 productList.add(product);
