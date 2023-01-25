@@ -85,7 +85,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.insert(TABLE_USER, null, values);
         db.close();
     }
-    
+
 //    public boolean validateUser(String username, String password) {
 //
 //        boolean result = false;
