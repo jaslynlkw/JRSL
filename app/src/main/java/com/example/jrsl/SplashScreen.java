@@ -21,6 +21,7 @@ public class SplashScreen extends AppCompatActivity {
 
         DatabaseHandler db = new DatabaseHandler(this);
         db.addDefaultUser();
+        db.addAllProducts();
 
         splashProgressBar = findViewById(R.id.progressBarSplashScreen);
         timer = new Timer();

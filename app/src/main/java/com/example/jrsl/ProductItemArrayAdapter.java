@@ -64,7 +64,6 @@ public class ProductItemArrayAdapter extends RecyclerView.Adapter<ProductItemArr
         String price = "$" + products.get(position).getPrice()+"0";
         holder.productPrice.setText(price);
 
-
         // Set image
         Glide.with(context)
                 .load(products.get(position).getImageURL())

@@ -29,7 +29,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_PRODUCT_NAME = "name";
     private static final String KEY_PRODUCT_DESC = "desc";
     private static final String KEY_PRODUCT_PRICE = "price";
-    private static final String KEY_PRODUCT_IMAGE = "image";
+    private static final String KEY_PRODUCT_IMAGEURL = "imageurl";
     private static final String KEY_PRODUCT_CATEGORY = "category";
     private static final String KEY_PRODUCT_SAVEDSTATUS = "savedStatus";
 
@@ -53,7 +53,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         String CREATE_PRODUCT_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_PRODUCT + "("
                 + KEY_PRODUCT_PRODUCTID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_PRODUCT_COLLECTION + " TEXT,"
                 + KEY_PRODUCT_NAME + " TEXT," + KEY_PRODUCT_DESC + "TEXT," + KEY_PRODUCT_PRICE + "REAL, "
-                + KEY_PRODUCT_IMAGE + "TEXT, " + KEY_PRODUCT_CATEGORY + "TEXT, " + KEY_PRODUCT_SAVEDSTATUS + "INTEGER" + ")";
+                + KEY_PRODUCT_IMAGEURL + "TEXT, " + KEY_PRODUCT_CATEGORY + "TEXT, " + KEY_PRODUCT_SAVEDSTATUS + "INTEGER" + ")";
         db.execSQL(CREATE_PRODUCT_TABLE);
 
     }
@@ -87,7 +87,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // code to add products
     public void addAllProducts() {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("INSERT INTO " + TABLE_PRODUCT + "(" + KEY_PRODUCT_COLLECTION + ", " + KEY_PRODUCT_NAME + ", " + KEY_PRODUCT_DESC + ", " + KEY_PRODUCT_PRICE + ", " + KEY_PRODUCT_IMAGE + ", " + KEY_PRODUCT_CATEGORY + ", " + KEY_PRODUCT_SAVEDSTATUS + ") VALUES " +
+        db.execSQL("INSERT INTO " + TABLE_PRODUCT + "('" + KEY_PRODUCT_COLLECTION + "', '" + KEY_PRODUCT_NAME + "','" + KEY_PRODUCT_DESC + "', '" + KEY_PRODUCT_PRICE + "', '" + KEY_PRODUCT_IMAGEURL + "', '" + KEY_PRODUCT_CATEGORY + "', '" + KEY_PRODUCT_SAVEDSTATUS + "') VALUES " +
                    "(\"Lyla Collection\",\"Off Shoulder Top\",\"Elegant White Off Shoulder Top with Frills. Appropriate for casual to semi-formal events.\",30.30,\"https://res.cloudinary.com/jaslynlkw/image/upload/v1674630291/ANDE/clothing/lyla_offshouldertop_wy7xb9.jpg\",\"clothing\", 0)," +
                    "(\"Freya Collection\",\"Pink Dotted Dress\",\"Cute Pink Dotted Dress with Frills. Appropriate for casual gatherings.\",60.40,\"https://res.cloudinary.com/jaslynlkw/image/upload/v1674630280/ANDE/clothing/freya_pinkdotteddress_dpggft.jpg\",\"clothing\", 0)," +
                    "(\"Aleya Collection\",\"Extravagant Black Dress\",\"Elegant Chic Black Dress with Frills. Appropriate for big events.\",230.30,\"https://res.cloudinary.com/jaslynlkw/image/upload/v1674630258/ANDE/clothing/aleya_extravagantblackdress_c96drc.jpg\",\"clothing\", 0)," +
@@ -141,7 +141,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public List<ProductItem> getAllProducts(String category) {
         List<ProductItem> productList = new ArrayList<ProductItem>();
         // Select All Query
-        String selectQuery = "SELECT " + KEY_PRODUCT_PRODUCTID + ", " + KEY_PRODUCT_COLLECTION + ", " + KEY_PRODUCT_NAME + ", " + KEY_PRODUCT_PRICE + ", " + KEY_PRODUCT_IMAGE + ", " + KEY_PRODUCT_SAVEDSTATUS
+        String selectQuery = "SELECT " + KEY_PRODUCT_PRODUCTID + ", " + KEY_PRODUCT_COLLECTION + ", " + KEY_PRODUCT_NAME + ", " + KEY_PRODUCT_PRICE + ", " + KEY_PRODUCT_IMAGEURL + ", " + KEY_PRODUCT_SAVEDSTATUS
                 + " FROM " + TABLE_PRODUCT + " WHERE " + KEY_PRODUCT_CATEGORY + " = " + category;
 
         SQLiteDatabase db = this.getWritableDatabase();
