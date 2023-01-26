@@ -48,19 +48,35 @@
             android:paddingVertical="8dp"
             android:layout_marginBottom="25dp"
             android:background="@drawable/myblueborder" />
-
-        <EditText
-            android:id="@+id/inputPassword"
+        
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/alegreya_sans_medium"
-            android:hint="@string/password"
-            android:textColorHint="@color/black"
-            android:textSize="22sp"
-            android:paddingLeft="20dp"
-            android:paddingVertical="8dp"
-            android:layout_marginBottom="25dp"
-            android:background="@drawable/myblueborder" />
+            android:background="@drawable/myblueborder">
+
+            <EditText
+                android:id="@+id/inputPassword"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_sans_medium"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:textColorHint="@color/black"
+                android:textSize="22sp"
+                android:paddingLeft="20dp"
+                android:paddingVertical="8dp" />
+
+            <ImageView
+                android:id="@+id/showHideBtn"
+                android:layout_width="45dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:text="Show"
+                app:srcCompat="@drawable/see_password" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textViewForgotPassword"

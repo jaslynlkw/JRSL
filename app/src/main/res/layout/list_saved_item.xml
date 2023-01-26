@@ -30,6 +30,7 @@
             android:padding="5dp"
             android:fontFamily="@font/alegreya_sans_bold"
             android:textColor="@color/black"
+            android:textSize="16sp"
             android:layout_marginLeft="3dp"
             android:layout_marginBottom="55dp"/>
 
@@ -44,7 +45,7 @@
             android:fontFamily="@font/alegreya_sans_medium"
             android:padding="5dp"
             android:textColor="@color/black"
-            android:textSize="13dp" />
+            android:textSize="15sp" />
         <TextView
             android:id="@+id/SavedPrice"
             android:layout_width="wrap_content"
@@ -52,7 +53,7 @@
             android:layout_gravity="bottom"
             android:layout_marginLeft="3dp"
             android:padding="5dp"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:fontFamily="@font/alegreya_sans_bold"
             android:textColor="@color/black"
             android:layout_marginBottom="10dp"
