@@ -1,5 +1,6 @@
 package com.example.jrsl;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,15 +10,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 public class OrderDetailsItemArrayAdapter extends RecyclerView.Adapter<OrderDetailsItemArrayAdapter.MyViewHolder> {
 
+    private final Context context;
     private ArrayList<CartItem> myCart;
     private CartClickListener myCartClickListener;
 
-    public OrderDetailsItemArrayAdapter(ArrayList<CartItem> myCart, CartClickListener myCartClickListener){
+    public OrderDetailsItemArrayAdapter(Context context, ArrayList<CartItem> myCart, CartClickListener myCartClickListener){
         this.myCart = myCart;
         this.myCartClickListener = myCartClickListener;
+        this.context = context;
     }
 
     @NonNull
@@ -61,7 +66,9 @@ public class OrderDetailsItemArrayAdapter extends RecyclerView.Adapter<OrderDeta
         holder.price.setText(price);
 
         // Set image
-        holder.image.setImageResource(myCart.get(position).getImage());
+        Glide.with(context)
+                .load(myCart.get(position).getImageURL())
+                .into(holder.image);
 
     }
 

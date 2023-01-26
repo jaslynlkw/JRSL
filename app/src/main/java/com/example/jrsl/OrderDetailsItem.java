@@ -6,13 +6,13 @@ public class OrderDetailsItem {
     private String orderDate;
     private String orderRef;
     private String orderStatus;
-    private int orderImage;
+    private String orderImageURL;
 
-    OrderDetailsItem(String orderDate,String orderRef,String orderStatus, int orderImage){
+    OrderDetailsItem(String orderDate,String orderRef,String orderStatus, String orderImageURL){
         this.orderDate = orderDate;
         this.orderRef = orderRef;
         this.orderStatus = orderStatus;
-        this.orderImage = orderImage;
+        this.orderImageURL = orderImageURL;
     }
 
     public String getOrderDate() {
@@ -38,11 +38,11 @@ public class OrderDetailsItem {
         this.orderStatus = orderStatus;
     }
 
-    public int getOrderImage() {
-        return orderImage;
+    public String getOrderImageURL() {
+        return orderImageURL;
     }
 
-    public void setOrderImage(int orderImage) {
-        this.orderImage = orderImage;
+    public void setOrderImage(String orderImageURL) {
+        this.orderImageURL = orderImageURL;
     }
 }

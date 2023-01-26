@@ -1,5 +1,6 @@
 package com.example.jrsl;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,15 +10,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 public class CartItemArrayAdapter extends RecyclerView.Adapter<CartItemArrayAdapter.MyViewHolder> {
 
+    private final Context context;
     private ArrayList<CartItem> myCart;
     private CartClickListener myCartClickListener;
 
-    public CartItemArrayAdapter(ArrayList<CartItem> myCart, CartClickListener myCartClickListener){
+    public CartItemArrayAdapter(Context context, ArrayList<CartItem> myCart, CartClickListener myCartClickListener){
         this.myCart = myCart;
         this.myCartClickListener = myCartClickListener;
+        this.context = context;
     }
 
     @NonNull
@@ -43,13 +48,11 @@ public class CartItemArrayAdapter extends RecyclerView.Adapter<CartItemArrayAdap
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         //Set collection type
-        holder.collectionType.setText(myCart.get(position).getCollectionType());
+        holder.collection.setText(myCart.get(position).getCollection());
 
         //Set brand
-        holder.brand.setText(myCart.get(position).getBrand());
+        holder.name.setText(myCart.get(position).getName());
 
-        //Set desc
-        holder.desc.setText(myCart.get(position).getDesc());
 
         //Set size
         holder.size.setText(myCart.get(position).getSize());
@@ -63,11 +66,9 @@ public class CartItemArrayAdapter extends RecyclerView.Adapter<CartItemArrayAdap
         holder.price.setText(price);
 
         // Set image
-        if (myCart.get(position).getImage() != 0) {
-            holder.image.setImageResource(myCart.get(position).getImage());
-        } else {
-            holder.image.setImageResource(R.drawable.karissa_blackstreetwearset); // or any other default image
-        }
+        Glide.with(context)
+                .load(myCart.get(position).getImageURL())
+                .into(holder.image);
 
     }
 
@@ -88,9 +89,8 @@ public class CartItemArrayAdapter extends RecyclerView.Adapter<CartItemArrayAdap
 
     //RecyclerView View Holder
     class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView collectionType;
-        private TextView brand;
-        private TextView desc;
+        private TextView collection;
+        private TextView name;
         private TextView size;
         private TextView qty;
         private TextView price;
@@ -98,9 +98,8 @@ public class CartItemArrayAdapter extends RecyclerView.Adapter<CartItemArrayAdap
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
-             collectionType = itemView.findViewById(R.id.CollectionType);
-             brand = itemView.findViewById(R.id.CartBrand);
-             desc = itemView.findViewById(R.id.CartDesc);
+             collection = itemView.findViewById(R.id.CartCollection);
+             name = itemView.findViewById(R.id.CartName);
              size = itemView.findViewById(R.id.CartSize);
              qty = itemView.findViewById(R.id.CartQty);
              price = itemView.findViewById(R.id.CartPrice);
