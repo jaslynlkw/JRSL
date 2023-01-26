@@ -3,25 +3,46 @@ package com.example.jrsl;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ProgressBar;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class SplashScreen extends AppCompatActivity {
+    SharedPreferences sharedPref;
+
     private ProgressBar splashProgressBar;
     private Timer timer;
     private int i = 0;
+
+    public static final String accessKey = "access";
+    public static final String myPrefs = "AccessPref";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        DatabaseHandler db = new DatabaseHandler(this);
-        db.addDefaultUser();
-        db.addAllProducts();
+        //loading preferences
+        sharedPref = getSharedPreferences(myPrefs, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+
+        Log.d(null, "Access Key Val:" + String.valueOf(sharedPref.getInt(accessKey,1)));
+        //Add default user and products into db if first access
+        if(sharedPref.getInt(accessKey,1)!=0) {
+            DatabaseHandler db = new DatabaseHandler(this);
+            db.addDefaultUser();
+            db.addAllProducts();
+            Log.d(null, "Added DB Stuff");
+
+            editor.putInt(accessKey, 0);
+            editor.commit();
+            Log.d(null, "Updated Access Key Val:" + String.valueOf(sharedPref.getInt(accessKey,1)));
+
+        }
 
         splashProgressBar = findViewById(R.id.progressBarSplashScreen);
         timer = new Timer();

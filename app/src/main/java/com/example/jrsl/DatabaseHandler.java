@@ -115,7 +115,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public boolean validateUser(String username, String password) {
 
         boolean result = false;
-        String countQuery = "SELECT * FROM " + TABLE_USER + " WHERE " + KEY_USER_USERNAME + " = " + username + " AND " + KEY_USER_PASSWORD + " = " + password;
+        String countQuery = "SELECT * FROM " + TABLE_USER + " WHERE " + KEY_USER_USERNAME + " = '" + username + "' AND " + KEY_USER_PASSWORD + " = '" + password + "'";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
 
@@ -150,7 +150,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         List<ProductItem> productList = new ArrayList<ProductItem>();
         // Select All Query
         String selectQuery = "SELECT " + KEY_PRODUCT_PRODUCTID + ", " + KEY_PRODUCT_COLLECTION + ", " + KEY_PRODUCT_NAME + ", " + KEY_PRODUCT_PRICE + ", " + KEY_PRODUCT_IMAGEURL + ", " + KEY_PRODUCT_SAVEDSTATUS
-                + " FROM " + TABLE_PRODUCT + " WHERE " + KEY_PRODUCT_CATEGORY + " = " + category;
+                + " FROM " + TABLE_PRODUCT + " WHERE " + KEY_PRODUCT_CATEGORY + " = '" + category + "'";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
