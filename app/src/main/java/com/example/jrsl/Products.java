@@ -1,6 +1,7 @@
 package com.example.jrsl;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -50,7 +51,7 @@ public class Products extends AppCompatActivity implements View.OnClickListener 
         //Reference of RecyclerView
         myRecyclerView = findViewById(R.id.myProductList);
         //Linear Layout Manager
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(Products.this, RecyclerView.VERTICAL, false);
+        GridLayoutManager linearLayoutManager = new GridLayoutManager(Products.this, 2);
         //Set Layout Manager to RecyclerView
         myRecyclerView.setLayoutManager(linearLayoutManager);
 

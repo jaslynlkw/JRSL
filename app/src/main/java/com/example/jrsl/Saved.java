@@ -59,5 +59,11 @@ public class Saved extends Fragment {
     private void bindSavedData() {
         cartItems.add(new CartItem("Reza Collection", "Off-white Teddy Bear Coat", 80.90, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630313/ANDE/clothing/reza_offwhiteteddybearcoat_ctx2ui.jpg"));
         cartItems.add(new CartItem("Niki Collection", "Yellow Matching Set", 71.20, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630312/ANDE/clothing/niki_yellowmatchingset_snyyyk.jpg"));
+        cartItems.add(new CartItem("Reza Collection", "Off-white Teddy Bear Coat", 80.90, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630313/ANDE/clothing/reza_offwhiteteddybearcoat_ctx2ui.jpg"));
+        cartItems.add(new CartItem("Niki Collection", "Yellow Matching Set", 71.20, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630312/ANDE/clothing/niki_yellowmatchingset_snyyyk.jpg"));
+        cartItems.add(new CartItem("Reza Collection", "Off-white Teddy Bear Coat", 80.90, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630313/ANDE/clothing/reza_offwhiteteddybearcoat_ctx2ui.jpg"));
+        cartItems.add(new CartItem("Niki Collection", "Yellow Matching Set", 71.20, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630312/ANDE/clothing/niki_yellowmatchingset_snyyyk.jpg"));
+        cartItems.add(new CartItem("Reza Collection", "Off-white Teddy Bear Coat", 80.90, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630313/ANDE/clothing/reza_offwhiteteddybearcoat_ctx2ui.jpg"));
+        cartItems.add(new CartItem("Niki Collection", "Yellow Matching Set", 71.20, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630312/ANDE/clothing/niki_yellowmatchingset_snyyyk.jpg"));
     }
 }
