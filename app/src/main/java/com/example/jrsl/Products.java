@@ -62,7 +62,7 @@ public class Products extends AppCompatActivity implements View.OnClickListener 
             @Override
             public void onItemClicked(ProductItem products)
             {
-                //get item id
+
             }
         });
 
@@ -79,6 +79,7 @@ public class Products extends AppCompatActivity implements View.OnClickListener 
         for (ProductItem product : products) {
             productItems.add(new ProductItem(product.getProductID(), product.getCollection(), product.getName(), product.getPrice(), product.getImageURL(), product.getCategory(), product.getSavedStatus()));
             Log.d(null, product.getName());
+            Log.d(null,"image url for " + product.getName() + " : " + product.getImageURL());
         }
     }
 

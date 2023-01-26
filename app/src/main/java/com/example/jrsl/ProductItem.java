@@ -82,7 +82,7 @@ public class ProductItem {
         return imageURL;
     }
 
-    public void setImageURL(String image) {
+    public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
     }
 

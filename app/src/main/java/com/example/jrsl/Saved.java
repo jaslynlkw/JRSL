@@ -3,6 +3,7 @@ package com.example.jrsl;
 import androidx.fragment.app.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +30,18 @@ public class Saved extends Fragment {
         View view = inflater.inflate(R.layout.activity_saved, container, false);
         setUIRef(view);
         bindSavedData();
+        view.findViewById(R.id.savedCart).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()) {
+                    case R.id.savedCart:
+                        Intent i1 = new Intent(getActivity(), Cart.class);
+                        startActivity(i1);
+                        break;
+                    // Handle other views click
+                }
+            }
+        });
         return view;
     }
 

@@ -15,8 +15,8 @@
             android:id="@+id/orderHistoryPicture"
             android:layout_width="wrap_content"
             android:layout_height="230dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="225dp" />
+            android:layout_marginTop="8dp"
+            android:padding="8dp"/>
 
         <TextView
             android:id="@+id/orderHistoryDate"
@@ -43,7 +43,7 @@
             android:fontFamily="@font/alegreya_sans_bold" />
 
         <ImageView
-            android:id="@+id/icon"
+            android:id="@+id/orderHistoryNext"
             android:layout_width="40dp"
             android:layout_height="75dp"
             android:layout_marginLeft="320dp"

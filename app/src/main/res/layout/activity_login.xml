@@ -86,6 +86,7 @@
             android:text="Forgot Password?"
             android:textColor="@color/red"
             android:textSize="20sp"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="50dp" />
 
         <Button
