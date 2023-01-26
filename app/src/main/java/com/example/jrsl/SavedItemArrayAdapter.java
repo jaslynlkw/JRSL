@@ -17,10 +17,12 @@ import java.util.ArrayList;
 public class SavedItemArrayAdapter extends RecyclerView.Adapter<SavedItemArrayAdapter.MyViewHolder>{
     private ArrayList<CartItem> myCart;
     private SavedItemArrayAdapter.SavedClickListener mySavedClickListener;
+    private Context context;
 
-    public SavedItemArrayAdapter(ArrayList<CartItem> myCart, SavedItemArrayAdapter.SavedClickListener mySavedClickListener){
+    public SavedItemArrayAdapter(Context context, ArrayList<CartItem> myCart, SavedItemArrayAdapter.SavedClickListener mySavedClickListener){
         this.myCart = myCart;
         this.mySavedClickListener = mySavedClickListener;
+        this.context = context;
     }
 
     @NonNull
@@ -57,7 +59,7 @@ public class SavedItemArrayAdapter extends RecyclerView.Adapter<SavedItemArrayAd
         holder.savedPrice.setText(price);
 
         // Set image
-        Glide.with(getContext())
+        Glide.with(context)
                 .load(myCart.get(position).getImageURL())
                 .into(holder.savedImage);
 

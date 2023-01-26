@@ -49,10 +49,10 @@ public class OrderDetailsItemArrayAdapter extends RecyclerView.Adapter<OrderDeta
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         //Set brand
-        holder.brand.setText(myCart.get(position).getBrand());
+        holder.brand.setText(myCart.get(position).getCollection());
 
         //Set desc
-        holder.desc.setText(myCart.get(position).getDesc());
+        holder.desc.setText(myCart.get(position).getName());
 
         //Set size
         holder.size.setText(myCart.get(position).getSize());

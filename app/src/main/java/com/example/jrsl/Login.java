@@ -30,8 +30,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 String username = edUsername.getText().toString();
                 String password = edPassword.getText().toString();
 
-                DatabaseHandler db = new DatabaseHandler(this);
-//                if (db.validateUser(username, password)) {
+//                DatabaseHandler db = new DatabaseHandler(this);
+//                if (db.validateUser(username, password) == true) {
                     Intent i1 = new Intent(this, MainActivity.class);
                     startActivity(i1);
 //                } else {

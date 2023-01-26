@@ -17,6 +17,7 @@ public class Saved extends Fragment {
 
     private RecyclerView mRecyclerView;
     private ArrayList<CartItem> cartItems = new ArrayList<>();
+    private Context context;
 
     public Saved() {
         // require a empty public constructor
@@ -24,12 +25,11 @@ public class Saved extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        context = container.getContext();
         View view = inflater.inflate(R.layout.activity_saved, container, false);
         setUIRef(view);
         bindSavedData();
         return view;
-
-
     }
 
     private void setUIRef(View view) {
@@ -41,7 +41,7 @@ public class Saved extends Fragment {
         mRecyclerView.setLayoutManager(linearLayoutManager);
 
         //Create adapter
-        SavedItemArrayAdapter myRecyclerViewAdapter = new SavedItemArrayAdapter(cartItems, new SavedItemArrayAdapter.SavedClickListener() {
+        SavedItemArrayAdapter myRecyclerViewAdapter = new SavedItemArrayAdapter(context ,cartItems, new SavedItemArrayAdapter.SavedClickListener() {
             @Override
             public void onItemClicked(CartItem savedItem) {
 
