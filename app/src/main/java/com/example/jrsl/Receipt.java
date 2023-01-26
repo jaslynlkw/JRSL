@@ -1,6 +1,9 @@
 package com.example.jrsl;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,8 +18,9 @@ public class Receipt extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_receipt);
     }
     public void onClick(View view) {
-            Intent i = new Intent(Receipt.this, Home.class);
-            startActivity(i);
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+
 
     }
 }
