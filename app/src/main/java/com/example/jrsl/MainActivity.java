@@ -3,12 +3,15 @@ package com.example.jrsl;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnItemSelectedListener {
+
+    SharedPreferences sh = getSharedPreferences("UserPref", MODE_PRIVATE);
 
     BottomNavigationView bottomNavigationView;
 

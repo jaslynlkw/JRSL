@@ -19,7 +19,7 @@ public class SplashScreen extends AppCompatActivity {
     private int i = 0;
 
     public static final String accessKey = "access";
-    public static final String myPrefs = "AccessPref";
+    public static final String accessPrefs = "AccessPref";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +27,9 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
         //loading preferences
-        sharedPref = getSharedPreferences(myPrefs, MODE_PRIVATE);
+        sharedPref = getSharedPreferences(accessPrefs, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
-        Log.d(null, "Access Key Val:" + String.valueOf(sharedPref.getInt(accessKey,1)));
         //Add default user and products into db if first access
         if(sharedPref.getInt(accessKey,1)!=0) {
             DatabaseHandler db = new DatabaseHandler(this);
@@ -40,8 +39,6 @@ public class SplashScreen extends AppCompatActivity {
 
             editor.putInt(accessKey, 0);
             editor.commit();
-            Log.d(null, "Updated Access Key Val:" + String.valueOf(sharedPref.getInt(accessKey,1)));
-
         }
 
         splashProgressBar = findViewById(R.id.progressBarSplashScreen);

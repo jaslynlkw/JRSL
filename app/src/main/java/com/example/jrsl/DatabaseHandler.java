@@ -2,13 +2,17 @@ package com.example.jrsl;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import at.favre.lib.crypto.bcrypt.BCrypt;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 
@@ -47,7 +51,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // Create User Table
         String CREATE_USER_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_USER + "("
-                + KEY_USER_ID + " INTEGER PRIMARY KEY," + KEY_USER_USERNAME + " TEXT,"
+                + KEY_USER_ID + " INTEGER PRIMARY KEY," + KEY_USER_USERNAME + " TEXT UNIQUE,"
                 + KEY_USER_EMAIL + " TEXT," + KEY_USER_PASSWORD + " TEXT," + KEY_USER_ADDRESS + " TEXT," + KEY_USER_SAVEDITEMS + " TEXT" + ")";
         db.execSQL(CREATE_USER_TABLE);
         Log.d(null,"User table created.");
@@ -78,11 +82,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void addDefaultUser() {
         SQLiteDatabase db = this.getWritableDatabase();
 
+        //hash user password
+        String password = "user123";
+        String bcryptHashedPassword = BCrypt.withDefaults().hashToString(12, password.toCharArray());
+
         ContentValues values = new ContentValues();
         values.put(KEY_USER_ID, 1);
         values.put(KEY_USER_USERNAME, "user123");
         values.put(KEY_USER_EMAIL, "user123@gmail.com");
-        values.put(KEY_USER_PASSWORD, "user123");
+        values.put(KEY_USER_PASSWORD, bcryptHashedPassword);
         values.put(KEY_USER_ADDRESS, "user,123,Singapore,101 Astar Lane,House 1,101101,Singapore");
         values.put(KEY_USER_SAVEDITEMS, "1");
 
@@ -112,22 +120,36 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public boolean validateUser(String username, String password) {
+    public String[] validateUser(String username, String password) {
 
-        boolean result = false;
-        String countQuery = "SELECT * FROM " + TABLE_USER + " WHERE " + KEY_USER_USERNAME + " = '" + username + "' AND " + KEY_USER_PASSWORD + " = '" + password + "'";
+        String[] results = new String[6];
+        results[0] = "false";
+        String selectUserQuery = "SELECT * FROM " + TABLE_USER + " WHERE " + KEY_USER_USERNAME + " = '" + username + "'";
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(countQuery, null);
+        Cursor cursor = db.rawQuery(selectUserQuery, null);
 
-        // ensure user exists in user db
-        if (cursor.getCount() != 0) {
-            result = true;
+        if (cursor.moveToFirst()) {
+            do {
+                // ensure username exists in user db then verify password
+                if (cursor.getCount() == 1) {
+                    String hashedUserPassword = cursor.getString(3);
+                    BCrypt.Result verifyResult = BCrypt.verifyer().verify(password.toCharArray(), hashedUserPassword);
+                    if (verifyResult.verified) {
+                        results[0] = "true";
+                        results[1] = cursor.getString(0);
+                        results[2] = cursor.getString(1);
+                        results[3] = cursor.getString(2);
+                        results[4] = cursor.getString(4);
+                        results[5] = cursor.getString(5);
+                    }
+                }
+            } while (cursor.moveToNext());
         }
+
         cursor.close();
-        return result;
+        return results;
 
     }
-
 
 //    // code to get the single product
 //    ProductItem getProduct(int id) {
@@ -177,8 +199,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 
     // Getting Products Count
-    public int getProductsCount() {
-        String countQuery = "SELECT  * FROM " + TABLE_PRODUCT;
+    public int getProductsCount(String category) {
+        String countQuery = "SELECT  * FROM " + TABLE_PRODUCT + " WHERE " + KEY_PRODUCT_CATEGORY + " = '" + category + "'";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
         cursor.close();
