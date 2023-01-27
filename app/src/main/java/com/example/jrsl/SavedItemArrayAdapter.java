@@ -15,11 +15,11 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 public class SavedItemArrayAdapter extends RecyclerView.Adapter<SavedItemArrayAdapter.MyViewHolder>{
-    private ArrayList<CartItem> myCart;
+    private ArrayList<ProductItem> myCart;
     private SavedItemArrayAdapter.SavedClickListener mySavedClickListener;
     private Context context;
 
-    public SavedItemArrayAdapter(Context context, ArrayList<CartItem> myCart, SavedItemArrayAdapter.SavedClickListener mySavedClickListener){
+    public SavedItemArrayAdapter(Context context, ArrayList<ProductItem     > myCart, SavedItemArrayAdapter.SavedClickListener mySavedClickListener){
         this.myCart = myCart;
         this.mySavedClickListener = mySavedClickListener;
         this.context = context;
@@ -100,6 +100,6 @@ public class SavedItemArrayAdapter extends RecyclerView.Adapter<SavedItemArrayAd
 
     //RecyclerView Click Listener
     public interface SavedClickListener{
-        void onItemClicked(CartItem savedItem);
+        void onItemClicked(ProductItem savedItem);
     }
 }

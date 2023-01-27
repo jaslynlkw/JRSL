@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         SharedPreferences pref = getSharedPreferences("UserPref", MODE_PRIVATE);
         int userID = pref.getInt("userID", 1);
 
+
+
         if (userID < 1) {
             //redirect to login page
             Toast.makeText(MainActivity.this, "Unable to retrieve user. Please login.", Toast.LENGTH_SHORT).show();
@@ -45,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         }
 
     }
+
+
     Home homeFragment = new Home();
     Search searchFragment = new Search();
     Saved savedFragment = new Saved();
