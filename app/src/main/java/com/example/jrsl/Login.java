@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
+import android.text.method.SingleLineTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
@@ -55,7 +57,19 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
             // upon clicking show hide btn, show/hide password
             case R.id.showHideBtn:
-                edPassword.setTransformationMethod(null);
+                ImageView eyeIcon = v.findViewById(R.id.showHideBtn);
+
+                if (edPassword.getTransformationMethod().getClass().getSimpleName() .equals("PasswordTransformationMethod")) {
+                    //show hidden password
+                    edPassword.setTransformationMethod(new SingleLineTransformationMethod());
+                    eyeIcon.setImageResource(R.drawable.hide_password);
+
+                } else {
+                    //hide password
+                    edPassword.setTransformationMethod(new PasswordTransformationMethod());                    eyeIcon.setImageResource(R.drawable.hide_password);
+                    eyeIcon.setImageResource(R.drawable.show_password);
+
+                }
                 break;
         }
     }
