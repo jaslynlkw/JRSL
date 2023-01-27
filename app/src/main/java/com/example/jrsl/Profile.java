@@ -22,9 +22,26 @@ public class Profile extends Fragment {
         View view = inflater.inflate(R.layout.activity_profile, container, false);
         view.findViewById(R.id.OrdersOption).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(), OrderHistory.class);
-                startActivity(i);
+            public void onClick(View view) {
+                switch (view.getId()) {
+                    case R.id.OrdersOption:
+                        Intent i1 = new Intent(getActivity(), OrderHistory.class);
+                        startActivity(i1);
+                        break;
+                    // Handle other views click
+                }
+            }
+        });
+        view.findViewById(R.id.profileCart).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()) {
+                    case R.id.profileCart:
+                        Intent i2 = new Intent(getActivity(), Cart.class);
+                        startActivity(i2);
+                        break;
+                    // Handle other views click
+                }
             }
         });
         return view;

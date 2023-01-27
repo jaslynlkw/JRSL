@@ -164,6 +164,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 product.setName(cursor.getString(2));
                 product.setPrice(cursor.getDouble(3));
                 product.setImageURL(cursor.getString(4));
+                Log.d(null,"In db handler: " + cursor.getString(4));
                 product.setSavedStatus(cursor.getInt(5));
                 // Adding contact to list
                 productList.add(product);

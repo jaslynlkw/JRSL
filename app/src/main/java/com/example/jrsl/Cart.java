@@ -15,10 +15,9 @@ public class Cart extends AppCompatActivity implements View.OnClickListener {
 
     private RecyclerView mRecyclerView;
     private ArrayList<CartItem> cartItems = new ArrayList<>();
-    private final Context context;
 
-    public Cart(Context context) {
-        this.context = context;
+    public Cart() {
+
     }
 
     @Override
@@ -38,7 +37,7 @@ public class Cart extends AppCompatActivity implements View.OnClickListener {
         mRecyclerView.setLayoutManager(linearLayoutManager);
 
         //Create adapter
-        CartItemArrayAdapter myRecyclerViewAdapter = new CartItemArrayAdapter(context,cartItems, new CartItemArrayAdapter.CartClickListener() {
+        CartItemArrayAdapter myRecyclerViewAdapter = new CartItemArrayAdapter(getApplicationContext(),cartItems, new CartItemArrayAdapter.CartClickListener() {
             @Override
             public void onItemClicked(CartItem cartItem) {
                 Toast.makeText(Cart.this, cartItem.getName(), Toast.LENGTH_SHORT).show();
@@ -65,7 +64,6 @@ public class Cart extends AppCompatActivity implements View.OnClickListener {
                 Intent i1 = new Intent(Cart.this, ChooseAddress.class);
                 startActivity(i1);
                 break;
-            default:
                 // Handle other views click
         }
 

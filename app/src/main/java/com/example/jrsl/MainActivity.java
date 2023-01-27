@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 return true;
 
             case R.id.searchIcon:
-                getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, searchFragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, searchFragment).addToBackStack(null).commit();
                 return true;
 
             case R.id.savedIcon:
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 return true;
 
             case R.id.profileIcon:
-                getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, profileFragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, profileFragment).addToBackStack(null).commit();
                 return true;
         }
         return false;

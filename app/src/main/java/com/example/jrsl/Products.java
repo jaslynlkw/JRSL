@@ -1,6 +1,7 @@
 package com.example.jrsl;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -50,7 +51,7 @@ public class Products extends AppCompatActivity implements View.OnClickListener 
         //Reference of RecyclerView
         myRecyclerView = findViewById(R.id.myProductList);
         //Linear Layout Manager
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(Products.this, RecyclerView.VERTICAL, false);
+        GridLayoutManager linearLayoutManager = new GridLayoutManager(Products.this, 2);
         //Set Layout Manager to RecyclerView
         myRecyclerView.setLayoutManager(linearLayoutManager);
 
@@ -61,7 +62,7 @@ public class Products extends AppCompatActivity implements View.OnClickListener 
             @Override
             public void onItemClicked(ProductItem products)
             {
-                //get item id
+
             }
         });
 
@@ -78,6 +79,7 @@ public class Products extends AppCompatActivity implements View.OnClickListener 
         for (ProductItem product : products) {
             productItems.add(new ProductItem(product.getProductID(), product.getCollection(), product.getName(), product.getPrice(), product.getImageURL(), product.getCategory(), product.getSavedStatus()));
             Log.d(null, product.getName());
+            Log.d(null,"image url for " + product.getName() + " : " + product.getImageURL());
         }
     }
 
