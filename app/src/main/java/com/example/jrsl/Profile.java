@@ -44,6 +44,21 @@ public class Profile extends Fragment {
                 }
             }
         });
+        // Sign Out
+        view.findViewById(R.id.btnSignOut).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()) {
+                    case R.id.btnSignOut:
+                        DatabaseHandler db = new DatabaseHandler(getActivity());
+                        db.updateSavedItems("", "clear");
+                        Intent i3 = new Intent(getActivity(), Login.class);
+                        startActivity(i3);
+                        break;
+                    // Handle other views click
+                }
+            }
+        });
         return view;
     }
 }

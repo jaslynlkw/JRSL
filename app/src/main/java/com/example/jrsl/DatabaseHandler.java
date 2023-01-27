@@ -157,27 +157,27 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         if (type.equals("save")) {
            String UPDATE_PRODUCT_TABLE = "UPDATE " + TABLE_PRODUCT + " SET " + KEY_PRODUCT_SAVEDSTATUS + " = 1 WHERE " + KEY_PRODUCT_PRODUCTID + " IN (" + savedItemIDs + ")";
            db.execSQL(UPDATE_PRODUCT_TABLE);
-       } else {
+        } else if (type.equals("clear")) {
             String UPDATE_PRODUCT_TABLE = "UPDATE " + TABLE_PRODUCT + " SET " + KEY_PRODUCT_SAVEDSTATUS + " = 0";
             db.execSQL(UPDATE_PRODUCT_TABLE);
         }
     }
 
-//    // code to get the single product
-//    ProductItem getProduct(int id) {
-//        SQLiteDatabase db = this.getReadableDatabase();
-//
-//        Cursor cursor = db.query(TABLE_PRODUCT, new String[] { KEY_ID,
-//                        KEY_USERNAME, KEY_EMAIL }, KEY_ID + "=?",
-//                new String[] { String.valueOf(id) }, null, null, null, null);
-//        if (cursor != null)
-//            cursor.moveToFirst();
-//
-//        ProductItem product = new Product(Integer.parseInt(cursor.getString(0)),
-//                cursor.getString(1), cursor.getString(2));
-//        // return contact
-//        return product;
-//    }
+    // code to get the single product
+    ProductItem getProduct(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_PRODUCT, new String[]
+                        { KEY_PRODUCT_COLLECTION, KEY_PRODUCT_NAME, KEY_PRODUCT_DESC, KEY_PRODUCT_PRICE, KEY_PRODUCT_IMAGEURL, KEY_PRODUCT_SAVEDSTATUS }, KEY_PRODUCT_PRODUCTID + "=?",
+                new String[] { String.valueOf(id) }, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        ProductItem product = new ProductItem(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getDouble(3), cursor.getString(4), cursor.getInt(5));
+        Log.d(null, "PRODUCT --> " + product.getName());
+        // return product
+        return product;
+    }
 
     // code to get all products of a category in a list view
     public List<ProductItem> getAllProducts(String category) {

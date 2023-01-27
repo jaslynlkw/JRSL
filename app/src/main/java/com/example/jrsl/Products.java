@@ -15,13 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Products extends AppCompatActivity implements View.OnClickListener {
-   // private final Context context;
     private RecyclerView myRecyclerView;
     private ArrayList<ProductItem> productItems = new ArrayList<>();
-
-//    public Products(Context context) {
-//        this.context = context;
-//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +57,9 @@ public class Products extends AppCompatActivity implements View.OnClickListener 
             @Override
             public void onItemClicked(ProductItem products)
             {
-
+                //upon item being clicked, do smth
+                Intent i = new Intent(Products.this, ProductDetails.class);
+                i.putExtra("productid_key", products.getProductID());
             }
         });
 

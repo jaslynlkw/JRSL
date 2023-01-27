@@ -11,14 +11,12 @@ public class ProductItem {
     private int savedStatus;
 
     // product details
-    public ProductItem(int product_id, String collection, String name, String desc, double price, String imageURL, String category, int savedStatus){
-        this.product_id = product_id;
+    public ProductItem(String collection, String name, String desc, double price, String imageURL, int savedStatus){
         this.collection = collection;
         this.name = name;
         this.desc = desc;
         this.price = price;
         this.imageURL = imageURL;
-        this.category = category;
         this.savedStatus = savedStatus;
     }
 

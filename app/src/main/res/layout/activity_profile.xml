@@ -95,7 +95,7 @@
             android:layout_marginTop="10dp"
             android:background="@color/lightgrey" />
         <Button
-            android:id="@+id/btnSignUp"
+            android:id="@+id/btnSignOut"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="220dp"
