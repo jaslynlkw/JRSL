@@ -13,8 +13,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import at.favre.lib.crypto.bcrypt.BCrypt;
-
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
     //sharedPrefs

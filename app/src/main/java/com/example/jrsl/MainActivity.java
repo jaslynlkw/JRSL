@@ -3,22 +3,34 @@ package com.example.jrsl;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnItemSelectedListener {
 
-    SharedPreferences sh = getSharedPreferences("UserPref", MODE_PRIVATE);
-
     BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences pref = getSharedPreferences("UserPref", MODE_PRIVATE);
+        int userID = pref.getInt("userID", 1);
+
+        if (userID < 1) {
+            //redirect to login page
+            Toast.makeText(MainActivity.this, "Unable to retrieve user. Please login.", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this, Login.class);
+            startActivity(i);
+        }
 
         bottomNavigationView = findViewById(R.id.bottomNav);
         bottomNavigationView.setOnItemSelectedListener(this);
