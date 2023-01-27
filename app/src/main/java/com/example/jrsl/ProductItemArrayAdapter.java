@@ -3,6 +3,7 @@ package com.example.jrsl;
 import com.bumptech.glide.Glide;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -96,7 +97,6 @@ public class ProductItemArrayAdapter extends RecyclerView.Adapter<ProductItemArr
         private TextView productName;
         private TextView productPrice;
         private ImageView productImage;
-        private ImageView productSavedStatus;
 
         MyViewHolder(@NonNull View itemView)
         {
@@ -105,7 +105,6 @@ public class ProductItemArrayAdapter extends RecyclerView.Adapter<ProductItemArr
             productName = itemView.findViewById(R.id.ProductName);
             productPrice = itemView.findViewById(R.id.ProductPrice);
             productImage = itemView.findViewById(R.id.ProductImage);
-            productSavedStatus = itemView.findViewById(R.id.SavedIcon);
 
         }
     }

@@ -118,6 +118,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    // code to validate user upon login
     public String[] validateUser(String username, String password) {
 
         String[] results = new String[6];
@@ -147,6 +148,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         cursor.close();
         return results;
 
+    }
+
+    // code to update saved item status in product table
+    public void updateSavedItems(String savedItemIDs, String type) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        if (type.equals("save")) {
+           String UPDATE_PRODUCT_TABLE = "UPDATE " + TABLE_PRODUCT + " SET " + KEY_PRODUCT_SAVEDSTATUS + " = 1 WHERE " + KEY_PRODUCT_PRODUCTID + " IN (" + savedItemIDs + ")";
+           db.execSQL(UPDATE_PRODUCT_TABLE);
+       } else {
+            String UPDATE_PRODUCT_TABLE = "UPDATE " + TABLE_PRODUCT + " SET " + KEY_PRODUCT_SAVEDSTATUS + " = 0";
+            db.execSQL(UPDATE_PRODUCT_TABLE);
+        }
     }
 
 //    // code to get the single product
@@ -195,6 +209,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return productList;
     }
 
+    // select * product where product_id = 1,2,3,4,5
 
     // Getting Products Count
     public int getProductsCount(String category) {

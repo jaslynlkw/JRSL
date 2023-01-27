@@ -67,6 +67,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     editor.putString(userSavedItemsKey, userResults[5]);
                     editor.commit();
 
+                    //update saved items in product table
+                    String savedItemIDS = sharedPref.getString(userSavedItemsKey, null);
+                    db.updateSavedItems(savedItemIDS, "save");
+
                     //redirect to home page
                     Toast.makeText(Login.this, "Logging in...", Toast.LENGTH_SHORT).show();
                     Intent i1 = new Intent(this, MainActivity.class);
