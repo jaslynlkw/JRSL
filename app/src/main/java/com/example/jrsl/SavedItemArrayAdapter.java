@@ -1,6 +1,7 @@
 package com.example.jrsl;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,6 +63,7 @@ public class SavedItemArrayAdapter extends RecyclerView.Adapter<SavedItemArrayAd
         Glide.with(context)
                 .load(myCart.get(position).getImageURL())
                 .into(holder.savedImage);
+        Log.d(null,myCart.get(position).getImageURL());
 
     }
 

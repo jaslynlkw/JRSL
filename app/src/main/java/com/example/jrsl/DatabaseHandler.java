@@ -37,6 +37,29 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_PRODUCT_CATEGORY = "category";
     private static final String KEY_PRODUCT_SAVEDSTATUS = "savedStatus";
 
+    //cart table
+    private static final String TABLE_CART = "cart";
+    private static final String KEY_CART_CARTID = "cart_id";
+    private static final String KEY_CART_PRODUCTIDS = "productids";
+    private static final String KEY_CART_SIZES = "sizes";
+    private static final String KEY_CART_QTY = "qty";
+    private static final String KEY_CART_PRICES = "prices";
+    private static final String KEY_CART_SUBTOTAL = "subTotal";
+    private static final String KEY_CART_SHIPPING = "shipping";
+
+
+    //order table
+
+    private static final String TABLE_ORDER = "Torder";
+    private static final String KEY_ORDER_ORDERID = "order_id";
+    private static final String KEY_ORDER_PRODUCTIDS = "order_productids";
+    private static final String KEY_ORDER_SIZES = "order_sizes";
+    private static final String KEY_ORDER_QTY = "order_qty";
+    private static final String KEY_ORDER_PRICES = "order_prices";
+    private static final String KEY_ORDER_TOTAL = "order_total";
+    private static final String KEY_ORDER_STATUS = "order_status";
+    private static final String KEY_ORDER_DATE = "order_date";
+    private static final String KEY_ORDER_REFERENCE = "order_ref";
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -62,6 +85,22 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL(CREATE_PRODUCT_TABLE);
         Log.d(null,"Product table created.");
 
+        // Create Cart Table
+        String CREATE_CART_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_CART + "("
+                + KEY_CART_CARTID + " INTEGER PRIMARY KEY," + KEY_CART_PRODUCTIDS + " TEXT,"
+                + KEY_CART_SIZES + " TEXT," + KEY_CART_QTY + " TEXT," + KEY_CART_PRICES + " TEXT, "
+                + KEY_CART_SUBTOTAL + " REAL, " + KEY_CART_SHIPPING + " REAL )";
+        db.execSQL(CREATE_CART_TABLE);
+        Log.d(null,"Cart table created.");
+
+        // Create Order Table
+        String CREATE_ORDER_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_ORDER + "("
+                + KEY_ORDER_ORDERID + " INTEGER PRIMARY KEY," + KEY_ORDER_PRODUCTIDS + " TEXT,"
+                + KEY_ORDER_SIZES + " TEXT," + KEY_ORDER_QTY + " TEXT," + KEY_ORDER_PRICES + " TEXT, "
+                + KEY_ORDER_TOTAL + " REAL, " + KEY_ORDER_STATUS  + " INT, " + KEY_ORDER_DATE + " DATE, " + KEY_ORDER_REFERENCE + " TEXT " + "  )";
+        db.execSQL(CREATE_ORDER_TABLE);
+        Log.d(null,"Cart table created.");
+
     }
 
 
@@ -71,6 +110,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRODUCT);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CART);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ORDER);
 
         // Create tables again
         onCreate(db);
@@ -117,6 +158,25 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                    "(12,\"Najla Collection\",\"Heeled Ballet Flats\",\"Simple and classic ballet flats, with a bit of a heel! Appropriate for casual to formal events.\",40.00,\"https://res.cloudinary.com/jaslynlkw/image/upload/v1674630355/ANDE/shoes/najla_heeledballetflats_gid0rz.jpg\",\"shoes\", 0);");
         db.close();
     }
+
+    //code to add default orders
+    public void addDefaultOrders() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("INSERT OR IGNORE INTO " + TABLE_ORDER + "('" + KEY_ORDER_ORDERID + "', '" + KEY_ORDER_PRODUCTIDS + "', '" + KEY_ORDER_SIZES + "','" + KEY_ORDER_QTY + "', '" + KEY_ORDER_PRICES + "', '" + KEY_ORDER_TOTAL + "', '" + KEY_ORDER_STATUS + "', '" + KEY_ORDER_DATE + "', '" + KEY_ORDER_REFERENCE + "') VALUES " +
+                "(1,\"1,4,9\",\"M,M,7\",\"1,1,1\",\"30.30,45.60,130.00\",205.90,\"Delivered\",\"2022/12/24\",\"D317HS\" )," +
+                "(2,\"3,8\",\"M,7\",\"1,1\",\"71.20,160.00\",390.30,\"Delivered\",\"2023/01/12\",\"C459WQ\" );");
+        db.close();
+    }
+
+    //code to add default cart items
+    public void addDefaultCartItems() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("INSERT OR IGNORE INTO " + TABLE_CART + "('" + KEY_CART_CARTID + "', '" + KEY_CART_PRODUCTIDS + "', '" + KEY_CART_SIZES + "','" + KEY_CART_QTY + "', '" + KEY_CART_PRICES + "', '" + KEY_CART_SUBTOTAL + "', '" + KEY_CART_SHIPPING + "') VALUES " +
+                "(1,\"5,6,7\",\"L,M,7\",\"1,1,1\",\"80.90,71.20,70.00\",221.20,0.00 );");
+        db.close();
+    }
+
+
 
     // code to validate user upon login
     public String[] validateUser(String username, String password) {
@@ -229,7 +289,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public List<ProductItem> getAllSavedProducts() {
         List<ProductItem> productList = new ArrayList<ProductItem>();
         // Select All Query
-        String selectQuery = "SELECT * FROM " + TABLE_PRODUCT + " WHERE " + KEY_PRODUCT_SAVEDSTATUS + " =1 " ;
+        String selectQuery = "SELECT " + KEY_PRODUCT_PRODUCTID + ", " + KEY_PRODUCT_COLLECTION + ", " + KEY_PRODUCT_NAME + ", " + KEY_PRODUCT_PRICE + ", " + KEY_PRODUCT_IMAGEURL + ", " + KEY_PRODUCT_SAVEDSTATUS
+                + " FROM " + TABLE_PRODUCT + " WHERE " + KEY_PRODUCT_SAVEDSTATUS + " =1 " ;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -252,5 +313,54 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // return contact list
         return productList;
+    }
+
+
+
+    //get cart items
+    public List<CartItem> getAllCartItems() {
+        List<CartItem> cartList = new ArrayList<CartItem>();
+        // Select All Query
+        String selectQuery = "SELECT " + KEY_CART_PRODUCTIDS + ", " + KEY_CART_SIZES + ", " + KEY_CART_QTY + ", " + KEY_CART_PRICES + ", " + KEY_CART_SUBTOTAL + ", " + KEY_CART_SHIPPING
+                + " FROM " + TABLE_CART + " WHERE " + KEY_CART_CARTID + " =1 " ;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            String[] sizes = cursor.getString(1).split(",");
+            String[] qty = cursor.getString(2).split(",");
+            String[] prices = cursor.getString(3).split(",");
+            String productids = cursor.getString(0);
+            Log.d(null, cursor.getString(0));
+
+            String selectQuery1 = "SELECT " + KEY_PRODUCT_COLLECTION + ", " + KEY_PRODUCT_NAME + ", " + KEY_PRODUCT_IMAGEURL + " FROM " + TABLE_PRODUCT + " WHERE "+KEY_PRODUCT_PRODUCTID+" IN (" + productids + ") " ;
+            SQLiteDatabase db1 = this.getWritableDatabase();
+            Cursor cursor1 = db1.rawQuery(selectQuery1, null);
+            Log.d(null, selectQuery1);
+            // looping through all rows and adding to list
+            if (cursor1.moveToFirst()) {
+                int i = 0;
+                    do {
+                        //Log.d(null, cursor1.getString(0));
+                        CartItem cart = new CartItem();
+                        cart.setCollection(cursor1.getString(0));
+                        cart.setName(cursor1.getString(1));
+                        cart.setImageURL(cursor1.getString(2));
+                        cart.setPrice(Double.parseDouble(prices[i]));
+                        cart.setSize(sizes[i]);
+                        cart.setQty(Integer.parseInt(qty[i]));
+                        Log.d(null, "In db handler get item: \n Collection : " + cursor1.getString(0) + "\n Name: " + cursor1.getString(1) + "\n Image : " + cursor1.getString(2) + "\n Price: " + Double.parseDouble(prices[i]) + "\n Size" + sizes[i] + "\n Qty: " + Integer.parseInt(qty[i]) );
+                        // Adding contact to list
+                        cartList.add(cart);
+                        i++;
+                    } while (cursor1.moveToNext());
+
+            }
+        }
+
+        // return contact list
+        return cartList;
     }
 }
