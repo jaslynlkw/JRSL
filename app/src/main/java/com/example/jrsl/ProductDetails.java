@@ -16,6 +16,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+
 public class ProductDetails extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
 
     private int productID;
@@ -36,7 +38,6 @@ public class ProductDetails extends AppCompatActivity implements AdapterView.OnI
 
         //getting product
         Intent intent = getIntent();
-        Log.d(null,"DOES THIS WORK : " + intent.getStringExtra("productid_key"));
         String id = intent.getStringExtra("productid_key");
         productID = Integer.parseInt(id);
         DatabaseHandler db = new DatabaseHandler(this);
@@ -45,7 +46,9 @@ public class ProductDetails extends AppCompatActivity implements AdapterView.OnI
 
         //setting product details
         ImageView productImage = findViewById(R.id.productDetailImage);
-//        productImage.setImageResource(?????);
+        Glide.with(getApplicationContext())
+                .load(product.getImageURL())
+                .into(productImage);
 
         TextView collectionText = findViewById(R.id.productDetailCollection);
         collectionText.setText(product.getCollection());
@@ -54,7 +57,7 @@ public class ProductDetails extends AppCompatActivity implements AdapterView.OnI
         nameText.setText(product.getName());
 
         TextView priceText = findViewById(R.id.productDetailPrice);
-        priceText.setText(String.valueOf(product.getPrice()));
+        priceText.setText("$" + product.getPrice() + "0");
 
         //setting qty spinner
         spinner = (Spinner)findViewById(R.id.productQtySpinner);
