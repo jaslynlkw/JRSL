@@ -38,19 +38,7 @@ public class ProductItemArrayAdapter extends RecyclerView.Adapter<ProductItemArr
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_products_item, parent, false);
 
         //Create View Holder
-        final MyViewHolder myViewHolder = new MyViewHolder(view);
-
-        //Item Clicks
-        myViewHolder.itemView.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-
-                myItemClickListener.onItemClicked(products.get(myViewHolder.getLayoutPosition()));
-
-            }
-        });
+        final MyViewHolder myViewHolder = new MyViewHolder(view, myItemClickListener);
 
         return myViewHolder;
 
@@ -96,28 +84,35 @@ public class ProductItemArrayAdapter extends RecyclerView.Adapter<ProductItemArr
     }
 
     //RecyclerView View Holder
-    class MyViewHolder extends RecyclerView.ViewHolder
+    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         private TextView productCollection;;
         private TextView productName;
         private TextView productPrice;
         private ImageView productImage;
+        private MyRecyclerViewItemClickListener myRecyclerViewItemClickListener;
 
-        MyViewHolder(@NonNull View itemView)
+        MyViewHolder(@NonNull View itemView, MyRecyclerViewItemClickListener myRecyclerViewItemClickListener)
         {
             super(itemView);
+            itemView.setOnClickListener(this);
             productCollection = itemView.findViewById(R.id.ProductCollection);
             productName = itemView.findViewById(R.id.ProductName);
             productPrice = itemView.findViewById(R.id.ProductPrice);
             productImage = itemView.findViewById(R.id.ProductImage);
+            this.myRecyclerViewItemClickListener = myRecyclerViewItemClickListener;
+        }
 
+        @Override
+        public void onClick(View view) {
+            myRecyclerViewItemClickListener.onItemClicked(getBindingAdapterPosition());
         }
     }
 
     //RecyclerView Click Listener
     public interface MyRecyclerViewItemClickListener
     {
-        void onItemClicked(ProductItem products);
+        void onItemClicked(int position);
     }
 
 }

@@ -65,7 +65,13 @@ public class ProductDetails extends AppCompatActivity implements AdapterView.OnI
                 sizeSelected = Integer.parseInt(radioSizeButton.getText().toString());
 
                 DatabaseHandler db = new DatabaseHandler(this);
-                db.addToCart(productID, sizeSelected, qtySelected);
+//                boolean insertResults = db.addToCart(productID, sizeSelected, qtySelected);
+//
+//                if (insertResults) {
+//                    Toast.makeText(ProductDetails.this, "Product successfully added to cart.", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    Toast.makeText(ProductDetails.this, "Product failed to be added to cart.", Toast.LENGTH_SHORT).show();
+//                }
 
                 break;
         }
