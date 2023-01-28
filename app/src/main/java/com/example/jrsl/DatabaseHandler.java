@@ -328,46 +328,72 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public List<CartItem> getAllCartItems() {
         List<CartItem> cartList = new ArrayList<CartItem>();
         // Select All Query
-        String selectQuery = "SELECT " + KEY_CART_PRODUCTID + ", " + KEY_CART_SIZE + ", " + KEY_CART_QTY + ", " + KEY_CART_PRICE + ", " + KEY_CART_SHIPPING
-                + " FROM " + TABLE_CART + " WHERE " + KEY_CART_CARTID + " =1 " ;
+        String selectQuery = "SELECT * FROM " + TABLE_CART ;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
-            String[] sizes = cursor.getString(1).split(",");
-            String[] qty = cursor.getString(2).split(",");
-            String[] prices = cursor.getString(3).split(",");
-            String productids = cursor.getString(0);
-            Log.d(null, cursor.getString(0));
+            CartItem cart = new CartItem();
 
-            String selectQuery1 = "SELECT " + KEY_PRODUCT_COLLECTION + ", " + KEY_PRODUCT_NAME + ", " + KEY_PRODUCT_IMAGEURL + " FROM " + TABLE_PRODUCT + " WHERE "+KEY_PRODUCT_PRODUCTID+" IN (" + productids + ") " ;
-            SQLiteDatabase db1 = this.getWritableDatabase();
-            Cursor cursor1 = db1.rawQuery(selectQuery1, null);
-            Log.d(null, selectQuery1);
-            // looping through all rows and adding to list
-            if (cursor1.moveToFirst()) {
-                int i = 0;
-                    do {
-                        //Log.d(null, cursor1.getString(0));
-                        CartItem cart = new CartItem();
-                        cart.setCollection(cursor1.getString(0));
-                        cart.setName(cursor1.getString(1));
-                        cart.setImageURL(cursor1.getString(2));
-                        cart.setPrice(Double.parseDouble(prices[i]));
-                        cart.setSize(sizes[i]);
-                        cart.setQty(Integer.parseInt(qty[i]));
-                        Log.d(null, "In db handler get item: \n Collection : " + cursor1.getString(0) + "\n Name: " + cursor1.getString(1) + "\n Image : " + cursor1.getString(2) + "\n Price: " + Double.parseDouble(prices[i]) + "\n Size" + sizes[i] + "\n Qty: " + Integer.parseInt(qty[i]) );
-                        // Adding contact to list
-                        cartList.add(cart);
-                        i++;
-                    } while (cursor1.moveToNext());
-
-            }
+//            String[] sizes = cursor.getString(1).split(",");
+//            String[] qty = cursor.getString(2).split(",");
+//            String[] prices = cursor.getString(3).split(",");
+//            String productids = cursor.getString(0);
+//            Log.d(null, cursor.getString(0));
         }
 
         // return contact list
         return cartList;
     }
+
+
+
+    //get Order History
+//    public List<CartItem> getAllCartItems() {
+//        List<CartItem> cartList = new ArrayList<CartItem>();
+//        // Select All Query
+//        String selectQuery = "SELECT " + KEY_CART_PRODUCTID + ", " + KEY_CART_SIZE + ", " + KEY_CART_QTY + ", " + KEY_CART_PRICE + ", " + KEY_CART_SHIPPING
+//                + " FROM " + TABLE_CART + " WHERE " + KEY_CART_CARTID + " =1 " ;
+//
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        Cursor cursor = db.rawQuery(selectQuery, null);
+//
+//        // looping through all rows and adding to list
+//        if (cursor.moveToFirst()) {
+//            String[] sizes = cursor.getString(1).split(",");
+//            String[] qty = cursor.getString(2).split(",");
+//            String[] prices = cursor.getString(3).split(",");
+//            String productids = cursor.getString(0);
+//            Log.d(null, cursor.getString(0));
+//
+//            String selectQuery1 = "SELECT " + KEY_PRODUCT_COLLECTION + ", " + KEY_PRODUCT_NAME + ", " + KEY_PRODUCT_IMAGEURL + " FROM " + TABLE_PRODUCT + " WHERE "+KEY_PRODUCT_PRODUCTID+" IN (" + productids + ") " ;
+//            SQLiteDatabase db1 = this.getWritableDatabase();
+//            Cursor cursor1 = db1.rawQuery(selectQuery1, null);
+//            Log.d(null, selectQuery1);
+//            // looping through all rows and adding to list
+//            if (cursor1.moveToFirst()) {
+//                int i = 0;
+//                do {
+//                    //Log.d(null, cursor1.getString(0));
+//                    CartItem cart = new CartItem();
+//                    cart.setCollection(cursor1.getString(0));
+//                    cart.setName(cursor1.getString(1));
+//                    cart.setImageURL(cursor1.getString(2));
+//                    cart.setPrice(Double.parseDouble(prices[i]));
+//                    cart.setSize(sizes[i]);
+//                    cart.setQty(Integer.parseInt(qty[i]));
+//                    Log.d(null, "In db handler get item: \n Collection : " + cursor1.getString(0) + "\n Name: " + cursor1.getString(1) + "\n Image : " + cursor1.getString(2) + "\n Price: " + Double.parseDouble(prices[i]) + "\n Size" + sizes[i] + "\n Qty: " + Integer.parseInt(qty[i]) );
+//                    // Adding contact to list
+//                    cartList.add(cart);
+//                    i++;
+//                } while (cursor1.moveToNext());
+//
+//            }
+//        }
+//
+//        // return contact list
+//        return cartList;
+//    }
 }
