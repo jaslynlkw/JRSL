@@ -35,6 +35,7 @@
              />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/myOrderHistoryList"
+            android:onClick="onClick"
             android:layout_width="416dp"
             android:layout_height="608dp"
             android:layout_marginTop="30dp"/>
@@ -66,17 +67,4 @@
 
 
     </LinearLayout>
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNav"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#FFFFFF"
-        app:menu="@menu/bottom_nav_menu"
-        app:itemIconSize="40dp"
-        app:itemIconTint="@color/black"
-        app:itemPaddingBottom="5dp"
-        app:itemTextColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

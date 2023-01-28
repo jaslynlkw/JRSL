@@ -89,6 +89,7 @@ public class CartItemArrayAdapter extends RecyclerView.Adapter<CartItemArrayAdap
 
     //RecyclerView View Holder
     class MyViewHolder extends RecyclerView.ViewHolder {
+        private int product_id;
         private TextView collection;
         private TextView name;
         private TextView size;

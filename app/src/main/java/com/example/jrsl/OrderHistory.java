@@ -8,10 +8,12 @@ import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class OrderHistory extends AppCompatActivity implements View.OnClickListener {
 
@@ -44,7 +46,14 @@ public class OrderHistory extends AppCompatActivity implements View.OnClickListe
         OrderHistoryItemArrayAdapter myRecyclerViewAdapter = new OrderHistoryItemArrayAdapter(getApplicationContext(),orderHistoryDetails, new OrderHistoryItemArrayAdapter.CartClickListener() {
             @Override
             public void onItemClicked(OrderDetailsItem orderDetails) {
-                Toast.makeText(OrderHistory.this, orderDetails.getOrderRef(), Toast.LENGTH_SHORT).show();
+                Intent i1 = new Intent(OrderHistory.this, OrderDetails.class);
+                Log.d(null, "Total: "+orderDetails.getOrderTotal());
+                i1.putExtra("order-ref",orderDetails.getOrderRef());
+                i1.putExtra("order-date",orderDetails.getOrderDate());
+                i1.putExtra("order-status",orderDetails.getOrderStatus());
+                i1.putExtra("order-total",orderDetails.getOrderTotal());
+                startActivity(i1);
+
             }
         });
 
@@ -53,8 +62,18 @@ public class OrderHistory extends AppCompatActivity implements View.OnClickListe
     }
 
     private void bindOrderDetailsData() {
-        orderHistoryDetails.add(new OrderDetailsItem("10/04/2020", "D371HS", "Delivered", "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630291/ANDE/clothing/lyla_offshouldertop_wy7xb9.jpg"));
-        orderHistoryDetails.add(new OrderDetailsItem("10/04/2020", "D371HS", "Delivered", "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630280/ANDE/clothing/freya_pinkdotteddress_dpggft.jpg"));
+
+        DatabaseHandler db = new DatabaseHandler(this);
+        List<OrderDetailsItem> cart = db.getAllOrderHistory();
+
+        //add cart items
+        for (OrderDetailsItem order : cart) {
+            orderHistoryDetails.add(new OrderDetailsItem(order.getOrderDate(),order.getOrderRef(),order.getOrderStatus(),order.getOrderImageURL(), order.getOrderTotal()));
+//            Log.d(null, cartitem.getName());
+//            Log.d(null,"image url for " + cartitem.getName() + " : " + cartitem.getImageURL());
+        }
+//        orderHistoryDetails.add(new OrderDetailsItem("10/04/2020", "D371HS", "Delivered", "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630291/ANDE/clothing/lyla_offshouldertop_wy7xb9.jpg"));
+//        orderHistoryDetails.add(new OrderDetailsItem("10/04/2020", "D371HS", "Delivered", "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630280/ANDE/clothing/freya_pinkdotteddress_dpggft.jpg"));
     }
 
     @Override
@@ -62,10 +81,6 @@ public class OrderHistory extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.orderHistoryBackBtn:
                 finish();
-                break;
-            case R.id.orderHistoryNext:
-                Intent i1 = new Intent(OrderHistory.this, OrderDetails.class);
-                startActivity(i1);
                 break;
             case R.id.orderHistoryCart:
                 Intent i2 = new Intent(OrderHistory.this, Cart.class);

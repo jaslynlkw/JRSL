@@ -8,11 +8,19 @@ public class OrderDetailsItem {
     private String orderStatus;
     private String orderImageURL;
 
-    OrderDetailsItem(String orderDate,String orderRef,String orderStatus, String orderImageURL){
+    private Double orderTotal;
+
+
+    OrderDetailsItem(String orderDate,String orderRef,String orderStatus, String orderImageURL,Double orderTotal){
         this.orderDate = orderDate;
         this.orderRef = orderRef;
         this.orderStatus = orderStatus;
         this.orderImageURL = orderImageURL;
+        this.orderTotal = orderTotal;
+    }
+
+    public OrderDetailsItem() {
+
     }
 
     public String getOrderDate() {
@@ -42,7 +50,15 @@ public class OrderDetailsItem {
         return orderImageURL;
     }
 
-    public void setOrderImage(String orderImageURL) {
+    public void setOrderImageURL(String orderImageURL) {
         this.orderImageURL = orderImageURL;
+    }
+
+    public Double getOrderTotal() {
+        return orderTotal;
+    }
+
+    public void setOrderTotal(Double orderTotal) {
+        this.orderTotal = orderTotal;
     }
 }
