@@ -23,8 +23,11 @@ public class ProductDetails extends AppCompatActivity implements AdapterView.OnI
     private static final Integer[] qty = {1,2,3,4,5,6,7,8,9,10};
     private RadioGroup radioSizeGroup;
     private RadioButton radioSizeButton;
-    private int sizeSelected;
+    private String sizeSelected;
     private int qtySelected;
+
+    DatabaseHandler db = new DatabaseHandler(this);
+    ProductItem product = db.getProduct(productID);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +37,6 @@ public class ProductDetails extends AppCompatActivity implements AdapterView.OnI
         //getting product
         Intent intent = getIntent();
         productID = Integer.parseInt(intent.getStringExtra("productid_key"));
-        DatabaseHandler db = new DatabaseHandler(this);
-        ProductItem product = db.getProduct(productID);
         Log.d(null, "PRODUCT DETAIL NAME: " + product.getName());
 
         //setting product details
@@ -90,16 +91,14 @@ public class ProductDetails extends AppCompatActivity implements AdapterView.OnI
                 // Get the selected size
                 int selectedId=radioSizeGroup.getCheckedRadioButtonId();
                 radioSizeButton=(RadioButton)findViewById(selectedId);
-                sizeSelected = Integer.parseInt(radioSizeButton.getText().toString());
+                sizeSelected = radioSizeButton.getText().toString();
+
+                // Get price
+                double price = qtySelected * product.getPrice();
 
                 DatabaseHandler db = new DatabaseHandler(this);
-//                boolean insertResults = db.addToCart(productID, sizeSelected, qtySelected, price, 0);
-//
-//                if (insertResults) {
-//                    Toast.makeText(ProductDetails.this, "Product successfully added to cart.", Toast.LENGTH_SHORT).show();
-//                } else {
-//                    Toast.makeText(ProductDetails.this, "Product failed to be added to cart.", Toast.LENGTH_SHORT).show();
-//                }
+                db.addToCart(productID, sizeSelected, qtySelected, price, 0.00);
+                Toast.makeText(ProductDetails.this, "Product successfully added to cart.", Toast.LENGTH_SHORT).show();
 
                 break;
         }

@@ -40,11 +40,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     //cart table
     private static final String TABLE_CART = "cart";
     private static final String KEY_CART_CARTID = "cart_id";
-    private static final String KEY_CART_PRODUCTIDS = "productids";
-    private static final String KEY_CART_SIZES = "sizes";
+    private static final String KEY_CART_PRODUCTID = "productid";
+    private static final String KEY_CART_SIZE = "size";
     private static final String KEY_CART_QTY = "qty";
-    private static final String KEY_CART_PRICES = "prices";
-    private static final String KEY_CART_SUBTOTAL = "subTotal";
+    private static final String KEY_CART_PRICE = "price";
     private static final String KEY_CART_SHIPPING = "shipping";
 
 
@@ -87,9 +86,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // Create Cart Table
         String CREATE_CART_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_CART + "("
-                + KEY_CART_CARTID + " INTEGER PRIMARY KEY," + KEY_CART_PRODUCTIDS + " TEXT,"
-                + KEY_CART_SIZES + " TEXT," + KEY_CART_QTY + " TEXT," + KEY_CART_PRICES + " TEXT, "
-                + KEY_CART_SUBTOTAL + " REAL, " + KEY_CART_SHIPPING + " REAL )";
+                + KEY_CART_CARTID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_CART_PRODUCTID + " INTEGER,"
+                + KEY_CART_SIZE + " TEXT," + KEY_CART_QTY + " INTEGER," + KEY_CART_PRICE + " REAL, "
+                + KEY_CART_SHIPPING + " REAL )";
         db.execSQL(CREATE_CART_TABLE);
         Log.d(null,"Cart table created.");
 
@@ -171,8 +170,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     //code to add default cart items
     public void addDefaultCartItems() {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("INSERT OR IGNORE INTO " + TABLE_CART + "('" + KEY_CART_CARTID + "', '" + KEY_CART_PRODUCTIDS + "', '" + KEY_CART_SIZES + "','" + KEY_CART_QTY + "', '" + KEY_CART_PRICES + "', '" + KEY_CART_SUBTOTAL + "', '" + KEY_CART_SHIPPING + "') VALUES " +
-                "(1,\"5,6,7\",\"L,M,7\",\"1,1,1\",\"80.90,71.20,70.00\",221.20,0.00 );");
+        db.execSQL("INSERT OR IGNORE INTO " + TABLE_CART + "('" + KEY_CART_CARTID + "', '" + KEY_CART_PRODUCTID + "', '" + KEY_CART_SIZE + "','" + KEY_CART_QTY + "', '" + KEY_CART_PRICE + "', '" + KEY_CART_SHIPPING + "') VALUES " +
+                "(1,3,\"S\",1,230.3,0.00 );");
         db.close();
     }
 
@@ -208,6 +207,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         cursor.close();
         return results;
 
+    }
+
+    // code to add product to cart
+    public void addToCart(int productid, String sizeSelected, int qty, double price, double shippingfee) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("INSERT INTO " + TABLE_CART + "('" + KEY_CART_PRODUCTID + "', '" + KEY_CART_SIZE + "','" + KEY_CART_QTY + "', '" + KEY_CART_PRICE + "', '" + KEY_CART_SHIPPING + "') VALUES " +
+                "(productid,sizeSelected,qty,price,shippingfee);");
+        db.close();
     }
 
     // code to update saved item status in product table
@@ -321,7 +328,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public List<CartItem> getAllCartItems() {
         List<CartItem> cartList = new ArrayList<CartItem>();
         // Select All Query
-        String selectQuery = "SELECT " + KEY_CART_PRODUCTIDS + ", " + KEY_CART_SIZES + ", " + KEY_CART_QTY + ", " + KEY_CART_PRICES + ", " + KEY_CART_SUBTOTAL + ", " + KEY_CART_SHIPPING
+        String selectQuery = "SELECT " + KEY_CART_PRODUCTID + ", " + KEY_CART_SIZE + ", " + KEY_CART_QTY + ", " + KEY_CART_PRICE + ", " + KEY_CART_SHIPPING
                 + " FROM " + TABLE_CART + " WHERE " + KEY_CART_CARTID + " =1 " ;
 
         SQLiteDatabase db = this.getWritableDatabase();
