@@ -7,10 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
+
 public class Cart extends AppCompatActivity implements View.OnClickListener {
 
     private RecyclerView mRecyclerView;
@@ -50,8 +53,18 @@ public class Cart extends AppCompatActivity implements View.OnClickListener {
 
     private void bindCartData()
     {
-        cartItems.add(new CartItem("Aleya Collection","Extravagant Black Dress","M",1, 230.30, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630258/ANDE/clothing/aleya_extravagantblackdress_c96drc.jpg"));
-        cartItems.add(new CartItem("Daniel Collection", "White Flared Jeans","M",1, 45.60, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630272/ANDE/clothing/daniel_whiteflaredjeans_osrtq6.jpg"));
+        DatabaseHandler db = new DatabaseHandler(this);
+        List<CartItem> cart = db.getAllCartItems();
+
+        //add cart items
+        for (CartItem cartitem : cart) {
+            cartItems.add(new CartItem(cartitem.getCollection(),cartitem.getName(),cartitem.getSize(),cartitem.getQty(),cartitem.getPrice(),cartitem.getImageURL()));
+            Log.d(null, cartitem.getName());
+            Log.d(null,"image url for " + cartitem.getName() + " : " + cartitem.getImageURL());
+        }
+//        cartItems.add(new CartItem("Aleya Collection","Extravagant Black Dress","M",1, 230.30, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630258/ANDE/clothing/aleya_extravagantblackdress_c96drc.jpg"));
+//        cartItems.add(new CartItem("Daniel Collection", "White Flared Jeans","M",1, 45.60, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630272/ANDE/clothing/daniel_whiteflaredjeans_osrtq6.jpg"));
+//        cartItems.add(new CartItem("Daniel Collection", "White Flared Jeans","M",1, 45.60, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630272/ANDE/clothing/daniel_whiteflaredjeans_osrtq6.jpg"));
     }
 
     @Override

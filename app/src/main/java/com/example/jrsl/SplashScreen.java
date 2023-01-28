@@ -35,6 +35,8 @@ public class SplashScreen extends AppCompatActivity {
             DatabaseHandler db = new DatabaseHandler(this);
             db.addDefaultUser();
             db.addAllProducts();
+            db.addDefaultCartItems();
+            db.addDefaultOrders();
             Log.d(null, "Added DB Stuff");
 
             editor.putInt(accessKey, 0);

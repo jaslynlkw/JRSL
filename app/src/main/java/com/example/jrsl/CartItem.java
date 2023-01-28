@@ -24,27 +24,55 @@ public class CartItem {
         this.imageURL = imageURL;
     }
 
+    public CartItem() {
+
+    }
+
     public String getCollection() {
         return collection;
+    }
+
+    public void setCollection(String collection) {
+        this.collection = collection;
     }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getSize() {
         return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
     }
 
     public int getQty() {
         return qty;
     }
 
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
+
     public double getPrice() {
         return price;
     }
 
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     public String getImageURL() {
         return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 }
