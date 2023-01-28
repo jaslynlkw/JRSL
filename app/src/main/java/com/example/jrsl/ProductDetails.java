@@ -28,8 +28,7 @@ public class ProductDetails extends AppCompatActivity implements AdapterView.OnI
     private String sizeSelected;
     private int qtySelected;
 
-    DatabaseHandler db = new DatabaseHandler(this);
-    ProductItem product = db.getProduct(productID);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +38,7 @@ public class ProductDetails extends AppCompatActivity implements AdapterView.OnI
         //getting product
         Intent intent = getIntent();
         String id = intent.getStringExtra("productid_key");
+        Log.d(null, "PRODUCT DETAIL ID: " + id);
         productID = Integer.parseInt(id);
         DatabaseHandler db = new DatabaseHandler(this);
         ProductItem product = db.getProduct(productID);
@@ -91,6 +91,8 @@ public class ProductDetails extends AppCompatActivity implements AdapterView.OnI
 
     @Override
     public void onClick(View view) {
+        DatabaseHandler db = new DatabaseHandler(this);
+        ProductItem product = db.getProduct(productID);
         switch (view.getId()) {
             // add product to cart
             case R.id.btnAddtoCart:
@@ -103,7 +105,6 @@ public class ProductDetails extends AppCompatActivity implements AdapterView.OnI
                 // Get price
                 double price = qtySelected * product.getPrice();
 
-                DatabaseHandler db = new DatabaseHandler(this);
                 db.addToCart(productID, sizeSelected, qtySelected, price, 0.00);
                 Toast.makeText(ProductDetails.this, "Product successfully added to cart.", Toast.LENGTH_SHORT).show();
 

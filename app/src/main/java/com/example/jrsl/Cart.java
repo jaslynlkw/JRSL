@@ -44,6 +44,10 @@ public class Cart extends AppCompatActivity implements View.OnClickListener {
             @Override
             public void onItemClicked(CartItem cartItem) {
                 Toast.makeText(Cart.this, cartItem.getName(), Toast.LENGTH_SHORT).show();
+                String id = String.valueOf(cartItem.getProduct_id());
+                Intent i = new Intent(getApplicationContext(), ProductDetails.class);
+                i.putExtra("productid_key", id);
+                startActivity(i);;
             }
         });
 
@@ -58,7 +62,7 @@ public class Cart extends AppCompatActivity implements View.OnClickListener {
 
         //add cart items
         for (CartItem cartitem : cart) {
-            cartItems.add(new CartItem(cartitem.getCollection(),cartitem.getName(),cartitem.getSize(),cartitem.getQty(),cartitem.getPrice(),cartitem.getImageURL()));
+            cartItems.add(new CartItem(cartitem.getProduct_id(),cartitem.getCollection(),cartitem.getName(),cartitem.getSize(),cartitem.getQty(),cartitem.getPrice(),cartitem.getImageURL()));
             Log.d(null, cartitem.getName());
             Log.d(null,"image url for " + cartitem.getName() + " : " + cartitem.getImageURL());
         }

@@ -1,12 +1,24 @@
 package com.example.jrsl;
 
 public class CartItem {
+
+    private int product_id;
     private String collection;
     private String size;
     private String name;
     private int qty;
     private double price;
     private String imageURL;
+
+    public CartItem(int product_id, String collection, String name, String size, int qty, double price, String imageURL){
+        this.product_id = product_id;
+        this.collection = collection;
+        this.name = name;
+        this.size = size;
+        this.qty = qty;
+        this.price = price;
+        this.imageURL = imageURL;
+    }
 
     public CartItem(String collection, String name, String size, int qty, double price, String imageURL){
         this.collection = collection;
@@ -26,6 +38,14 @@ public class CartItem {
 
     public CartItem() {
 
+    }
+
+    public void setProduct_id(int product_id) {
+        this.product_id = product_id;
+    }
+
+    public int getProduct_id() {
+        return product_id;
     }
 
     public String getCollection() {

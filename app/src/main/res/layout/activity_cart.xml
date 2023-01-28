@@ -49,6 +49,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/myCartList"
+            android:onClick="onClick"
             android:layout_width="416dp"
             android:layout_height="608dp"
             app:layout_constraintBottom_toBottomOf="parent"
