@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.List;
 public class Products extends AppCompatActivity implements View.OnClickListener {
     private RecyclerView myRecyclerView;
     private ArrayList<ProductItem> productItems = new ArrayList<>();
+    DatabaseHandler db = new DatabaseHandler(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,10 @@ public class Products extends AppCompatActivity implements View.OnClickListener 
 
         Intent intent = getIntent();
         String category = intent.getStringExtra("category_key");
+
+        //set product count
+        TextView productsCountText = findViewById(R.id.productsCountText);
+        productsCountText.setText(db.getProductsCount(category) + " items");
 
         bindProductsData(category);
         setUIRef();
@@ -59,6 +65,7 @@ public class Products extends AppCompatActivity implements View.OnClickListener 
             {
                 //upon item being clicked, do smth
                 Intent i = new Intent(Products.this, ProductDetails.class);
+                startActivity(i);
                 i.putExtra("productid_key", products.getProductID());
             }
         });
@@ -69,7 +76,6 @@ public class Products extends AppCompatActivity implements View.OnClickListener 
 
     private void bindProductsData(String category)
     {
-        DatabaseHandler db = new DatabaseHandler(this);
         List<ProductItem> products = db.getAllProducts(category);
 
         //add product items

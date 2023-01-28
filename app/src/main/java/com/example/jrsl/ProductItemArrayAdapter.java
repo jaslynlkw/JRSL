@@ -3,6 +3,7 @@ package com.example.jrsl;
 import com.bumptech.glide.Glide;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -45,7 +46,9 @@ public class ProductItemArrayAdapter extends RecyclerView.Adapter<ProductItemArr
             @Override
             public void onClick(View v)
             {
+
                 myItemClickListener.onItemClicked(products.get(myViewHolder.getLayoutPosition()));
+
             }
         });
 

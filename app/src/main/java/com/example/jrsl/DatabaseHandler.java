@@ -216,10 +216,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         String countQuery = "SELECT  * FROM " + TABLE_PRODUCT + " WHERE " + KEY_PRODUCT_CATEGORY + " = '" + category + "'";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
+        int prodCount = cursor.getCount();
         cursor.close();
 
         // return count
-        return cursor.getCount();
+        return prodCount;
+
     }
 
 

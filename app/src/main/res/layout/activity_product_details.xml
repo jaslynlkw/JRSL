@@ -1,11 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProductDetails">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_editor_absoluteX="1dp"
+        app:layout_editor_absoluteY="1dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_editor_absoluteX="1dp"
+            app:layout_editor_absoluteY="1dp"
+            >
+            <ImageView
+                android:id="@+id/backArrowBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawablePadding="10dp"
+                app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+                android:onClick="onClick" />
+            <ImageView
+                android:id="@+id/imageViewCart"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="305dp"
+                android:layout_marginTop="16dp"
+                android:onClick="onClick"
+                android:contentDescription="Cart Image"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.541"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/cart" />
+        </LinearLayout>
+        
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="35dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_editor_absoluteX="1dp"
+            app:layout_editor_absoluteY="1dp"
+            >
+            <TextView
+                android:id="@+id/productDetailCollection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_sans_bold"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                android:text="Soleil Collection"
+                android:layout_marginTop="20dp" />
+            <ImageView
+                android:id="@+id/imageViewSaved"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="193dp"
+                android:layout_marginTop="20dp"
+                android:onClick="onClick"
+                android:contentDescription="Cart Image"
+                app:srcCompat="@drawable/icon_save" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/productDetailName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="White Dress" />
+        <TextView
+            android:id="@+id/productDetailPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="$62.00"
+            android:layout_marginBottom="25dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_editor_absoluteX="1dp"
+            app:layout_editor_absoluteY="1dp"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="100dp"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/productDetailSizeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/alegreya_sans_bold"
+                    android:textColor="@color/grey"
+                    android:textSize="20sp"
+                    android:text="Size" />
+
+                <RadioGroup
+                    android:id="@+id/productSizeRadioGroup"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="25dp"
+                    android:orientation="horizontal"
+                    android:layout_above="@+id/view_below" >
+
+                    <RadioButton
+                        android:id="@+id/radioBtn_optionSmall"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="S" />
+
+                    <RadioButton
+                        android:id="@+id/radioBtn_optionMedium"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="M" />
+
+                    <RadioButton
+                        android:id="@+id/radioBtn_optionLarge"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="L" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/productDetailQtyTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/alegreya_sans_bold"
+                    android:textColor="@color/grey"
+                    android:textSize="20sp"
+                    android:text="Quantity" />
+
+                <Spinner
+                    android:id="@+id/productQtySpinner"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/productDetailDescTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/alegreya_sans_bold"
+            android:textColor="@color/grey"
+            android:textSize="20sp"
+            android:text="Description" />
+        <TextView
+            android:id="@+id/productDetailDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:textColor="@color/grey"
+            android:textSize="20sp"
+            android:text="A beautiful, elegant white dress suitable for any type of occasion. Made with silk and pearls from the Atlantic Ocean." />
+
+        <Button
+            android:id="@+id/btnAddtoCart"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="Add to Cart"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:background="@drawable/mybluebutton"
+            android:fontFamily="@font/alegreya_sans_bold" />
+
+    </LinearLayout>
+
+</ScrollView>
