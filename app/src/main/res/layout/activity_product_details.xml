@@ -47,6 +47,7 @@
         </LinearLayout>
         
         <ImageView
+            android:id="@+id/productDetailImage"
             android:layout_width="match_parent"
             android:layout_height="350dp"
             android:layout_gravity="center"

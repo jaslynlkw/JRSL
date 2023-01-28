@@ -28,6 +28,10 @@ public class Products extends AppCompatActivity implements View.OnClickListener,
         Intent intent = getIntent();
         String category = intent.getStringExtra("category_key");
 
+        //set back button text
+        TextView categoryText = findViewById(R.id.textViewProductCategory);
+        categoryText.setText("All " + category);
+
         //set product count
         TextView productsCountText = findViewById(R.id.productsCountText);
         productsCountText.setText(db.getProductsCount(category) + " items");
@@ -80,6 +84,7 @@ public class Products extends AppCompatActivity implements View.OnClickListener,
     @Override
     public void onItemClicked(int position) {
         ProductItem product = productItems.get(position);
+        Log.d(null, "UAGFOHDABOHDA");
         //upon item being clicked, do smth
         Intent i = new Intent(Products.this, ProductDetails.class);
         startActivity(i);
