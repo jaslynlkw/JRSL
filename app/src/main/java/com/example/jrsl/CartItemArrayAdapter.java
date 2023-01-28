@@ -62,7 +62,7 @@ public class CartItemArrayAdapter extends RecyclerView.Adapter<CartItemArrayAdap
         holder.qty.setText(qt);
 
         //Set price
-        String price = "$" + myCart.get(position).getPrice();
+        String price = "$" + myCart.get(position).getPrice() + "0";
         holder.price.setText(price);
 
         // Set image

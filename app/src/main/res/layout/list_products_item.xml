@@ -7,8 +7,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/productCard"
         android:layout_width="180dp"
-        android:layout_height="350dp"
-        android:onClick="onClick">
+        android:layout_height="350dp">
 
         <ImageView
             android:id="@+id/ProductImage"
