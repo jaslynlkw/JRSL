@@ -105,6 +105,15 @@ public class ProductDetails extends AppCompatActivity implements AdapterView.OnI
                 Toast.makeText(ProductDetails.this, "Product successfully added to cart.", Toast.LENGTH_SHORT).show();
 
                 break;
+            // cart icon
+            case R.id.imageViewCart:
+                Intent i = new Intent(this, Cart.class);
+                startActivity(i);
+                break;
+            // back to products
+            case R.id.backArrowBtn:
+                finish();
+                break;
         }
     }
 
