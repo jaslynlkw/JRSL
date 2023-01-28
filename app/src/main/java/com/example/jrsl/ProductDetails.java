@@ -33,7 +33,9 @@ public class ProductDetails extends AppCompatActivity implements AdapterView.OnI
 
         //getting product
         Intent intent = getIntent();
-        productID = Integer.parseInt(intent.getStringExtra("productid_key"));
+        Log.d(null,"DOES THIS WORK : " + intent.getStringExtra("productid_key"));
+        String id = intent.getStringExtra("productid_key");
+        productID = Integer.parseInt(id);
         DatabaseHandler db = new DatabaseHandler(this);
         ProductItem product = db.getProduct(productID);
         Log.d(null, "PRODUCT DETAIL NAME: " + product.getName());

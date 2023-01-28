@@ -88,6 +88,7 @@ public class Products extends AppCompatActivity implements View.OnClickListener,
         //upon item being clicked, do smth
         Intent i = new Intent(Products.this, ProductDetails.class);
         startActivity(i);
-        i.putExtra("productid_key", product.getProductID());
+        i.putExtra("productid_key", String.valueOf(product.getProductID()));
+        //Log.d(null,i.getStringExtra("productid_key"));
     }
 }
