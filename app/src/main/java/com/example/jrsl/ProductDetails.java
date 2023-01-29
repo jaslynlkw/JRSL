@@ -140,6 +140,10 @@ public class ProductDetails extends AppCompatActivity implements AdapterView.OnI
                         editor.putString("userSavedItems", updatedSavedItems);
                         editor.commit();
                         Toast.makeText(ProductDetails.this, "Product successfully unsaved.", Toast.LENGTH_SHORT).show();
+                        finish();
+                        overridePendingTransition(0, 0);
+                        startActivity(getIntent());
+                        overridePendingTransition(0, 0);
                     }
                 } else {
                     //save
@@ -149,6 +153,10 @@ public class ProductDetails extends AppCompatActivity implements AdapterView.OnI
                         editor.putString("userSavedItems", newSavedItems);
                         editor.commit();
                         Toast.makeText(ProductDetails.this, "Product successfully saved.", Toast.LENGTH_SHORT).show();
+                        finish();
+                        overridePendingTransition(0, 0);
+                        startActivity(getIntent());
+                        overridePendingTransition(0, 0);
                     }
                 }
                 break;
