@@ -173,16 +173,16 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/receiptOrderSubtotal"
+                android:id="@+id/receiptOrderTotal"
                 android:layout_width="313dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/alegreya_sans_medium"
-                android:text="Subtotal"
+                android:text="Total"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 android:textColor="#000"
                 android:textSize="15sp" />
             <TextView
-                android:id="@+id/receiptOrderSubtotalInput"
+                android:id="@+id/receiptOrdertotalInput"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/alegreya_sans_bold"
@@ -235,16 +235,16 @@
             >
 
             <TextView
-                android:id="@+id/receiptTotal"
+                android:id="@+id/receiptSubTotal"
                 android:layout_width="313dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/alegreya_sans_medium"
-                android:text="Total"
+                android:text="Subtotal"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 android:textColor="#000"
                 android:textSize="15sp" />
             <TextView
-                android:id="@+id/receiptTotalInput"
+                android:id="@+id/receiptSubTotalInput"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/alegreya_sans_bold"

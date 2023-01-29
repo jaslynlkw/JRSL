@@ -50,6 +50,15 @@ public class Receipt extends AppCompatActivity implements View.OnClickListener {
         TextView orderAddressCountryText = findViewById(R.id.receiptOrderAddressCountry);
         orderAddressCountryText.setText(addressArrayList.get(6));
 
+        TextView ordertotalText = findViewById(R.id.receiptOrdertotalInput);
+        ordertotalText.setText(String.valueOf(receipt.getOrderTotal()));
+
+        TextView orderShippingText = findViewById(R.id.receiptOrderShippingInput);
+        orderShippingText.setText(String.valueOf(receipt.getShipping()));
+
+        TextView orderSubTotalText = findViewById(R.id.receiptSubTotalInput);
+        orderSubTotalText.setText(String.valueOf(receipt.getOrderTotal()) + receipt.getShipping());
+
     }
     @Override
     public void onClick(View view) {

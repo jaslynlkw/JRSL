@@ -241,8 +241,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
         cursor.close();
 
+        String newSavedItems = "";
+
         //updating user's saved items
-        String newSavedItems = savedItems + "," + productid;
+        if (savedItems.equals("")) {
+            newSavedItems = String.valueOf(productid);
+        } else {
+            newSavedItems = savedItems + "," + productid;
+        }
         String UPDATE_USER_TABLE = "UPDATE " + TABLE_USER + " SET " + KEY_USER_SAVEDITEMS + " = '" + newSavedItems + "' WHERE " + KEY_USER_ID + " IN (" + userid + ")";
         dbWrite.execSQL(UPDATE_USER_TABLE);
 
