@@ -50,20 +50,19 @@ public class CartItemArrayAdapter extends RecyclerView.Adapter<CartItemArrayAdap
         //Set collection type
         holder.collection.setText(myCart.get(position).getCollection());
 
-        //Set brand
+        //Set name
         holder.name.setText(myCart.get(position).getName());
 
-
         //Set size
-        holder.size.setText(myCart.get(position).getSize());
+        holder.size.setText("Size: " + myCart.get(position).getSize());
 
         //Set qty
         String qt = Integer.toString(myCart.get(position).getQty());
-        holder.qty.setText(qt);
+        holder.qty.setText("Quantity: " + qt);
 
         //Set price
         String price = "$" + myCart.get(position).getPrice() + "0";
-        holder.price.setText(price);
+        holder.price.setText("Total Price: " + price);
 
         // Set image
         Glide.with(context)

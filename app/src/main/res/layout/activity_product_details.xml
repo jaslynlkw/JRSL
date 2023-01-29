@@ -46,12 +46,19 @@
                 app:srcCompat="@drawable/cart" />
         </LinearLayout>
         
-        <ImageView
+        <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
             android:id="@+id/productDetailImage"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="340dp"
             android:layout_gravity="center"
-            android:layout_marginTop="35dp"/>
+            android:layout_marginTop="15dp"/>
+        
+<!--        <ImageView-->
+<!--            android:id="@+id/productDetailImage"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="340dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="15dp"/>-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -62,18 +69,17 @@
             >
             <TextView
                 android:id="@+id/productDetailCollection"
-                android:layout_width="wrap_content"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/alegreya_sans_bold"
                 android:textColor="@color/black"
                 android:textSize="23sp"
-                android:text="Soleil Collection"
+                android:text="Allanwood Collection"
                 android:layout_marginTop="20dp" />
             <ImageView
                 android:id="@+id/imageViewSaved"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:layout_marginStart="193dp"
                 android:layout_marginTop="20dp"
                 android:onClick="onClick"
                 android:contentDescription="Cart Image"
@@ -197,6 +203,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
             android:gravity="center"
             android:onClick="onClick"
             android:text="Add to Cart"

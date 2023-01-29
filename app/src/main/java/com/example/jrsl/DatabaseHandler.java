@@ -2,12 +2,14 @@ package com.example.jrsl;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
@@ -94,7 +96,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // Create Order Table
         String CREATE_ORDER_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_ORDER + "("
-                + KEY_ORDER_ORDERID + " INTEGER PRIMARY KEY," + KEY_ORDER_PRODUCTIDS + " TEXT,"
+                + KEY_ORDER_ORDERID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_ORDER_PRODUCTIDS + " TEXT,"
                 + KEY_ORDER_SIZES + " TEXT," + KEY_ORDER_QTY + " TEXT," + KEY_ORDER_PRICES + " TEXT, "
                 + KEY_ORDER_TOTAL + " REAL, " + KEY_ORDER_STATUS  + " INT, " + KEY_ORDER_DATE + " DATE, " + KEY_ORDER_REFERENCE + " TEXT " + "  )";
         db.execSQL(CREATE_ORDER_TABLE);
@@ -161,9 +163,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     //code to add default orders
     public void addDefaultOrders() {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("INSERT OR IGNORE INTO " + TABLE_ORDER + "('" + KEY_ORDER_ORDERID + "', '" + KEY_ORDER_PRODUCTIDS + "', '" + KEY_ORDER_SIZES + "','" + KEY_ORDER_QTY + "', '" + KEY_ORDER_PRICES + "', '" + KEY_ORDER_TOTAL + "', '" + KEY_ORDER_STATUS + "', '" + KEY_ORDER_DATE + "', '" + KEY_ORDER_REFERENCE + "') VALUES " +
-                "(1,\"1,4,9\",\"M,M,7\",\"1,1,1\",\"30.30,45.60,130.00\",205.90,\"Delivered\",\"2022/12/24\",\"D317HS\" )," +
-                "(2,\"3,8\",\"M,7\",\"1,1\",\"71.20,160.00\",390.30,\"Delivered\",\"2023/01/12\",\"C459WQ\" );");
+        db.execSQL("INSERT OR IGNORE INTO " + TABLE_ORDER + "('" + KEY_ORDER_PRODUCTIDS + "', '" + KEY_ORDER_SIZES + "','" + KEY_ORDER_QTY + "', '" + KEY_ORDER_PRICES + "', '" + KEY_ORDER_TOTAL + "', '" + KEY_ORDER_STATUS + "', '" + KEY_ORDER_DATE + "', '" + KEY_ORDER_REFERENCE + "') VALUES " +
+                "(\"1,4,9\",\"M,M,7\",\"1,1,1\",\"30.30,45.60,130.00\",205.90,\"Delivered\",\"2022/12/24\",\"D317HS\" )," +
+                "(\"3,8\",\"M,7\",\"1,1\",\"71.20,160.00\",390.30,\"Delivered\",\"2023/01/12\",\"C459WQ\" );");
         db.close();
     }
 
@@ -217,8 +219,77 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void addToCart(int productid, String sizeSelected, int qty, double price, double shippingfee) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("INSERT INTO " + TABLE_CART + "('" + KEY_CART_PRODUCTID + "', '" + KEY_CART_SIZE + "','" + KEY_CART_QTY + "', '" + KEY_CART_PRICE + "', '" + KEY_CART_SHIPPING + "') VALUES " +
-                "(productid,sizeSelected,qty,price,shippingfee);");
+                "('" + productid + "','" + sizeSelected + "','" + qty + "','" + price + "','"+ shippingfee + "')");
         db.close();
+    }
+
+    // code to add product to user's saveditems
+    public String addToSaved(int userid, int productid) {
+        SQLiteDatabase dbRead = this.getReadableDatabase();
+        SQLiteDatabase dbWrite = this.getWritableDatabase();
+
+        //getting user's saved items
+        String savedItems = "";
+        String selectUserSavedItemsQuery = "SELECT " + KEY_USER_SAVEDITEMS + " FROM " + TABLE_USER + " WHERE " + KEY_USER_ID + " = '" + userid + "'";
+        Cursor cursor = dbRead.rawQuery(selectUserSavedItemsQuery, null);
+
+        if (cursor.moveToFirst()) {
+            savedItems = cursor.getString(0);
+        }
+        cursor.close();
+
+        //updating user's saved items
+        String newSavedItems = savedItems + "," + productid;
+        String UPDATE_USER_TABLE = "UPDATE " + TABLE_USER + " SET " + KEY_USER_SAVEDITEMS + " = '" + newSavedItems + "' WHERE " + KEY_USER_ID + " IN (" + userid + ")";
+        dbWrite.execSQL(UPDATE_USER_TABLE);
+
+        //update saved item status in product table
+        updateSavedItems(newSavedItems, "save");
+
+        return newSavedItems;
+    }
+
+    // code to add product to user's saveditems
+    public String removeFromSaved(int userid, int productid) {
+        SQLiteDatabase dbRead = this.getReadableDatabase();
+        SQLiteDatabase dbWrite = this.getWritableDatabase();
+        int indexS=0;
+
+        //getting user's saved items
+        String savedItems = "";
+        String selectUserSavedItemsQuery = "SELECT " + KEY_USER_SAVEDITEMS + " FROM " + TABLE_USER + " WHERE " + KEY_USER_ID + " = '" + userid + "'";
+        Cursor cursor = dbRead.rawQuery(selectUserSavedItemsQuery, null);
+
+        if (cursor.moveToFirst()) {
+            savedItems = cursor.getString(0);
+        }
+        cursor.close();
+
+        //removing from user's saved items
+        ArrayList<String> savedItemsArrayList = new ArrayList<>(Arrays.asList(savedItems.split(",")));
+
+        //getting index of product to remove
+        for(int i=0; i< savedItemsArrayList.size(); i++) {
+            if(savedItemsArrayList.get(i) == String.valueOf(productid)){
+                indexS = i;
+                break;
+            }
+        }
+
+        Log.d(null, "INDEX" + indexS);
+        //remove productid from saved item arraylist
+        savedItemsArrayList.remove(indexS);
+
+        String xSavedItems = savedItemsArrayList.toString().replaceAll("\\[", "");
+        String newSavedItems = xSavedItems.replaceAll("\\]", "");
+
+        String UPDATE_USER_TABLE = "UPDATE " + TABLE_USER + " SET " + KEY_USER_SAVEDITEMS + " = '" + newSavedItems + "' WHERE " + KEY_USER_ID + " IN (" + userid + ")";
+        dbWrite.execSQL(UPDATE_USER_TABLE);
+
+        //update saved item status in product table
+        updateSavedItems(newSavedItems, "save");
+
+        return newSavedItems;
     }
 
     // code to update saved item status in product table

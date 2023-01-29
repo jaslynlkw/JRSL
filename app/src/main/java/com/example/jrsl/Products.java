@@ -48,6 +48,11 @@ public class Products extends AppCompatActivity implements View.OnClickListener,
             case R.id.textViewProductCategory:
                 finish();
                 break;
+            // redirection to Cart page
+            case R.id.imageViewCart:
+                Intent i = new Intent(Products.this, Cart.class);
+                startActivity(i);
+                break;
         }
     }
 
