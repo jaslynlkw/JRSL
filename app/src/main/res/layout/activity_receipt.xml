@@ -107,7 +107,7 @@
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/receiptOrderAdrdessStreet"
+            android:id="@+id/receiptOrderAddressStreet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"
@@ -117,7 +117,7 @@
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/receiptOrderAdressUnitNo"
+            android:id="@+id/receiptOrderAddressStreet2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"
@@ -127,7 +127,7 @@
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/receiptOrderAdressPostalCode"
+            android:id="@+id/receiptOrderAddressPostalCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"
@@ -137,7 +137,7 @@
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/receiptOrderAdressCity"
+            android:id="@+id/receiptOrderAddressCity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"
@@ -147,7 +147,7 @@
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/receiptOrderAdressCountry"
+            android:id="@+id/receiptOrderAddressCountry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"

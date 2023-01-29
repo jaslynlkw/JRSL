@@ -8,6 +8,22 @@ public class OrderDetailsItem {
     private String orderStatus;
     private String orderImageURL;
 
+    public String getOrderAddress() {
+        return orderAddress;
+    }
+
+    public void setOrderAddress(String orderAddress) {
+        this.orderAddress = orderAddress;
+    }
+
+    public double getShipping() {
+        return shipping;
+    }
+
+    public void setShipping(double shipping) {
+        this.shipping = shipping;
+    }
+
     private String orderAddress;
 
     private double shipping;

@@ -283,7 +283,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             }
         }
 
-//        String xSavedItems = savedItemsArrayList.toString().replaceAll("\\[", "");
         String newSavedItems = TextUtils.join(",", savedItemsArrayList);
 
         String UPDATE_USER_TABLE = "UPDATE " + TABLE_USER + " SET " + KEY_USER_SAVEDITEMS + " = '" + newSavedItems + "' WHERE " + KEY_USER_ID + " IN (" + userid + ")";

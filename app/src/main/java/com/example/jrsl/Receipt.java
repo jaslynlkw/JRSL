@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Receipt extends AppCompatActivity implements View.OnClickListener {
 
     @Override
@@ -29,8 +32,23 @@ public class Receipt extends AppCompatActivity implements View.OnClickListener {
         TextView orderDateText = findViewById(R.id.receiptOrderDateInput);
         orderDateText.setText(receipt.getOrderDate());
 
-        TextView orderAddressText = findViewById(R.id.receiptOrderRefInput);
-        orderRefText.setText(receipt.getOrderRef());
+        String addressStr = receipt.getOrderAddress();
+        ArrayList<String> addressArrayList = new ArrayList<>(Arrays.asList(addressStr.split(",")));
+
+        TextView orderAddressStreetText = findViewById(R.id.receiptOrderAddressStreet);
+        orderAddressStreetText.setText(addressArrayList.get(3));
+
+        TextView orderAddressStreet2Text = findViewById(R.id.receiptOrderAddressStreet2);
+        orderAddressStreet2Text.setText(addressArrayList.get(4));
+
+        TextView orderAddressPostalCodeText = findViewById(R.id.receiptOrderAddressPostalCode);
+        orderAddressPostalCodeText.setText(addressArrayList.get(5));
+
+        TextView orderAddressCityText = findViewById(R.id.receiptOrderAddressCity);
+        orderAddressCityText.setText(addressArrayList.get(2));
+
+        TextView orderAddressCountryText = findViewById(R.id.receiptOrderAddressCountry);
+        orderAddressCountryText.setText(addressArrayList.get(6));
 
     }
     @Override
