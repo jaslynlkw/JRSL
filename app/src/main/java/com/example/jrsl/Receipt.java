@@ -51,13 +51,13 @@ public class Receipt extends AppCompatActivity implements View.OnClickListener {
         orderAddressCountryText.setText(addressArrayList.get(6));
 
         TextView ordertotalText = findViewById(R.id.receiptOrdertotalInput);
-        ordertotalText.setText(String.valueOf(receipt.getOrderTotal()));
+        ordertotalText.setText("$ "+receipt.getOrderTotal()+"0");
 
         TextView orderShippingText = findViewById(R.id.receiptOrderShippingInput);
-        orderShippingText.setText(String.valueOf(receipt.getShipping()));
+        orderShippingText.setText("$ "+receipt.getShipping()+"0");
 
         TextView orderSubTotalText = findViewById(R.id.receiptSubTotalInput);
-        orderSubTotalText.setText(String.valueOf(receipt.getOrderTotal()) + receipt.getShipping());
+        orderSubTotalText.setText("$ "+String.valueOf(receipt.getOrderTotal() + receipt.getShipping())+"0");
 
     }
     @Override
@@ -65,7 +65,8 @@ public class Receipt extends AppCompatActivity implements View.OnClickListener {
         switch (view.getId()) {
             // redirection back to Home page
             case R.id.btnBackToHome:
-                Intent i = new Intent(this, Home.class);
+                Intent i = new Intent(this, MainActivity.class);
+                startActivity(i);
                 break;
 
         }
