@@ -107,7 +107,7 @@
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/receiptOrderAdressStreet"
+            android:id="@+id/receiptOrderAdrdessStreet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sans_medium"
@@ -173,33 +173,6 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/receiptOrderDiscount"
-                android:layout_width="313dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/alegreya_sans_medium"
-                android:text="Discount"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-                android:textColor="#000"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/receiptOrderDiscountInput"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/alegreya_sans_bold"
-                android:text="$33.00"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-                android:textColor="#000"
-                android:textSize="15sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
                 android:id="@+id/receiptOrderSubtotal"
                 android:layout_width="313dp"
                 android:layout_height="wrap_content"
@@ -223,7 +196,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="30dp">
 
             <TextView
                 android:id="@+id/receiptOrderShipping"
@@ -239,7 +213,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/alegreya_sans_bold"
-                android:text="$20.00"
+                android:text="$00.00"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 android:textColor="#000"
                 android:textSize="15sp" />
@@ -286,6 +260,7 @@
             android:layout_height="3dp"
             android:layout_marginLeft="2dp"
             android:layout_marginTop="15dp"
+            android:layout_marginBottom="30dp"
             android:background="#FFDDDDDD" />
 
         <Button

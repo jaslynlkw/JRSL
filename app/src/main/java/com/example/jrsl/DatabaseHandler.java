@@ -319,9 +319,20 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             cursor.moveToFirst();
 
         ProductItem product = new ProductItem(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getDouble(3), cursor.getString(4), cursor.getInt(5));
-        Log.d(null, "PRODUCT --> " + product.getName());
         // return product
         return product;
+    }
+
+    // code to get order details for receipt
+    OrderDetailsItem getReceipt() {
+        String getOrderReceiptQuery = "SELECT  * FROM " + TABLE_ORDER + " ORDER BY " + KEY_ORDER_ORDERID + " DESC LIMIT 1";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(getOrderReceiptQuery, null);
+
+        OrderDetailsItem orderItem = new OrderDetailsItem(cursor.getString(2), Double.parseDouble(cursor.getString(7)), cursor.getString(9), cursor.getString(10), 0.00);
+        Log.d(null, "ORDERITEM --> " + orderItem.getOrderRef());
+        // return orderItem
+        return orderItem;
     }
 
     // code to get all products of a category in a list view

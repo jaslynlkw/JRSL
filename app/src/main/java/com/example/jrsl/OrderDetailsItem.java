@@ -8,6 +8,9 @@ public class OrderDetailsItem {
     private String orderStatus;
     private String orderImageURL;
 
+    private String orderAddress;
+
+    private double shipping;
     private Double orderTotal;
 
 
@@ -16,6 +19,15 @@ public class OrderDetailsItem {
         this.orderRef = orderRef;
         this.orderStatus = orderStatus;
         this.orderImageURL = orderImageURL;
+        this.orderTotal = orderTotal;
+    }
+
+    // receipt
+    OrderDetailsItem(String orderAddress, Double orderTotal, String orderDate,String orderRef, double shipping){
+        this.orderDate = orderDate;
+        this.orderRef = orderRef;
+        this.shipping = shipping;
+        this.orderAddress = orderAddress;
         this.orderTotal = orderTotal;
     }
 
