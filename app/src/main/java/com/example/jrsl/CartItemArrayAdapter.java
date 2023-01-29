@@ -32,15 +32,8 @@ public class CartItemArrayAdapter extends RecyclerView.Adapter<CartItemArrayAdap
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_cartitem, parent, false);
 
         //Create View Holder
-        final MyViewHolder myViewHolder = new MyViewHolder(view);
+        final MyViewHolder myViewHolder = new MyViewHolder(view,myCartClickListener);
 
-        //Item Clicks
-        myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myCartClickListener.onItemClicked(myCart.get(myViewHolder.getLayoutPosition()));
-            }
-        });
 
         return myViewHolder;
     }
@@ -96,7 +89,9 @@ public class CartItemArrayAdapter extends RecyclerView.Adapter<CartItemArrayAdap
         private TextView price;
         private ImageView image;
 
-        MyViewHolder(@NonNull View itemView) {
+        private CartClickListener myCartClickListener;
+
+        MyViewHolder(@NonNull View itemView, CartClickListener myCartClickListener) {
             super(itemView);
              collection = itemView.findViewById(R.id.CartCollection);
              name = itemView.findViewById(R.id.CartName);
@@ -104,11 +99,17 @@ public class CartItemArrayAdapter extends RecyclerView.Adapter<CartItemArrayAdap
              qty = itemView.findViewById(R.id.CartQty);
              price = itemView.findViewById(R.id.CartPrice);
              image = itemView.findViewById(R.id.cartPicture);
+            this.myCartClickListener = myCartClickListener;
+        }
+
+        @Override
+        public void onClick(View view) {
+            myCartClickListener.onItemClicked(getBindingAdapterPosition());
         }
     }
 
     //RecyclerView Click Listener
-    public interface CartClickListener {
-        void onItemClicked(CartItem cartItem);
+    public interface CartClickListener  {
+        void onItemClicked(int position);
     }
 }

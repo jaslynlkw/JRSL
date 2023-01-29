@@ -9,8 +9,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
 import android.util.Log;
 
+import java.sql.Wrapper;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
@@ -333,7 +335,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         String getOrderReceiptQuery = "SELECT  * FROM " + TABLE_ORDER + " ORDER BY " + KEY_ORDER_ORDERID + " DESC LIMIT 1";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(getOrderReceiptQuery, null);
-
+        if (cursor != null)
+            cursor.moveToFirst();
         OrderDetailsItem orderItem = new OrderDetailsItem(cursor.getString(2), Double.parseDouble(cursor.getString(7)), cursor.getString(9), cursor.getString(10), 0.00);
         Log.d(null, "ORDERITEM --> " + orderItem.getOrderRef());
         // return orderItem
@@ -548,5 +551,40 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // return contact list
         return cartList;
+
     }
+
+    //insert into order table
+    public void addToOrder(int user_id, String user_address, String orderProducts, String orderSizes, String orderQty, String orderPrices, double orderTotal, String orderStatus, String orderDate, String orderRef ) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_ORDER_USERID, user_id);
+        values.put(KEY_ORDER_ADDRESS, user_address);
+        values.put(KEY_ORDER_PRODUCTIDS, orderProducts);
+        values.put(KEY_ORDER_SIZES, orderSizes);
+        values.put(KEY_ORDER_QTY, orderQty);
+        values.put(KEY_ORDER_PRICES, orderPrices);
+        values.put(KEY_ORDER_TOTAL, orderTotal);
+        values.put(KEY_ORDER_STATUS, orderStatus);
+        values.put(KEY_ORDER_DATE, orderDate);
+        values.put(KEY_ORDER_REFERENCE, orderRef);
+        db.insertWithOnConflict(TABLE_ORDER, null, values, SQLiteDatabase.CONFLICT_IGNORE);
+        db.close();
+    }
+
+
+    //delete everything from cart
+    public void deleteAllFromCart() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_CART );
+        db.close();
+    }
+
+    //Delete item from cart
+    public void deleteOneFromCart(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_CART + "WHERE" + KEY_CART_CARTID + " = " +  id);
+        db.close();
+    }
+
 }
