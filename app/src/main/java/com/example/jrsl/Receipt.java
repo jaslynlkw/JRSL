@@ -17,10 +17,14 @@ public class Receipt extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receipt);
     }
+    @Override
     public void onClick(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        switch (view.getId()) {
+            // redirection back to Home page
+            case R.id.btnBackToHome:
+                Intent i = new Intent(this, Home.class);
+                break;
 
-
+        }
     }
 }

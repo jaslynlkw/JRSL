@@ -167,69 +167,84 @@
             android:textColor="#000"
             android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/receiptOrderDiscount"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/alegreya_sans_medium"
-            android:text="Discount"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-            android:textColor="#000"
-            android:textSize="15sp" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/receiptOrderDiscountInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="330dp"
-            android:layout_marginTop="-20dp"
-            android:fontFamily="@font/alegreya_sans_bold"
-            android:text="$0.00"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-            android:textColor="#000"
-            android:textSize="15sp" />
+            <TextView
+                android:id="@+id/receiptOrderDiscount"
+                android:layout_width="313dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_sans_medium"
+                android:text="Discount"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textColor="#000"
+                android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/receiptOrderSubtotal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/alegreya_sans_medium"
-            android:text="Subtotal"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-            android:textColor="#000"
-            android:textSize="15sp" />
-        <TextView
-            android:id="@+id/receiptOrderSubtotalInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="330dp"
-            android:layout_marginTop="-20dp"
-            android:fontFamily="@font/alegreya_sans_bold"
-            android:text="$65.00"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-            android:textColor="#000"
-            android:textSize="15sp" />
+            <TextView
+                android:id="@+id/receiptOrderDiscountInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_sans_bold"
+                android:text="$33.00"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textColor="#000"
+                android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/receiptOrderShipping"
-            android:layout_width="wrap_content"
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/alegreya_sans_medium"
-            android:text="Shipping"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-            android:textColor="#000"
-            android:textSize="15sp" />
-        <TextView
-            android:id="@+id/receiptOrderShippingInput"
-            android:layout_width="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/receiptOrderSubtotal"
+                android:layout_width="313dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_sans_medium"
+                android:text="Subtotal"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textColor="#000"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/receiptOrderSubtotalInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_sans_bold"
+                android:text="$65.00"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textColor="#000"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="330dp"
-            android:layout_marginTop="-20dp"
-            android:fontFamily="@font/alegreya_sans_bold"
-            android:text="$20.00"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-            android:textColor="#000"
-            android:textSize="15sp" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/receiptOrderShipping"
+                android:layout_width="313dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_sans_medium"
+                android:text="Shipping"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textColor="#000"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/receiptOrderShippingInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_sans_bold"
+                android:text="$20.00"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textColor="#000"
+                android:textSize="15sp" />
+
+        </LinearLayout>
 
         <View
             android:layout_width="370dp"
@@ -238,27 +253,33 @@
             android:layout_marginTop="10dp"
             android:background="#FFDDDDDD" />
 
-        <TextView
-            android:id="@+id/receiptTotal"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/alegreya_sans_medium"
-            android:text="Total"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-            android:textColor="#000"
-            android:textSize="15sp" />
-        <TextView
-            android:id="@+id/receiptTotalInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="330dp"
-            android:layout_marginTop="-20dp"
-            android:fontFamily="@font/alegreya_sans_bold"
-            android:text="$85.00"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-            android:textColor="#000"
-            android:textSize="15sp" />
+            >
+
+            <TextView
+                android:id="@+id/receiptTotal"
+                android:layout_width="313dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_sans_medium"
+                android:text="Total"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textColor="#000"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/receiptTotalInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_sans_bold"
+                android:text="$85.00"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textColor="#000"
+                android:textSize="15sp" />
+
+        </LinearLayout>
 
         <View
             android:layout_width="370dp"
@@ -268,7 +289,7 @@
             android:background="#FFDDDDDD" />
 
         <Button
-            android:id="@+id/btnSignUp"
+            android:id="@+id/btnBackToHome"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"

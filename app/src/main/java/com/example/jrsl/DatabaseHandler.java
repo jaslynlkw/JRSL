@@ -52,8 +52,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     //order table
 
-    private static final String TABLE_ORDER = "Torder";
+    private static final String TABLE_ORDER = "orders";
     private static final String KEY_ORDER_ORDERID = "order_id";
+    private static final String KEY_ORDER_USERID = "user_id";
+    private static final String KEY_ORDER_ADDRESS = "user_address";
     private static final String KEY_ORDER_PRODUCTIDS = "order_productids";
     private static final String KEY_ORDER_SIZES = "order_sizes";
     private static final String KEY_ORDER_QTY = "order_qty";
@@ -97,7 +99,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // Create Order Table
         String CREATE_ORDER_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_ORDER + "("
-                + KEY_ORDER_ORDERID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_ORDER_PRODUCTIDS + " TEXT,"
+                + KEY_ORDER_ORDERID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_ORDER_USERID + " TEXT," + KEY_ORDER_ADDRESS + " TEXT," + KEY_ORDER_PRODUCTIDS + " TEXT,"
                 + KEY_ORDER_SIZES + " TEXT," + KEY_ORDER_QTY + " TEXT," + KEY_ORDER_PRICES + " TEXT, "
                 + KEY_ORDER_TOTAL + " REAL, " + KEY_ORDER_STATUS  + " INT, " + KEY_ORDER_DATE + " DATE, " + KEY_ORDER_REFERENCE + " TEXT " + "  )";
         db.execSQL(CREATE_ORDER_TABLE);
@@ -164,9 +166,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     //code to add default orders
     public void addDefaultOrders() {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("INSERT OR IGNORE INTO " + TABLE_ORDER + "('" + KEY_ORDER_PRODUCTIDS + "', '" + KEY_ORDER_SIZES + "','" + KEY_ORDER_QTY + "', '" + KEY_ORDER_PRICES + "', '" + KEY_ORDER_TOTAL + "', '" + KEY_ORDER_STATUS + "', '" + KEY_ORDER_DATE + "', '" + KEY_ORDER_REFERENCE + "') VALUES " +
-                "(\"1,4,9\",\"M,M,7\",\"1,1,1\",\"30.30,45.60,130.00\",205.90,\"Delivered\",\"2022/12/24\",\"D317HS\" )," +
-                "(\"3,8\",\"M,7\",\"1,1\",\"71.20,160.00\",390.30,\"Delivered\",\"2023/01/12\",\"C459WQ\" );");
+        db.execSQL("INSERT OR IGNORE INTO " + TABLE_ORDER + "('" + KEY_ORDER_USERID + "', '" + KEY_ORDER_ADDRESS + "', '" + KEY_ORDER_PRODUCTIDS + "', '" + KEY_ORDER_SIZES + "','" + KEY_ORDER_QTY + "', '" + KEY_ORDER_PRICES + "', '" + KEY_ORDER_TOTAL + "', '" + KEY_ORDER_STATUS + "', '" + KEY_ORDER_DATE + "', '" + KEY_ORDER_REFERENCE + "') VALUES " +
+                "(1,\"user,123,Singapore,101 Astar Lane,House 1,101101,Singapore\",\"1,4,9\",\"M,M,7\",\"1,1,1\",\"30.30,45.60,130.00\",205.90,\"Delivered\",\"2022/12/24\",\"D317HS\" )," +
+                "(1,\"user,123,Singapore,101 Astar Lane,House 1,101101,Singapore\",\"3,8\",\"M,7\",\"1,1\",\"71.20,160.00\",390.30,\"Delivered\",\"2023/01/12\",\"C459WQ\" );");
         db.close();
     }
 
