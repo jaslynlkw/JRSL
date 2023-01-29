@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.ImageViewTarget;
 import com.davemorrissey.labs.subscaleview.ImageSource;
 
 import java.lang.annotation.Native;
@@ -63,9 +64,9 @@ public class ProductDetails extends AppCompatActivity implements AdapterView.OnI
         com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView productImage = findViewById(R.id.productDetailImage);
         String imageurl = product.getImageURL();
 //        productImage.setImage(uri(imageurl));
-        Glide.with(getApplicationContext())
-                .load(imageurl)
-                .into(productImage);
+//        Glide.with(getApplicationContext())
+//                .load(imageurl)
+//                .into(new ImageViewTarget<>(productImage));
 
         TextView collectionText = findViewById(R.id.productDetailCollection);
         collectionText.setText(product.getCollection());

@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.text.TextUtils;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -249,10 +250,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return newSavedItems;
     }
 
-    // code to add product to user's saveditems
+    // code to remove product to user's saveditems
     public String removeFromSaved(int userid, int productid) {
         SQLiteDatabase dbRead = this.getReadableDatabase();
         SQLiteDatabase dbWrite = this.getWritableDatabase();
+        String productidStr = String.valueOf(productid);
         int indexS=0;
 
         //getting user's saved items
@@ -269,19 +271,18 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ArrayList<String> savedItemsArrayList = new ArrayList<>(Arrays.asList(savedItems.split(",")));
 
         //getting index of product to remove
-        for(int i=0; i< savedItemsArrayList.size(); i++) {
-            if(savedItemsArrayList.get(i) == String.valueOf(productid)){
+        for(int i=0; i<savedItemsArrayList.size(); i++) {
+
+            if(savedItemsArrayList.get(i).equals(productidStr)){
                 indexS = i;
+                //remove productid from saved item arraylist
+                savedItemsArrayList.remove(indexS);
                 break;
             }
         }
 
-        Log.d(null, "INDEX" + indexS);
-        //remove productid from saved item arraylist
-        savedItemsArrayList.remove(indexS);
-
-        String xSavedItems = savedItemsArrayList.toString().replaceAll("\\[", "");
-        String newSavedItems = xSavedItems.replaceAll("\\]", "");
+//        String xSavedItems = savedItemsArrayList.toString().replaceAll("\\[", "");
+        String newSavedItems = TextUtils.join(",", savedItemsArrayList);
 
         String UPDATE_USER_TABLE = "UPDATE " + TABLE_USER + " SET " + KEY_USER_SAVEDITEMS + " = '" + newSavedItems + "' WHERE " + KEY_USER_ID + " IN (" + userid + ")";
         dbWrite.execSQL(UPDATE_USER_TABLE);
