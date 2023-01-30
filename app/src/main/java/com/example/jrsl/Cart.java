@@ -16,7 +16,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cart extends AppCompatActivity implements View.OnClickListener {
+public class Cart extends AppCompatActivity implements View.OnClickListener, CartItemArrayAdapter.CartClickListener {
 
     SharedPreferences sharedPref;
     public static final String cartPrefs = "CartPref";
@@ -128,11 +128,18 @@ public class Cart extends AppCompatActivity implements View.OnClickListener {
     }
 
     @Override
-    public void onItemClicked(int position) {
-        Toast.makeText(Cart.this, cartItem.getName(), Toast.LENGTH_SHORT).show();
-        String id = String.valueOf(cartItem.getProduct_id());
-        Intent i = new Intent(getApplicationContext(), ProductDetails.class);
-        i.putExtra("productid_key", id);
-        startActivity(i);;
+    public void onItemClicked(int position, View view) {
+        switch (view.getId()) {
+            case R.id.card_cart:
+                CartItem cart = cartItems.get(position);
+                Toast.makeText(Cart.this, cart.getName(), Toast.LENGTH_SHORT).show();
+                String id = String.valueOf(cart.getProduct_id());
+                Intent i = new Intent(getApplicationContext(), ProductDetails.class);
+                i.putExtra("productid_key", id);
+                startActivity(i);;
+                break;
+            // Handle other views click
+        }
+
     }
 }
