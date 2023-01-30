@@ -107,12 +107,12 @@ public class CartItemArrayAdapter extends RecyclerView.Adapter<CartItemArrayAdap
 
         @Override
         public void onClick(View view) {
-            myCartClickListener.onItemClicked(getBindingAdapterPosition(), view);
+            myCartClickListener.onItemClicked(getBindingAdapterPosition());
         }
     }
 
     //RecyclerView Click Listener
     public interface CartClickListener  {
-        void onItemClicked(int position, View view);
+        void onItemClicked(int position);
     }
 }
