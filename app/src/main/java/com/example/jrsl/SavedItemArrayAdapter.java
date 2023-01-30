@@ -20,7 +20,7 @@ public class SavedItemArrayAdapter extends RecyclerView.Adapter<SavedItemArrayAd
     private SavedItemArrayAdapter.SavedClickListener mySavedClickListener;
     private Context context;
 
-    public SavedItemArrayAdapter(Context context, ArrayList<ProductItem     > myCart, SavedItemArrayAdapter.SavedClickListener mySavedClickListener){
+    public SavedItemArrayAdapter(Context context, ArrayList<ProductItem> myCart, SavedItemArrayAdapter.SavedClickListener mySavedClickListener){
         this.myCart = myCart;
         this.mySavedClickListener = mySavedClickListener;
         this.context = context;
