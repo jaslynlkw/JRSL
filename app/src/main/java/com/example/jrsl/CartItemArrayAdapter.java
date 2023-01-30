@@ -79,8 +79,10 @@ public class CartItemArrayAdapter extends RecyclerView.Adapter<CartItemArrayAdap
         return position;
     }
 
+
+
     //RecyclerView View Holder
-    class MyViewHolder extends RecyclerView.ViewHolder {
+    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private int product_id;
         private TextView collection;
         private TextView name;
@@ -93,6 +95,7 @@ public class CartItemArrayAdapter extends RecyclerView.Adapter<CartItemArrayAdap
 
         MyViewHolder(@NonNull View itemView, CartClickListener myCartClickListener) {
             super(itemView);
+            itemView.setOnClickListener((View.OnClickListener) this);
              collection = itemView.findViewById(R.id.CartCollection);
              name = itemView.findViewById(R.id.CartName);
              size = itemView.findViewById(R.id.CartSize);
@@ -104,12 +107,12 @@ public class CartItemArrayAdapter extends RecyclerView.Adapter<CartItemArrayAdap
 
         @Override
         public void onClick(View view) {
-            myCartClickListener.onItemClicked(getBindingAdapterPosition());
+            myCartClickListener.onItemClicked(getBindingAdapterPosition(),view);
         }
     }
 
     //RecyclerView Click Listener
     public interface CartClickListener  {
-        void onItemClicked(int position);
+        void onItemClicked(int position, View view);
     }
 }
