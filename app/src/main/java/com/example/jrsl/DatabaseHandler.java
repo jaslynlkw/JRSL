@@ -583,7 +583,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     //Delete item from cart
     public void deleteOneFromCart(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("DELETE FROM " + TABLE_CART + "WHERE" + KEY_CART_CARTID + " = " +  id);
+        db.execSQL("DELETE FROM " + TABLE_CART + " WHERE " + KEY_CART_PRODUCTID + " = " +  id);
         db.close();
     }
 
