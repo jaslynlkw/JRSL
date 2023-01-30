@@ -2,11 +2,17 @@ package com.example.jrsl;
 
 import static com.davemorrissey.labs.subscaleview.ImageSource.uri;
 
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
+
+
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
@@ -63,10 +69,17 @@ public class ProductDetails extends AppCompatActivity implements AdapterView.OnI
         //setting product details
         com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView productImage = findViewById(R.id.productDetailImage);
         String imageurl = product.getImageURL();
-//        productImage.setImage(uri(imageurl));
-//        Glide.with(getApplicationContext())
-//                .load(imageurl)
-//                .into(new ImageViewTarget<>(productImage));
+
+        Glide.with(this)
+                .asBitmap()
+                .load(imageurl)
+                .into(new SimpleTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        productImage.setImage(ImageSource.bitmap(resource));
+                    }
+                });
+
 
         TextView collectionText = findViewById(R.id.productDetailCollection);
         collectionText.setText(product.getCollection());

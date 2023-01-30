@@ -63,9 +63,9 @@
             app:cardCornerRadius="5dp">
 
             <TextView
-                android:id="@+id/textName"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:id="@+id/addressUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/alegreya_sans_extrabold"
@@ -74,9 +74,9 @@
                 android:textSize="20dp"/>
 
             <TextView
-                android:id="@+id/textAddress"
-                android:layout_width="match_parent"
-                android:layout_height="134dp"
+                android:id="@+id/addressUserStreetName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="35dp"
                 android:fontFamily="@font/alegreya_sans_medium"
@@ -84,9 +84,9 @@
                 android:textColor="@color/black"
                 android:textSize="15dp" />
             <TextView
-                android:id="@+id/textUnitNum"
-                android:layout_width="match_parent"
-                android:layout_height="134dp"
+                android:id="@+id/addressUserUnitNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="50dp"
                 android:fontFamily="@font/alegreya_sans_medium"
@@ -94,9 +94,9 @@
                 android:textColor="@color/black"
                 android:textSize="15dp" />
             <TextView
-                android:id="@+id/textPostalCode"
-                android:layout_width="match_parent"
-                android:layout_height="134dp"
+                android:id="@+id/addressUserPostalCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="65dp"
                 android:fontFamily="@font/alegreya_sans_medium"
@@ -104,9 +104,9 @@
                 android:textColor="@color/black"
                 android:textSize="15dp" />
             <TextView
-                android:id="@+id/textPostalNum"
-                android:layout_width="match_parent"
-                android:layout_height="134dp"
+                android:id="@+id/addressUserPostalNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="80dp"
                 android:fontFamily="@font/alegreya_sans_medium"
@@ -114,9 +114,9 @@
                 android:textColor="@color/black"
                 android:textSize="15dp" />
             <TextView
-                android:id="@+id/textCity"
-                android:layout_width="match_parent"
-                android:layout_height="134dp"
+                android:id="@+id/addressUserCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="95dp"
                 android:fontFamily="@font/alegreya_sans_medium"
@@ -124,9 +124,9 @@
                 android:textColor="@color/black"
                 android:textSize="15dp" />
             <TextView
-                android:id="@+id/textCountry"
-                android:layout_width="match_parent"
-                android:layout_height="134dp"
+                android:id="@+id/addressUserCountry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="110dp"
                 android:fontFamily="@font/alegreya_sans_medium"
