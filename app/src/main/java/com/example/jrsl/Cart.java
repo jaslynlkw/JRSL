@@ -128,18 +128,38 @@ public class Cart extends AppCompatActivity implements View.OnClickListener, Car
     }
 
     @Override
-    public void onItemClicked(int position, View view) {
-        switch (view.getId()) {
-            case R.id.card_cart:
-                CartItem cart = cartItems.get(position);
-                Toast.makeText(Cart.this, cart.getName(), Toast.LENGTH_SHORT).show();
-                String id = String.valueOf(cart.getProduct_id());
-                Intent i = new Intent(getApplicationContext(), ProductDetails.class);
-                i.putExtra("productid_key", id);
-                startActivity(i);;
-                break;
-            // Handle other views click
-        }
+    public void onItemClicked(int position,View view) {
+        view.findViewById(R.id.card_cart).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()) {
+                    case R.id.savedCart:
+                        CartItem cart = cartItems.get(position);
+                        Toast.makeText(Cart.this, cart.getName(), Toast.LENGTH_SHORT).show();
+                        String id = String.valueOf(cart.getProduct_id());
+                        Intent i = new Intent(getApplicationContext(), ProductDetails.class);
+                        i.putExtra("productid_key", id);
+                        startActivity(i);;
+                        break;
+                    // Handle other views click
+                }
+            }
+        });
 
+        view.findViewById(R.id.closeCart).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()) {
+                    case R.id.closeCart:
+                        CartItem cart = cartItems.get(position);
+                        DatabaseHandler db = new DatabaseHandler(getApplicationContext());
+                        db.deleteOneFromCart(cart.getProduct_id());
+                        break;
+                    // Handle other views click
+                }
+            }
+        });
     }
+
+
 }
