@@ -44,7 +44,7 @@ public class ProductDetails extends AppCompatActivity implements AdapterView.OnI
     private int qtySelected;
     private String[] savedItemsArr;
     private String productIDStr;
-
+    private int mySpinner_selectedId;
     private boolean isSaved = false;
 
 
