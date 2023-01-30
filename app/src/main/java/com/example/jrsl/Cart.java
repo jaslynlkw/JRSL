@@ -129,10 +129,19 @@ public class Cart extends AppCompatActivity implements View.OnClickListener, Car
 
     @Override
     public void onItemClicked(int position) {
+
+//        CartItem product = cartItems.get(position);
+//        Log.d(null, "UAGFOHDABOHDA");
+//        //upon item being clicked, do smth
+//        Intent i = new Intent(Cart.this, ProductDetails.class);
+//        i.putExtra("productid_key", String.valueOf(product.getProduct_id()));
+//        startActivity(i);
                         CartItem cart = cartItems.get(position);
                         DatabaseHandler db = new DatabaseHandler(getApplicationContext());
                         Toast.makeText(Cart.this, cart.getName(), Toast.LENGTH_SHORT).show();
                         db.deleteOneFromCart(cart.getProduct_id());
+                        Intent i = new Intent(Cart.this, MainActivity.class);
+                        startActivity((i));
 
                     // Handle other views click
     }
