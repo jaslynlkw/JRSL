@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DecimalFormat;
@@ -60,6 +61,11 @@ public class Cart extends AppCompatActivity implements View.OnClickListener, Car
         sizes_pref = String.join(",",sizes);
         prices_pref = String.join(", ",prices);
         qty_pref = String.join(", ",qty);
+
+        if (cartItems.toArray().length == 0) {
+            TextView nocartitemstext = findViewById(R.id.noCartItemsTextView);
+            nocartitemstext.setText("*You have no items in your cart currently.");
+        }
     }
     private void setUIRef()
     {
@@ -79,13 +85,14 @@ public class Cart extends AppCompatActivity implements View.OnClickListener, Car
 
     private void bindCartData()
     {
+        cartItems.clear();
         DatabaseHandler db = new DatabaseHandler(this);
         List<CartItem> cart = db.getAllCartItems();
 
         //add cart items
         for (CartItem cartitem : cart) {
 
-            cartItems.add(new CartItem(cartitem.getProduct_id(),cartitem.getCollection(),cartitem.getName(),cartitem.getSize(),cartitem.getQty(),cartitem.getPrice(),cartitem.getImageURL()));
+            cartItems.add(new CartItem(cartitem.getProduct_id(),cartitem.getCollection(),cartitem.getName(),cartitem.getSize(),cartitem.getQty(),Double.parseDouble(String.format("%.2f", cartitem.getPrice())),cartitem.getImageURL()));
             productid.add(String.valueOf(cartitem.getProduct_id()));
             sizes.add(cartitem.getSize());
             prices.add(String.valueOf(cartitem.getPrice()));
@@ -95,10 +102,6 @@ public class Cart extends AppCompatActivity implements View.OnClickListener, Car
             Log.d(null,"image url for " + cartitem.getName() + " : " + cartitem.getImageURL());
         }
 
-
-//        cartItems.add(new CartItem("Aleya Collection","Extravagant Black Dress","M",1, 230.30, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630258/ANDE/clothing/aleya_extravagantblackdress_c96drc.jpg"));
-//        cartItems.add(new CartItem("Daniel Collection", "White Flared Jeans","M",1, 45.60, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630272/ANDE/clothing/daniel_whiteflaredjeans_osrtq6.jpg"));
-//        cartItems.add(new CartItem("Daniel Collection", "White Flared Jeans","M",1, 45.60, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630272/ANDE/clothing/daniel_whiteflaredjeans_osrtq6.jpg"));
     }
 
     @Override
@@ -130,20 +133,14 @@ public class Cart extends AppCompatActivity implements View.OnClickListener, Car
     @Override
     public void onItemClicked(int position) {
 
-//        CartItem product = cartItems.get(position);
-//        Log.d(null, "UAGFOHDABOHDA");
-//        //upon item being clicked, do smth
-//        Intent i = new Intent(Cart.this, ProductDetails.class);
-//        i.putExtra("productid_key", String.valueOf(product.getProduct_id()));
-//        startActivity(i);
-                        CartItem cart = cartItems.get(position);
-                        DatabaseHandler db = new DatabaseHandler(getApplicationContext());
-                        Toast.makeText(Cart.this, cart.getName(), Toast.LENGTH_SHORT).show();
-                        db.deleteOneFromCart(cart.getProduct_id());
-                        Intent i = new Intent(Cart.this, MainActivity.class);
-                        startActivity((i));
+        CartItem cart = cartItems.get(position);
+        DatabaseHandler db = new DatabaseHandler(getApplicationContext());
+        Toast.makeText(Cart.this, cart.getName() + " was successfully removed from cart", Toast.LENGTH_SHORT).show();
+        db.deleteOneFromCart(cart.getProduct_id());
 
-                    // Handle other views click
+        bindCartData();
+        setUIRef();
+
     }
 
 

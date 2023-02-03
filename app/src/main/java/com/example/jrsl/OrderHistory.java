@@ -69,11 +69,8 @@ public class OrderHistory extends AppCompatActivity implements View.OnClickListe
         //add cart items
         for (OrderDetailsItem order : cart) {
             orderHistoryDetails.add(new OrderDetailsItem(order.getOrderDate(),order.getOrderRef(),order.getOrderStatus(),order.getOrderImageURL(), order.getOrderTotal()));
-//            Log.d(null, cartitem.getName());
-//            Log.d(null,"image url for " + cartitem.getName() + " : " + cartitem.getImageURL());
         }
-//        orderHistoryDetails.add(new OrderDetailsItem("10/04/2020", "D371HS", "Delivered", "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630291/ANDE/clothing/lyla_offshouldertop_wy7xb9.jpg"));
-//        orderHistoryDetails.add(new OrderDetailsItem("10/04/2020", "D371HS", "Delivered", "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630280/ANDE/clothing/freya_pinkdotteddress_dpggft.jpg"));
+
     }
 
     @Override

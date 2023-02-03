@@ -68,7 +68,6 @@ public class Products extends AppCompatActivity implements View.OnClickListener,
         //Create adapter
         ProductItemArrayAdapter myRecyclerViewAdapter = new ProductItemArrayAdapter(getApplicationContext(),productItems,this);
 
-
         //Set adapter to RecyclerView
         myRecyclerView.setAdapter(myRecyclerViewAdapter);
     }
@@ -80,8 +79,6 @@ public class Products extends AppCompatActivity implements View.OnClickListener,
         //add product items
         for (ProductItem product : products) {
             productItems.add(new ProductItem(product.getProductID(), product.getCollection(), product.getName(), product.getPrice(), product.getImageURL(), product.getCategory(), product.getSavedStatus()));
-            Log.d(null, product.getName());
-            Log.d(null,"image url for " + product.getName() + " : " + product.getImageURL());
         }
     }
 
@@ -89,12 +86,9 @@ public class Products extends AppCompatActivity implements View.OnClickListener,
     @Override
     public void onItemClicked(int position) {
         ProductItem product = productItems.get(position);
-        Log.d(null, "UAGFOHDABOHDA");
         //upon item being clicked, do smth
         Intent i = new Intent(Products.this, ProductDetails.class);
         i.putExtra("productid_key", String.valueOf(product.getProductID()));
         startActivity(i);
-
-        //Log.d(null,i.getStringExtra("productid_key"));
     }
 }

@@ -297,6 +297,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         dbWrite.execSQL(UPDATE_USER_TABLE);
 
         //update saved item status in product table
+        updateSavedItems("", "clear");
         updateSavedItems(newSavedItems, "save");
 
         return newSavedItems;
@@ -373,8 +374,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return productList;
     }
 
-    // select * product where product_id = 1,2,3,4,5
-
     // Getting Products Count
     public int getProductsCount(String category) {
         String countQuery = "SELECT  * FROM " + TABLE_PRODUCT + " WHERE " + KEY_PRODUCT_CATEGORY + " = '" + category + "'";
@@ -414,6 +413,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 productList.add(product);
             } while (cursor.moveToNext());
         }
+        cursor.close();
 
         // return contact list
         return productList;
@@ -476,28 +476,30 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
-            String[] productid = cursor.getString(3).split(",");
-            Log.d(null, cursor.getString(0));
-            String selectQuery1 = "SELECT " + KEY_PRODUCT_IMAGEURL + " FROM " + TABLE_PRODUCT + " WHERE " + KEY_PRODUCT_PRODUCTID + " =" + productid[0];
-            SQLiteDatabase db1 = this.getWritableDatabase();
-            Cursor cursor1 = db1.rawQuery(selectQuery1, null);
-            Log.d(null, selectQuery1);
-            // looping through all rows and adding to list
-            if (cursor1.moveToFirst()) {
-                do {
-                    Log.d(null, cursor.getString(4));
-                    OrderDetailsItem cart = new OrderDetailsItem();
-                    cart.setOrderDate(cursor.getString(0));
-                    cart.setOrderRef(cursor.getString(1));
-                    cart.setOrderStatus(cursor.getString(2));
-                    cart.setOrderTotal(cursor.getDouble(4));
-                    Log.d(null,"Total price db: " + cart.getOrderTotal());
-                    cart.setOrderImageURL(cursor1.getString(0));
-                    orderHistoryList.add(cart);
+            do {
+                    String[] productid = cursor.getString(3).split(",");
+                    String selectQuery1 = "SELECT " + KEY_PRODUCT_IMAGEURL + " FROM " + TABLE_PRODUCT + " WHERE " + KEY_PRODUCT_PRODUCTID + " =" + productid[0];
+                    SQLiteDatabase db1 = this.getWritableDatabase();
+                    Cursor cursor1 = db1.rawQuery(selectQuery1, null);
+                    Log.d(null, selectQuery1);
+                    // looping through all rows and adding to list
+                    if (cursor1.moveToFirst()) {
+                        do {
+                            Log.d(null, cursor.getString(4));
+                            OrderDetailsItem cart = new OrderDetailsItem();
+                            cart.setOrderDate(cursor.getString(0));
+                            cart.setOrderRef(cursor.getString(1));
+                            cart.setOrderStatus(cursor.getString(2));
+                            cart.setOrderTotal(cursor.getDouble(4));
+                            Log.d(null,"Total price db: " + cart.getOrderTotal());
+                            cart.setOrderImageURL(cursor1.getString(0));
+                            orderHistoryList.add(cart);
 
-                } while (cursor.moveToNext());
-            }
-            // Adding contact to list
+                        } while (cursor1.moveToNext());
+                    }
+                // Adding contact to list
+            } while (cursor.moveToNext());
+
         }
         // return contact list
         return orderHistoryList;

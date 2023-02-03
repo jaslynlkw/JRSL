@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 
 public class Profile extends Fragment {
 
@@ -20,6 +22,18 @@ public class Profile extends Fragment {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.activity_profile, container, false);
+
+        view.findViewById(R.id.btnSignOut).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //clear saved items
+                DatabaseHandler db = new DatabaseHandler(getActivity());
+                db.updateSavedItems("", "clear");
+                Intent i3 = new Intent(getActivity(), Login.class);
+                startActivity(i3);
+            }
+        });
+
         view.findViewById(R.id.OrdersOption).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,21 +53,6 @@ public class Profile extends Fragment {
                     case R.id.profileCart:
                         Intent i2 = new Intent(getActivity(), Cart.class);
                         startActivity(i2);
-                        break;
-                    // Handle other views click
-                }
-            }
-        });
-        // Sign Out
-        view.findViewById(R.id.btnSignOut).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switch (view.getId()) {
-                    case R.id.btnSignOut:
-                        DatabaseHandler db = new DatabaseHandler(getActivity());
-                        db.updateSavedItems("", "clear");
-                        Intent i3 = new Intent(getActivity(), Login.class);
-                        startActivity(i3);
                         break;
                     // Handle other views click
                 }

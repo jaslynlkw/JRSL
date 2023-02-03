@@ -81,10 +81,7 @@ public class OrderDetails extends AppCompatActivity implements View.OnClickListe
         for (CartItem order : cart) {
             orderDetails.add(new CartItem(order.getProduct_id(),order.getCollection(),order.getName(),order.getSize(),order.getQty(),order.getPrice(),order.getImageURL()));
             price+= order.getPrice();
-//            Log.d(null, cartitem.getName());
-//            Log.d(null,"image url for " + cartitem.getName() + " : " + cartitem.getImageURL());
         }
-        //orderDetails.add(new CartItem("Lyla Collection","Off Shoulder Top","M",1, 30.30, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630291/ANDE/clothing/lyla_offshouldertop_wy7xb9.jpg"));
         totalPrice.setText("$"+ price + "0");
     }
 

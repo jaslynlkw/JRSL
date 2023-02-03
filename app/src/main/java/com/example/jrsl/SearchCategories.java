@@ -21,7 +21,6 @@ public class SearchCategories extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.searchCatCart:
-                Log.d(null,"I am here in cart :> search cat");
                 Intent i = new Intent(SearchCategories.this, Cart.class);
                 startActivity(i);
                 break;

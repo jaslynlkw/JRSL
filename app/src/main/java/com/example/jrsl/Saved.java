@@ -59,7 +59,10 @@ public class Saved extends Fragment {
         SavedItemArrayAdapter myRecyclerViewAdapter = new SavedItemArrayAdapter(context ,savedItems, new SavedItemArrayAdapter.SavedClickListener() {
             @Override
             public void onItemClicked(ProductItem savedItem) {
-
+                String prodId = String.valueOf(savedItem.getProductID());
+                Intent i = new Intent(getContext(), ProductDetails.class);
+                i.putExtra("productid_key", prodId);
+                startActivity(i);
             }
         });
 
@@ -73,23 +76,14 @@ public class Saved extends Fragment {
 
     private void bindSavedData() {
 
-
+        savedItems.clear();
         DatabaseHandler db = new DatabaseHandler(getActivity());
         List<ProductItem> products = db.getAllSavedProducts();
 
         //add product items
         for (ProductItem saved : products) {
             savedItems.add(new ProductItem(saved.getProductID(), saved.getCollection(), saved.getName(), saved.getPrice(), saved.getImageURL(), saved.getCategory(), saved.getSavedStatus()));
-            Log.d(null, saved.getName());
-            Log.d(null,"image url for " + saved.getName() + " : " + saved.getImageURL());
         }
-//        cartItems.add(new CartItem("Reza Collection", "Off-white Teddy Bear Coat", 80.90, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630313/ANDE/clothing/reza_offwhiteteddybearcoat_ctx2ui.jpg"));
-//        cartItems.add(new CartItem("Niki Collection", "Yellow Matching Set", 71.20, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630312/ANDE/clothing/niki_yellowmatchingset_snyyyk.jpg"));
-//        cartItems.add(new CartItem("Reza Collection", "Off-white Teddy Bear Coat", 80.90, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630313/ANDE/clothing/reza_offwhiteteddybearcoat_ctx2ui.jpg"));
-//        cartItems.add(new CartItem("Niki Collection", "Yellow Matching Set", 71.20, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630312/ANDE/clothing/niki_yellowmatchingset_snyyyk.jpg"));
-//        cartItems.add(new CartItem("Reza Collection", "Off-white Teddy Bear Coat", 80.90, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630313/ANDE/clothing/reza_offwhiteteddybearcoat_ctx2ui.jpg"));
-//        cartItems.add(new CartItem("Niki Collection", "Yellow Matching Set", 71.20, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630312/ANDE/clothing/niki_yellowmatchingset_snyyyk.jpg"));
-//        cartItems.add(new CartItem("Reza Collection", "Off-white Teddy Bear Coat", 80.90, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630313/ANDE/clothing/reza_offwhiteteddybearcoat_ctx2ui.jpg"));
-//        cartItems.add(new CartItem("Niki Collection", "Yellow Matching Set", 71.20, "https://res.cloudinary.com/jaslynlkw/image/upload/v1674630312/ANDE/clothing/niki_yellowmatchingset_snyyyk.jpg"));
+
     }
 }

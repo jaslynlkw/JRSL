@@ -37,7 +37,7 @@
             android:id="@+id/myOrderHistoryList"
             android:onClick="onClick"
             android:layout_width="416dp"
-            android:layout_height="608dp"
+            android:layout_height="708dp"
             android:layout_marginTop="30dp"/>
 
     </LinearLayout>
